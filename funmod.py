@@ -22,12 +22,17 @@ def calcular_cantidad_a_pagar(a,b):
 def cargar_listas_de_canchas():
     canchas=["5","8","11"]
     horarios=[1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400]
-    recaudacioncanchas=[0]
+    formpago=["e","mp"]
+    recaudacioncanchas=[0]*3
+    recaudacionhorarios=[0]*13
+    recaudacionformpago=[0]*2
+    return
+def validacion_datos
     
 
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
-    agregar funcion ListadoCanchas de: cantidad de formas de pago(tarjeta 10% mas), cancha de mayor recaudacion y menor 
-    recaudacion, incremento por incluir la tarjeta.
+    agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
+    recaudacion, incremento por incluir mercado pago.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
