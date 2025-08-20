@@ -88,7 +88,7 @@ def main(matriz,matrizn):
             sigo=0
             while sigo==0:
                 
-                precios,horas,cancha,ingresohora=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000))
+                precios,horas,cancha,ingresohora=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000),listhorarios)
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 print("cantidad a pagar: $",cobro)
                 reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
@@ -117,6 +117,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
