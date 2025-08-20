@@ -27,9 +27,11 @@ def cargar_listas_de_canchas():
     recaudacionhorarios=[0]*13
     recaudacionformpago=[0]*2
     return
-def validacion_datos
-    
-
+def validacion_datos_herramienta(herr):
+    while herr not in[-1,1,2,3]:
+            print("error, el numero ingresado no se encuntra en lo indicado")
+            herr=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2cancelar la reservacion de canchas, 3 calcular cobro, -1 para finalizar programa)"))
+    return herr
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
