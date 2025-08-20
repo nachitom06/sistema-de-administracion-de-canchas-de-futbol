@@ -2,7 +2,7 @@ def hola():
     print("hola")
 
 def cargar_precios_canchas():
-    print(los precios de las canchas son: futbol 5=$40000, futbol 8=$70000, futbol 11=$100000")
+    print("los precios de las canchas son: futbol 5=$40000, futbol 8=$70000, futbol 11=$100000")
     cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11)"))
     precio=0
     if cobrar==5:
