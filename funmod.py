@@ -12,7 +12,7 @@ def guardar_precio_cantidad_horas(num1,num2,num3):
     else:
         precio=num3
     canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha"))
-    return (num1,num2,num3)
+    return (precio,canthoras)
 
 def calcular_cantidad_a_pagar(a,b):
     """objetivo: indicar la cantidad que el cliente debe pagar"""
