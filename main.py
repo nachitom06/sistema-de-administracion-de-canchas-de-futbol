@@ -1,4 +1,4 @@
-
+import funmod
 def main(matriz,matrizn):
     """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
     sig=0
@@ -38,14 +38,15 @@ def main(matriz,matrizn):
                 sig=0
         else:
             sig=-1
-    precios,horas=cargar_precios_canchas()
-    cobro=calcular_cantidad_a_pagar(precios,horas)
+    precios,horas=funmod.cargar_precios_canchas()
+    cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
     print("cantidad a pagar: $",cobro)
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
 if __name__="__main__":
     main(matrizper,matriznombre)
+
 
 
 
