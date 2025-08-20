@@ -41,13 +41,14 @@ def main(matriz,matrizn):
                 sig=0
         else:
             sig=-1
-    cargar_precios_canchas()
-    cobro=calcular_cantidad_a_pagar(precio,canthoras)
+    precios,horas=cargar_precios_canchas()
+    cobro=calcular_cantidad_a_pagar(precios,horas)
     print("cantidad a pagar: $",cobro)
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
 main(matrizper,matriznombre)
+
 
 
 
