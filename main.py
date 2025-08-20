@@ -92,12 +92,13 @@ def main(matriz,matrizn):
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 print("cantidad a pagar: $",cobro)
                 sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
+                reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
                 if sigo2==-1:
                     sigo=-1
                 else:
                     sigo=0
         elif herramienta==4:
-        
+            reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
         
         else:
             general=-1
@@ -114,6 +115,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
