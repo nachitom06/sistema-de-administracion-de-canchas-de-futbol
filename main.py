@@ -1,4 +1,5 @@
 import funmod
+import random
 def main(matriz,matrizn):
     """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
     general=0
@@ -107,6 +108,7 @@ if __name__="__main__":
     agregar funcion ListadoCanchas de: cantidad de formas de pago(tarjeta 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint"""
+
 
 
 
