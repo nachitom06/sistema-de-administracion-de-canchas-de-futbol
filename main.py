@@ -15,12 +15,6 @@ def main(matriz,matrizn):
                 fila=1
             else:
                 fila=2
-             """print(matriz[fila])
-            dia=int(input("ingrese el día en el cual desea reservar"))
-            while dia<1 or dia>31:
-                print("error, numero ingresado fuera del rango")
-                dia=int(input("ingrese el día en el cual desea reservar"))
-            print(matriz[fila][dia-1],"los horarios que se muestran ya estan tomados")""" #2da etapa
             print(matriz[fila],"los horarios que se muestran ya estan tomados")
             hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
             while hora<1200 or hora>2400 or hora%100!=0:
@@ -49,6 +43,7 @@ matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
 if __name__="__main__":
     main(matrizper,matriznombre)
+
 
 
 
