@@ -26,6 +26,9 @@ def main(matriz,matrizn):
                 nombre=input("igrese su nombre y apellido al cual reservara la cancha")
                 matrizn[fila][columna]=nombre
                 print("reserva realizada con exito: cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
+                print("canchas",matriz)
+                print()
+                print("nombres de reservas",matrizn)
             else:
                 print("ese horario ya esta ocupado")
             señ=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
@@ -43,6 +46,7 @@ matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
 if __name__="__main__":
     main(matrizper,matriznombre)
+
 
 
 
