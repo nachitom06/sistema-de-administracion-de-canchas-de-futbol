@@ -107,7 +107,9 @@ if __name__="__main__":
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(tarjeta 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir la tarjeta.
-    cambiar el precio de las canchas por un random.randint"""
+    cambiar el precio de las canchas por un random.randint
+    def validacion de datos"""
+
 
 
 
