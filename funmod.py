@@ -2,7 +2,7 @@ def hola():
     print("hola")
 
 
-def cantidad_a_pagar(canch):
+def cantidad_a_pagar(a,b):
     """objetivo: indicar la cantidad que el cliente debe pagar"""
-    plata=lambda a,b,c: a*b
+    plata=lambda a,b: a*b
     return plata
