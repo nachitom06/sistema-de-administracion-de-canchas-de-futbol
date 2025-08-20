@@ -91,8 +91,10 @@ def main(matriz,matrizn):
                 precios,horas,cancha,ingresohora=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000))
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 print("cantidad a pagar: $",cobro)
-                sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
+                reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
+                reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
                 reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
+                sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
                 if sigo2==-1:
                     sigo=-1
                 else:
@@ -115,6 +117,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
