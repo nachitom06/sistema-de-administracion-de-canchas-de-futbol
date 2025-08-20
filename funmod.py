@@ -26,14 +26,36 @@ def cargar_listas_de_canchas():
     recaudacioncanchas=[0]*3
     recaudacionhorarios=[0]*13
     recaudacionformpago=[0]*2
+    cantcanchas=[0]*3
+    canthorarios=[0]*13
+    cantformpago=[0]*2
     return
-def metodo_pago(formpago,recaudacionformpago):
+    
+def metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef):
     fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
-    while fp not in formpago:
+    while fp not in formpagodef:
         fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
     if fp==e:
-        ran=formpago.index(e)
-        recaudacionformpago[ran]+cobro
+        ran=formpagodef.index(e)
+        recaudacionformpagodef[ran]+=cobro
+        cantformpagodef[ran]+=1
+    else:
+        ranaux=formpagodef.index(f)
+        recaudacionformpagodef[ranaux]+=cobro
+        cantformpagodef[ranaux]+=1
+
+def metodo_pago(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef):
+    fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
+    while fp not in formpagodef:
+        fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
+    if fp==e:
+        ran=formpagodef.index(e)
+        recaudacionformpagodef[ran]+=cobro
+        cantformpagodef[ran]+=1
+    else:
+        ranaux=formpagodef.index(f)
+        recaudacionformpagodef[ranaux]+=cobro
+        cantformpagodef[ranaux]+=1
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
