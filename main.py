@@ -36,6 +36,9 @@ def main(matriz):
             sig=-1
         else:
             sig=0
+    cargar_precios_canchas()
+    
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 main(matrizper)
+
 
