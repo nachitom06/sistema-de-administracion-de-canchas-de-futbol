@@ -37,11 +37,12 @@ def main(matriz):
         else:
             sig=0
     cargar_precios_canchas()
-    cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11)"))
-    calcular_cantidad_a_pagar(cancha,b)
+    cobro=calcular_cantidad_a_pagar(precio,canthoras)
+    print("cantidad a pagar: $",cobro)
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 main(matrizper)
+
 
 
 
