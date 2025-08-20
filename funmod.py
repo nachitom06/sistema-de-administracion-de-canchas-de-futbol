@@ -32,6 +32,11 @@ def validacion_datos_herramienta(herr):
             print("error, el numero ingresado no se encuntra en lo indicado")
             herr=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2cancelar la reservacion de canchas, 3 calcular cobro, -1 para finalizar programa)"))
     return herr
+def validacion_datos_cancha(can):
+    while can not in[5,8,11]:
+        print("Error, el numero de cancha seleccionado no se encuentra")
+        can=int(input("Ingrese el número de cancha que desea elegir (5, 8, 11)"))
+    return can
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
