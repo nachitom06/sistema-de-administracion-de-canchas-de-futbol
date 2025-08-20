@@ -87,7 +87,7 @@ def main(matriz,matrizn):
         elif herramienta==3:
             sigo=0
             while sigo==0:
-                listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago=cargar_listas_de_canchas()
+                
                 precios,horas,cancha,ingresohora=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000))
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 print("cantidad a pagar: $",cobro)
@@ -105,6 +105,7 @@ def main(matriz,matrizn):
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
+listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago=cargar_listas_de_canchas()
 if __name__="__main__":
     main(matrizper,matriznombre)
 
@@ -113,6 +114,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
