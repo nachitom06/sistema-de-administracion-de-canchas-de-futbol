@@ -22,21 +22,18 @@ def calcular_cantidad_a_pagar(a,b):
 def cargar_listas_de_canchas():
     canchas=["5","8","11"]
     horarios=[1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400]
-    formpago=["e","mp"]
+    formpago=[e,mp]
     recaudacioncanchas=[0]*3
     recaudacionhorarios=[0]*13
     recaudacionformpago=[0]*2
     return
-def validacion_datos_herramienta(herr):
-    while herr not in[-1,1,2,3]:
-            print("error, el numero ingresado no se encuntra en lo indicado")
-            herr=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2cancelar la reservacion de canchas, 3 calcular cobro, -1 para finalizar programa)"))
-    return herr
-def validacion_datos_cancha(can):
-    while can not in[5,8,11]:
-        print("Error, el numero de cancha seleccionado no se encuentra")
-        can=int(input("Ingrese el número de cancha que desea elegir (5, 8, 11)"))
-    return can
+def metodo_pago(formpago,recaudacionformpago):
+    fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
+    while fp not in formpago:
+        fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
+    if fp==e:
+        ran=formpago.index(e)
+        recaudacionformpago[ran]+cobro
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
