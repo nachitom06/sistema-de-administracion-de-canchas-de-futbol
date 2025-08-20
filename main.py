@@ -104,8 +104,9 @@ if __name__="__main__":
     main(matrizper,matriznombre)
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
-    agregar funcion ListadoCanchas de: cantidad de formas de pago(tarjeta 5% mas), cancha de mayor recaudacion y menor 
+    agregar funcion ListadoCanchas de: cantidad de formas de pago(tarjeta 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir la tarjeta """
+
 
 
 
