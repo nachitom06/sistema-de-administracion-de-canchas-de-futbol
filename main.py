@@ -47,7 +47,9 @@ def main(matriz,matrizn):
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
-main(matrizper,matriznombre)
+if __name__="__main__":
+    main(matrizper,matriznombre)
+
 
 
 
