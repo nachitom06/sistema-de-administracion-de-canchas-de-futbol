@@ -70,7 +70,7 @@ def main(matriz,matrizn):
                         columna2=(hora2-1200)//100
                         matriz[fila2][columna2]=0
                         matrizn[fila2][columna2]=0
-                        print("cancelación realizada con exito: cancha de futbol",cancha,"de las",hora,"horas a nombre de:",nombre)
+                        print("cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas")
                         print("canchas",matriz)
                         print()
                         print("nombres de reservas",matrizn)
@@ -92,9 +92,9 @@ def main(matriz,matrizn):
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 listaclientes.append(clientes)
                 print("cantidad a pagar: $",cobro)
-                reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
-                reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
-                reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
+                funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
+                funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
+                funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
                 sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
                 if sigo2==-1:
                     sigo=-1
@@ -117,7 +117,7 @@ def main(matriz,matrizn):
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
 listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes=cargar_listas_de_canchas()
-if __name__="__main__":
+if __name__=="__main__":
     main(matrizper,matriznombre)
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
@@ -125,6 +125,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
