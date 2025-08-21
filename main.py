@@ -117,7 +117,7 @@ def main(matriz,matrizn):
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
-listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes=cargar_listas_de_canchas()
+listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes=funmod.cargar_listas_de_canchas()
 if __name__=="__main__":
     main(matrizper,matriznombre)
 
@@ -126,6 +126,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
