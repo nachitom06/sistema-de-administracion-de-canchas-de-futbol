@@ -41,11 +41,11 @@ def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobro
     while fp not in formpagodef:
         fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
     if fp=="e":
-        ran=formpagodef.index(e)
+        ran=formpagodef.index("e")
         recaudacionformpagodef[ran]+=cobrodef
         cantformpagodef[ran]+=1
     else:
-        ranaux=formpagodef.index(mp)
+        ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
 
