@@ -4,10 +4,10 @@ def main(matriz,matrizn):
     """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
     general=0
     while general==0:
-        herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2cancelar la reservacion de canchas, 3 calcular cobro, -1 para finalizar programa)"))
-        while herramienta not in[-1,1,2,3]:
+        herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"))
+        while herramienta not in[-1,1,2,3,4]:
             print("error, el numero ingresado no se encuntra en lo indicado")
-            herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2cancelar la reservacion de canchas, 3 calcular cobro, -1 para finalizar programa)"))
+            herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"))
         if herramienta==1:
             sig=0
             while sig==0:
@@ -125,6 +125,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
