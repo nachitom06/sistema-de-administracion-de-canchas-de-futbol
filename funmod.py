@@ -15,7 +15,8 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
     horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)"))
     while horarioingreso not in horarioscomp:
         horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)"))
-    return (precio,canthoras,cobrar,horarioingreso)
+    clientela=input("ingrese el nombre y apellido de la persona")
+    return (precio,canthoras,cobrar,horarioingreso,clientela)
 
 def calcular_cantidad_a_pagar(a,b):
     """objetivo: indicar la cantidad que el cliente debe pagar"""
