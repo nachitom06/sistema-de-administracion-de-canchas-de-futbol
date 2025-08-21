@@ -28,8 +28,8 @@ def main(matriz,matrizn):
                     while hora<1200 or hora>2400 or hora%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
                         hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
-                    if hora not in matriz[fila]:
-                        columna=(hora-1200)//100
+                    columna=(hora-1200)//100
+                    if matriz[fila][columna]==0:
                         matriz[fila][columna]=hora
                         nombre=input("igrese su nombre y apellido al cual reservara la cancha")
                         matrizn[fila][columna]=nombre
@@ -68,9 +68,10 @@ def main(matriz,matrizn):
                         hora2=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
                     if hora2 in matriz[fila2]:
                         columna2=(hora2-1200)//100
+                        nombrecancelado=matrizn[fila2][columna2]
                         matriz[fila2][columna2]=0
                         matrizn[fila2][columna2]=0
-                        print("cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas")
+                        print("cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de:",nombrecancelado)
                         print("canchas",matriz)
                         print()
                         print("nombres de reservas",matrizn)
@@ -125,6 +126,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
