@@ -88,8 +88,9 @@ def main(matriz,matrizn):
             sigo=0
             while sigo==0:
                 
-                precios,horas,cancha,ingresohora=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000),listhorarios)
+                precios,horas,cancha,ingresohora,clientes=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000),listhorarios)
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
+                listaclientes.append(clientes)
                 print("cantidad a pagar: $",cobro)
                 reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
                 reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
@@ -100,15 +101,22 @@ def main(matriz,matrizn):
                 else:
                     sigo=0
         elif herramienta==4:
-            reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
-        
+            print(listcanchas)
+            print(listrecaudacioncanchas)
+            print(listcantcanchas,"reporte canchas")
+            print(listhorarios)
+            print(listrecaudacionhorarios)
+            print(listcanthorarios,"reporte horarios")
+            print(listformpago)
+            print(listrecaudacionformpago)
+            print(listcantformpago,"reporte formas de pago")
         else:
             general=-1
         
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
-listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago=cargar_listas_de_canchas()
+listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes=cargar_listas_de_canchas()
 if __name__="__main__":
     main(matrizper,matriznombre)
 
@@ -117,6 +125,7 @@ if __name__="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
