@@ -33,7 +33,8 @@ def cargar_listas_de_canchas():
     cantcanchas=[0]*3
     canthorarios=[0]*13
     cantformpago=[0]*2
-    return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago
+    listaclientela=[]
+    return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela
     
 def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef):
     fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
