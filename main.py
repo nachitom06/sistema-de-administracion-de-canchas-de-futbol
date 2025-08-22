@@ -111,8 +111,8 @@ def main(matriz,matrizn):
             print(listformpago)
             print(listrecaudacionformpago)
             print(listcantformpago,"reporte formas de pago")
-            maximo,numcancha=funmod.cancha_mayor_recuaudo(listrecaudacioncanchas,listacanchas)
-            minimo,numcancha=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listacanchas)
+            maximo,numcancha=funmod.cancha_mayor_recuaudo(listrecaudacioncanchas,listcanchas)
+            minimo,numcancha=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listcanchas)
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo)
             print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo)
             print("la recaudacion del 10% mas por efectivo fue de: $",recaudaciondiezporciento)
@@ -122,7 +122,7 @@ def main(matriz,matrizn):
             if hay2==0:
                 print("el horario con la mayor cantidad de clientes es",mayorcliente)
             else:
-                print("hay varios horarios con la misma cantidad de clientes",listacanthorarios)
+                print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
         else:
             general=-1
         
@@ -138,6 +138,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
