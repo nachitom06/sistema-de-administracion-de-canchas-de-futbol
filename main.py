@@ -2,7 +2,7 @@ import funmod
 import random
 def main(matriz,matrizn):
     """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
-    general=0
+    general,recaudaciondiezporciento=0,0
     while general==0:
         herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"))
         while herramienta not in[-1,1,2,3,4]:
@@ -95,7 +95,7 @@ def main(matriz,matrizn):
                 print("cantidad a pagar: $",cobro)
                 funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
                 funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
-                recaudaciondiezporciento=funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
+                funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento)
                 sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
                 if sigo2==-1:
                     sigo=-1
@@ -115,7 +115,7 @@ def main(matriz,matrizn):
             minimo,numcancha=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listcanchas)
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo)
             print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo)
-            print("la recaudacion del 10% mas por efectivo fue de: $",recaudaciondiezporciento)
+            print("la recaudacion del 10% mas por efectivo fue de: $",sum(listadiezporciento))
             totaltodo=funmod.calcular_total(listrecaudacionformpago)
             print(totaltodo,"recaudacion total")
             mayorcliente,hay2=funmod.mayor_cliente(listcanthorarios)
@@ -129,15 +129,17 @@ def main(matriz,matrizn):
     
 matrizper=[[0 for _ in range(13)] for _ in range(3)]
 matriznombre=[[0 for _ in range(13)] for _ in range(3)]
-listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes=funmod.cargar_listas_de_canchas()
+listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
 if __name__=="__main__":
     main(matrizper,matriznombre)
+
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(tarjeta 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
