@@ -111,6 +111,8 @@ def main(matriz,matrizn):
             print(listformpago)
             print(listrecaudacionformpago)
             print(listcantformpago,"reporte formas de pago")
+            print(cancha_mayor_recuaudo(listrecaudacioncanchas,listacanchas),"cancha con mayor recaudacion")
+            print(cancha_menor_recuaudo(listrecaudacioncanchas,listacanchas),"cancha con menor recaudacion")
         else:
             general=-1
         
@@ -126,6 +128,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
