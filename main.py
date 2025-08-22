@@ -118,6 +118,7 @@ def main(matriz,matrizn):
             print("la recaudacion del 10% mas por efectivo fue de: $",recaudaciondiezporciento)
             totaltodo=funmod.calcular_total(listrecaudacionformpago)
             print(totaltodo,"recaudacion total")
+            hay2=funmod.mayor_cliente(listcanthorarios)
         else:
             general=-1
         
@@ -133,6 +134,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
