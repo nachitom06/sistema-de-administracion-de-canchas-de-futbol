@@ -14,6 +14,7 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
     canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha"))
     horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)"))
     while horarioingreso not in horarioscomp:
+        print("error, debe ingresar el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)")
         horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)"))
     clientela=input("ingrese el nombre y apellido de la persona")
     return (precio,canthoras,cobrar,horarioingreso,clientela)
@@ -34,23 +35,26 @@ def cargar_listas_de_canchas():
     canthorarios=[0]*13
     cantformpago=[0]*2
     listaclientela=[]
-    return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela
+    listadiezporciento=[]
+    return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela,listadiezporciento
     
-def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef):
+def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento):
     fp=input("ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago")
+    diezporcientoefe=0
     while fp not in formpagodef:
         fp=input("ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago")
     if fp=="e":
         ran=formpagodef.index("e")
-        recaudacionformpagodef[ran]+=(cobrodef*1.1)
-        print(cobrodef*1.1,"es el importe a pagar con efectivo(10% mas)")
+        recaudacionformpagodef[ran]+=(cobrodef*110//100)
+        print(cobrodef*110//100,"es el importe a pagar con efectivo(10% mas)")
         cantformpagodef[ran]+=1
-        diezporcientoefe+=(cobrodef*1.1)-cobrodef
+        diezporcientoefe=(cobrodef*110//100)-cobrodef
+        listadediezporciento.append(diezporcientoefe)
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
-    return diezporcientoefe
+    
 
 def reporte_canchas(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
     if numerocancha==5:
@@ -73,29 +77,29 @@ def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef
         canthorariosdef[raton]+=1
 
 def cancha_mayor_recuaudo(listita,listadecanchas):
-    maxi=listita.max()
+    maxi=max(listita)
     cont=listita.index(maxi)
     conteo=listadecanchas[cont]
     return maxi,conteo
 
 def cancha_menor_recuaudo(listita,listadecanchas):
-    mini=listita.min()
+    mini=min(listita)
     cont=listita.index(mini)
     conteo=listadecanchas[cont]      
     return mini,conteo
 
 def calcular_total(listaformapago):
-    total=listaformapago.sum()
+    total=sum(listaformapago)
     return total
 
 def mayor_cliente(listacanthorarios):
-    mayorclient=listacanthorarios.max()
+    mayorclient=max(listacanthorarios)
     conteo2=listacanthorarios.count(mayorclient)
     hay2=0
     if conteo2>1:
         hay2=1
     return mayorclient,hay2
-
+    
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir mercado pago.
