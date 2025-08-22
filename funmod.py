@@ -37,14 +37,15 @@ def cargar_listas_de_canchas():
     return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela
     
 def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef):
-    fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
+    fp=input("ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago")
     while fp not in formpagodef:
-        fp=input("ingrese (e) para efectivo y (mp) para mercado pago")
+        fp=input("ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago")
     if fp=="e":
         ran=formpagodef.index("e")
-        recaudacionformpagodef[ran]+=cobrodef
+        recaudacionformpagodef[ran]+=(cobrodef*1.1)
+        print(cobrodef*1.1,"es el importe a pagar con efectivo(10% mas)")
         cantformpagodef[ran]+=1
-        diezporcientoefe=
+        diezporcientoefe+=(cobrodef*1.1)-cobrodef
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
