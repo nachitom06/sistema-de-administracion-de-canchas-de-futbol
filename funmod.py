@@ -44,10 +44,12 @@ def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobro
         ran=formpagodef.index("e")
         recaudacionformpagodef[ran]+=cobrodef
         cantformpagodef[ran]+=1
+        diezporcientoefe=
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
+    return diezporcientoefe
 
 def reporte_canchas(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
     if numerocancha==5:
@@ -69,19 +71,17 @@ def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
 
-def cancha_mayor_recuaudo(matrizque):
-    maxi=0
-    for i in range(len(matrizque)-1):
-        posi=matrizque[i].max()
-        if posi>maxi:
-            maxi=posi
+def cancha_mayor_recuaudo(listita,listadecanchas):
+    maxi=listita.max()
+    cont=listita.index(maxi)
+    conteo=listadecanchas[cont]
+    return maxi,conteo
 
-def cancha_menor_recuaudo(matrizque):
-    mini=100000000000000000000000
-    for i in range(len(matrizque)-1):
-        posible=matrizque[i].min()
-        if posible>mini:
-            mini=posible
+def cancha_menor_recuaudo(listita,listadecanchas):
+    mini=listita.min()
+    cont=listita.index(mini)
+    conteo=listadecanchas[cont]      
+    return mini,conteo
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
