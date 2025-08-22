@@ -69,6 +69,20 @@ def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
 
+def cancha_mayor_recuaudo(matrizque):
+    maxi=0
+    for i in range(len(matrizque)-1):
+        posi=matrizque[i].max()
+        if posi>maxi:
+            maxi=posi
+
+def cancha_menor_recuaudo(matrizque):
+    mini=100000000000000000000000
+    for i in range(len(matrizque)-1):
+        posible=matrizque[i].min()
+        if posible>mini:
+            mini=posible
+
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir mercado pago.
