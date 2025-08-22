@@ -84,6 +84,10 @@ def cancha_menor_recuaudo(listita,listadecanchas):
     conteo=listadecanchas[cont]      
     return mini,conteo
 
+def calcular_total(listaformapago):
+    total=listaformapago.sum()
+    return total
+
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
     recaudacion, incremento por incluir mercado pago.
