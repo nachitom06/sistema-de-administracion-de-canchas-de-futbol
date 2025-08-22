@@ -95,7 +95,7 @@ def main(matriz,matrizn):
                 print("cantidad a pagar: $",cobro)
                 funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
                 funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
-                funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
+                recaudaciondiezporciento=funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro)
                 sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
                 if sigo2==-1:
                     sigo=-1
@@ -115,6 +115,7 @@ def main(matriz,matrizn):
             minimo,numcancha=cancha_menor_recuaudo(listrecaudacioncanchas,listacanchas)
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo)
             print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo)
+            print("la recaudacion del 10% mas por efectivo fue de: $",recaudaciondiezporciento)
         else:
             general=-1
         
@@ -130,6 +131,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
