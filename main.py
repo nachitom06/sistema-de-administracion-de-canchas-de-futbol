@@ -116,6 +116,8 @@ def main(matriz,matrizn):
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo)
             print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo)
             print("la recaudacion del 10% mas por efectivo fue de: $",recaudaciondiezporciento)
+            totaltodo=
+            print(totaltodo,"recaudacion total")
         else:
             general=-1
         
@@ -131,6 +133,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
