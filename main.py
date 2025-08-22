@@ -111,12 +111,12 @@ def main(matriz,matrizn):
             print(listformpago)
             print(listrecaudacionformpago)
             print(listcantformpago,"reporte formas de pago")
-            maximo,numcancha=cancha_mayor_recuaudo(listrecaudacioncanchas,listacanchas)
-            minimo,numcancha=cancha_menor_recuaudo(listrecaudacioncanchas,listacanchas)
+            maximo,numcancha=funmod.cancha_mayor_recuaudo(listrecaudacioncanchas,listacanchas)
+            minimo,numcancha=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listacanchas)
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo)
             print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo)
             print("la recaudacion del 10% mas por efectivo fue de: $",recaudaciondiezporciento)
-            totaltodo=
+            totaltodo=funmod.calcular_total(listrecaudacionformpago)
             print(totaltodo,"recaudacion total")
         else:
             general=-1
@@ -133,6 +133,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
