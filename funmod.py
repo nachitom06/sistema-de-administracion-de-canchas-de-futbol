@@ -3,7 +3,10 @@ def hola():
 
 def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
     print("los precios de las canchas son: futbol 5=$",num1,", futbol 8=$",num2,", futbol 11=$",num3)
-    cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11)"))
+    cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11):"))
+    while cobrar not in[5,8,11]:
+        print("error no se encuentra en el rango")
+        cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11):"))
     precio=0
     if cobrar==5:
         precio=num1
@@ -11,11 +14,14 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
         precio=num2
     else:
         precio=num3
-    canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha"))
-    horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)"))
+    canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha:"))
+    while canthoras>13:
+        print("error: no se puede alquilar más de 13 horas seguidas")
+        canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha:"))
+    horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100):"))
     while horarioingreso not in horarioscomp:
         print("error, debe ingresar el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)")
-        horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)"))
+        horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100):"))
     clientela=input("ingrese el nombre y apellido de la persona")
     return (precio,canthoras,cobrar,horarioingreso,clientela)
 
