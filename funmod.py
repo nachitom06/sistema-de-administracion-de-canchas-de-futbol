@@ -87,17 +87,21 @@ def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
 
-def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas):
+def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     maxi=max(listita)
     cont=listita.index(maxi)
     conteo=listadecanchas[cont]
-    return maxi,conteo
+    diviso=sum(cant)
+    porcen=(cant[cont])*100/diviso
+    return maxi,conteo,porcen
 
-def cancha_menor_recuaudo_con_porcentaje(listita,listadecanchas):
+def cancha_menor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     mini=min(listita)
     cont=listita.index(mini)
-    conteo=listadecanchas[cont]      
-    return mini,conteo
+    conteo=listadecanchas[cont]
+    diviso=sum(cant)
+    porcen=(cant[cont])*100/diviso
+    return mini,conteo,porcen
 
 def calcular_total(listaformapago):
     total=sum(listaformapago)
