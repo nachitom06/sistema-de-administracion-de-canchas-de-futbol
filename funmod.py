@@ -9,7 +9,7 @@ def iniciar_matriz():
 def listado(recaudo,numerocanch):
     lista=list(zip(recaudo,numerocanch))
     lista.sort(key=lambda x:x[0])
-    lista.reverse()
+    lista[::-1]
     return lista
 
 def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
