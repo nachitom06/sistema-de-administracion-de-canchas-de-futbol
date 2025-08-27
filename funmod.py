@@ -116,10 +116,11 @@ def calcular_total(listaformapago):
 def mayor_cliente(listacanthorarios):
     mayorclient=max(listacanthorarios)
     conteo2=listacanthorarios.count(mayorclient)
+    promedio=sum(listacanthorarios)//(len(listacanthorarios))
     hay2=0
     if conteo2>1:
         hay2=1
-    return mayorclient,hay2
+    return mayorclient,hay2,promedio
     
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
