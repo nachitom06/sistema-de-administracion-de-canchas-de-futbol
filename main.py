@@ -2,6 +2,8 @@ import funmod
 import random
 def main(matriz,matrizn):
     """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
+    matrizper,matriznombre=funmod.iniciar_matriz()
+    listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     general,recaudaciondiezporciento=0,0
     while general==0:
         herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"))
@@ -125,11 +127,6 @@ def main(matriz,matrizn):
                 print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
         else:
             general=-1
-        
-    
-matrizper=[[0 for _ in range(13)] for _ in range(3)]
-matriznombre=[[0 for _ in range(13)] for _ in range(3)]
-listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
 if __name__=="__main__":
     main(matrizper,matriznombre)
 
@@ -139,6 +136,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
