@@ -1,6 +1,11 @@
 def hola():
     print("hola")
 
+def iniciar_matriz():
+    matrizper=[[0 for _ in range(13)] for _ in range(3)]
+    matriznombre=[[0 for _ in range(13)] for _ in range(3)]
+    return matrizper,matriznombre
+
 def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
     print("los precios de las canchas son: futbol 5=$",num1,", futbol 8=$",num2,", futbol 11=$",num3)
     cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11):"))
