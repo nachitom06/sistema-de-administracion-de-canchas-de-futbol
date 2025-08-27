@@ -120,9 +120,9 @@ def main(matriz,matrizn):
             print("la recaudacion del 10% mas por efectivo fue de: $",sum(listadiezporciento))
             totaltodo=funmod.calcular_total(listrecaudacionformpago)
             print(totaltodo,"recaudacion total")
-            mayorcliente,hay2=funmod.mayor_cliente(listcanthorarios)
+            mayorcliente,hay2,prom=funmod.mayor_cliente(listcanthorarios)
             if hay2==0:
-                print("el horario con la mayor cantidad de clientes es",mayorcliente)
+                print("el horario con la mayor cantidad de clientes es",mayorcliente,"con un promedio de",prom,"clientes")
             else:
                 print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
             listadoarmado=funmod.listado(listrecaudacionhorarios,listhorarios)
@@ -140,6 +140,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
