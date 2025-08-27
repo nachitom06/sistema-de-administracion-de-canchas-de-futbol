@@ -1,6 +1,6 @@
 import funmod
 import random
-def main(matriz,matrizn):
+def main():
     """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
     matrizper,matriznombre=funmod.iniciar_matriz()
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
@@ -25,20 +25,20 @@ def main(matriz,matrizn):
                         fila=1
                     else:
                         fila=2
-                    print(matriz[fila],"los horarios que se muestran ya estan tomados")
+                    print(matrizper[fila],"los horarios que se muestran ya estan tomados")
                     hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
                     while hora<1200 or hora>2400 or hora%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
                         hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
                     columna=(hora-1200)//100
-                    if matriz[fila][columna]==0:
-                        matriz[fila][columna]=hora
+                    if matrizper[fila][columna]==0:
+                        matrizper[fila][columna]=hora
                         nombre=input("igrese su nombre y apellido al cual reservara la cancha")
-                        matrizn[fila][columna]=nombre
+                        matriznombre[fila][columna]=nombre
                         print("reserva realizada con exito: cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
-                        print("canchas",matriz)
+                        print("canchas",matrizper)
                         print()
-                        print("nombres de reservas",matrizn)
+                        print("nombres de reservas",matriznombre)
                     else:
                         print("ese horario ya esta ocupado")
                     señ=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
@@ -63,20 +63,20 @@ def main(matriz,matrizn):
                         fila2=1
                     else:
                         fila2=2
-                    print(matriz[fila2],"los horarios que se muestran son los que ya estan tomados")
+                    print(matrizper[fila2],"los horarios que se muestran son los que ya estan tomados")
                     hora2=int(input("ingrese en formato militar la hora que desea cancelar el alquilar (1200 a 2400, de 100 en 100)"))
                     while hora2<1200 or hora2>2400 or hora2%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
                         hora2=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
-                    if hora2 in matriz[fila2]:
+                    if hora2 in matrizper[fila2]:
                         columna2=(hora2-1200)//100
-                        nombrecancelado=matrizn[fila2][columna2]
-                        matriz[fila2][columna2]=0
-                        matrizn[fila2][columna2]=0
+                        nombrecancelado=matriznombre[fila2][columna2]
+                        matrizper[fila2][columna2]=0
+                        matriznombre[fila2][columna2]=0
                         print("cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de:",nombrecancelado)
-                        print("canchas",matriz)
+                        print("canchas",matrizper)
                         print()
-                        print("nombres de reservas",matrizn)
+                        print("nombres de reservas",matriznombre)
                     else:
                         print("ese horario no se encuentra alquilado")
                     señ2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
@@ -113,8 +113,8 @@ def main(matriz,matrizn):
             print(listformpago)
             print(listrecaudacionformpago)
             print(listcantformpago,"reporte formas de pago")
-            maximo,numcancha,porcentaje=funmod.cancha_mayor_recuaudo(listrecaudacioncanchas,listcanchas,listcantcanhcas)
-            minimo,numcancha,porcentaje=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listcanchas,listcantcanhcas)
+            maximo,numcancha,porcentaje=funmod.cancha_mayor_recuaudo(listrecaudacioncanchas,listcanchas,listcantcanchas)
+            minimo,numcancha,porcentaje=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listcanchas,listcantcanchas)
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo,"con un porcentaje de:",porcentaje,"%")
             print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo,"con un porcentaje de:",porcentaje,"%")
             print("la recaudacion del 10% mas por efectivo fue de: $",sum(listadiezporciento))
@@ -132,7 +132,8 @@ def main(matriz,matrizn):
         else:
             general=-1
 if __name__=="__main__":
-    main(matrizper,matriznombre)
+    main()
+
 
 
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
@@ -140,6 +141,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
