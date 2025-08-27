@@ -125,6 +125,10 @@ def main(matriz,matrizn):
                 print("el horario con la mayor cantidad de clientes es",mayorcliente)
             else:
                 print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
+            listadoarmado=funmod.listado(listrecaudacioncanchas,listcanchas)
+            print("listado de la recaudacion de canchas")
+            for listrecaudacioncanchas,listcanchas in listadoarmado:
+                print("$",listrecaudacioncanchas,"cancha de futbol",listcanchas)
         else:
             general=-1
 if __name__=="__main__":
@@ -136,6 +140,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
