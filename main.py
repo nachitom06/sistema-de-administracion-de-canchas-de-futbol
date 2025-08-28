@@ -90,14 +90,13 @@ def main():
         elif herramienta==3:
             sigo=0
             while sigo==0:
-                
                 precios,horas,cancha,ingresohora,clientes=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000),listhorarios)
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 listaclientes.append(clientes)
                 print("cantidad a pagar: $",cobro)
-                funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobro,cancha)
-                funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobro,ingresohora)
-                funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento)
+                cobrofinal=funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento,cobro)
+                funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobrofinal,cancha)
+                funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobrofinal,ingresohora)
                 sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
                 if sigo2==-1:
                     sigo=-1
@@ -126,13 +125,15 @@ def main():
             else:
                 print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
             listadoarmado=funmod.listado(listrecaudacionhorarios,listhorarios)
-            print("listado de la recaudacion de horarios")
+            print("listado de la recaudacion de horarios\nrecaudacion\thorarios")
             for listrecaudacionhorarios,listhorarios in listadoarmado:
-                print(f"${listrecaudacionhorarios}/thorario:{listhorarios}horas")
+                print(f"${listrecaudacionhorarios}\t\ta las {listhorarios} horas")
         else:
             general=-1
 if __name__=="__main__":
     main()
+
+
 
 
 
@@ -141,6 +142,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
