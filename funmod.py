@@ -37,6 +37,8 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
         print("error, debe ingresar el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)")
         horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100):"))
     clientela=input("ingrese el nombre y apellido de la persona")
+    if len(clientela)==0:
+        print("error: el nombre no puede estar vacio")
     return (precio,canthoras,cobrar,horarioingreso,clientela)
 
 def calcular_cantidad_a_pagar(a,b):
