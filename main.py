@@ -128,7 +128,7 @@ def main():
             listadoarmado=funmod.listado(listrecaudacionhorarios,listhorarios)
             print("listado de la recaudacion de horarios")
             for listrecaudacionhorarios,listhorarios in listadoarmado:
-                print("$",listrecaudacionhorarios,"horario:",listhorarios,"horas")
+                print(f"${listrecaudacionhorarios}/thorario:{listhorarios}horas")
         else:
             general=-1
 if __name__=="__main__":
@@ -141,6 +141,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
