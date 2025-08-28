@@ -9,7 +9,7 @@ def iniciar_matriz():
 def listado(recaudo,numerocanch):
     lista=list(zip(recaudo,numerocanch))
     lista.sort(key=lambda x:x[0])
-    lista[::-1]
+    lista=lista[::-1]
     return lista
 
 def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
@@ -113,14 +113,17 @@ def calcular_total(listaformapago):
     total=sum(listaformapago)
     return total
 
-def mayor_cliente(listacanthorarios):
+def mayor_cliente(listacanthorarios,listahorarios):
     mayorclient=max(listacanthorarios)
+    cancha=listacanthorarios.index(mayorclient)
+    numcancha=listahorarios[cancha]
     conteo2=listacanthorarios.count(mayorclient)
-    promedio=sum(listacanthorarios)//(len(listacanthorarios))
+    promedio=sum(listacanthorarios)/(len(listacanthorarios))
     hay2=0
     if conteo2>1:
         hay2=1
-    return mayorclient,hay2,promedio
+    return mayorclient,hay2,promedio,cancha
+
     
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
     agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
