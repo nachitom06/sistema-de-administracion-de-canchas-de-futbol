@@ -61,7 +61,7 @@ def cargar_listas_de_canchas():
     listadiezporciento=[]
     return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela,listadiezporciento
     
-def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento):
+def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento,preciocuidado):
     """objetivo: actualiza el reporte de metodo de pago"""
     fp=input("ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago")
     diezporcientoefe=0
@@ -74,10 +74,12 @@ def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobro
         cantformpagodef[ran]+=1
         diezporcientoefe=(cobrodef*110//100)-cobrodef
         listadediezporciento.append(diezporcientoefe)
+        preciocuidado=(cobrodef*110//100)
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
+    return preciocuidado
     
 
 def reporte_canchas(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
@@ -135,7 +137,7 @@ def mayor_cliente(listacanthorarios,listahorarios):
     hay2=0
     if conteo2>1:
         hay2=1
-    return mayorclient,hay2,promedio,cancha
+    return mayorclient,hay2,promedio,numcancha
 
     
 """agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
