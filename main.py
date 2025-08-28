@@ -113,16 +113,16 @@ def main():
             print(listformpago)
             print(listrecaudacionformpago)
             print(listcantformpago,"reporte formas de pago")
-            maximo,numcancha,porcentaje=funmod.cancha_mayor_recuaudo(listrecaudacioncanchas,listcanchas,listcantcanchas)
-            minimo,numcancha,porcentaje=funmod.cancha_menor_recuaudo(listrecaudacioncanchas,listcanchas,listcantcanchas)
+            maximo,numcancha,porcentaje=funmod.cancha_mayor_recuaudo_con_porcentaje(listrecaudacioncanchas,listcanchas,listcantcanchas)
+            minimo,numcancha10,porcentaje10=funmod.cancha_menor_recuaudo_con_porcentaje(listrecaudacioncanchas,listcanchas,listcantcanchas)
             print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo,"con un porcentaje de:",porcentaje,"%")
-            print("la cancha numero",numcancha,"es la que menos recaudo con: $",minimo,"con un porcentaje de:",porcentaje,"%")
+            print("la cancha numero",numcancha10,"es la que menos recaudo con: $",minimo,"con un porcentaje de:",porcentaje10,"%")
             print("la recaudacion del 10% mas por efectivo fue de: $",sum(listadiezporciento))
             totaltodo=funmod.calcular_total(listrecaudacionformpago)
-            print(totaltodo,"recaudacion total")
-            mayorcliente,hay2,prom=funmod.mayor_cliente(listcanthorarios)
+            print("$",totaltodo,"recaudacion total")
+            mayorcliente,hay2,prom,horarios7=funmod.mayor_cliente(listcanthorarios,listhorarios)
             if hay2==0:
-                print("el horario con la mayor cantidad de clientes es",mayorcliente,"con un promedio de",prom,"clientes")
+                print("el horario con la mayor cantidad de clientes es",horarios7,"con",mayorcliente,"clientes y un promedio de",prom,"clientes")
             else:
                 print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
             listadoarmado=funmod.listado(listrecaudacionhorarios,listhorarios)
@@ -141,6 +141,7 @@ if __name__=="__main__":
     recaudacion, incremento por incluir la tarjeta.
     cambiar el precio de las canchas por un random.randint
     def validacion de datos"""
+
 
 
 
