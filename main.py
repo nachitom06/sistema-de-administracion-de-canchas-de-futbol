@@ -6,42 +6,42 @@ def main():
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     general,recaudaciondiezporciento=0,0
     while general==0:
-        herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"))
+        herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
         while herramienta not in[-1,1,2,3,4]:
-            print("error, el numero ingresado no se encuntra en lo indicado")
-            herramienta=int(input("ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"))
+            print("Error, el numero ingresado no se encuntra en lo indicado")
+            herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
         if herramienta==1:
             sig=0
             while sig==0:
                 fila=0
-                cancha=int(input("Ingrese el número de cancha que desea elegir (5, 8, 11) o -1 si no desea reservar"))
+                cancha=int(input("Ingrese el número de cancha que desea elegir (5, 8, 11) o -1 si no desea reservar: "))
                 if cancha!=-1:
                     while cancha not in[5,8,11]:
                         print("Error, el numero de cancha seleccionado no se encuentra")
-                        cancha=int(input("Ingrese el número de cancha que desea elegir (5, 8, 11)"))
+                        cancha=int(input("Ingrese el número de cancha que desea elegir (5, 8, 11): "))
                     if cancha==5:
                         fila=0
                     elif cancha==8:
                         fila=1
                     else:
                         fila=2
-                    print(matrizper[fila],"los horarios que se muestran ya estan tomados")
-                    hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
+                    print(matrizper[fila],"Los horarios que se muestran ya estan tomados")
+                    hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100): "))
                     while hora<1200 or hora>2400 or hora%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
-                        hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
+                        hora=int(input("Ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100): "))
                     columna=(hora-1200)//100
                     if matrizper[fila][columna]==0:
                         matrizper[fila][columna]=hora
-                        nombre=input("igrese su nombre y apellido al cual reservara la cancha")
+                        nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
                         matriznombre[fila][columna]=nombre
-                        print("reserva realizada con exito: cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
-                        print("canchas",matrizper)
+                        print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
+                        print("Canchas: ",matrizper)
                         print()
-                        print("nombres de reservas",matriznombre)
+                        print("Nombres de reservas: ",matriznombre)
                     else:
-                        print("ese horario ya esta ocupado")
-                    señ=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
+                        print("Ese horario ya esta ocupado")
+                    señ=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
                     if señ==-1:
                         sig=-1
                     else:
@@ -52,10 +52,10 @@ def main():
             signal=0
             while signal==0:
                 fila2=0
-                cancha2=int(input("Ingrese el número de cancha que desea cancelar la reserva (5, 8, 11) o -1 si no desea cancelar"))
+                cancha2=int(input("Ingrese el número de cancha que desea cancelar la reserva (5, 8, 11) o -1 si no desea cancelar: "))
                 if cancha2!=-1:
                     while cancha2 not in[5,8,11]:
-                        print("Error, el numero de cancha seleccionado no se encuentra")
+                        print("Error, el número de cancha seleccionado no se encuentra")
                         cancha2=int(input("Ingrese el número de cancha que desea cancelar la reserva (5, 8, 11)"))
                     if cancha2==5:
                         fila2=0
@@ -63,23 +63,24 @@ def main():
                         fila2=1
                     else:
                         fila2=2
-                    print(matrizper[fila2],"los horarios que se muestran son los que ya estan tomados")
-                    hora2=int(input("ingrese en formato militar la hora que desea cancelar el alquilar (1200 a 2400, de 100 en 100)"))
+                    print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados")
+                    hora2=int(input("Ingrese en formato militar la hora que desea cancelar el alquilar (1200 a 2400, de 100 en 100): "))
                     while hora2<1200 or hora2>2400 or hora2%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
-                        hora2=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100)"))
+                        hora2=int(input("Ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100): "))
                     if hora2 in matrizper[fila2]:
                         columna2=(hora2-1200)//100
                         nombrecancelado=matriznombre[fila2][columna2]
                         matrizper[fila2][columna2]=0
                         matriznombre[fila2][columna2]=0
-                        print("cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de:",nombrecancelado)
-                        print("canchas",matrizper)
+                        print("Cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de: ",nombrecancelado)
+                        print("Canchas: ",matrizper)
                         print()
-                        print("nombres de reservas",matriznombre)
+                        print("Nombres de reservas: ",matriznombre)
+                        print()
                     else:
-                        print("ese horario no se encuentra alquilado")
-                    señ2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
+                        print("Ese horario no se encuentra alquilado")
+                    señ2=int(input("Ingrese cualquier número entero si desea continuar o -1 para salir: "))
                     if señ2==-1:
                         signal=-1
                     else:
@@ -97,38 +98,39 @@ def main():
                 cobrofinal=funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento,cobro)
                 funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobrofinal,cancha)
                 funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobrofinal,ingresohora)
-                sigo2=int(input("ingrese cualquier numero entero si desea continuar o -1 para salir"))
+                sigo2=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
                 if sigo2==-1:
                     sigo=-1
                 else:
                     sigo=0
         elif herramienta==4:
-            print(listcanchas)
-            print(listrecaudacioncanchas)
-            print(listcantcanchas,"reporte canchas")
-            print(listhorarios)
-            print(listrecaudacionhorarios)
-            print(listcanthorarios,"reporte horarios")
-            print(listformpago)
-            print(listrecaudacionformpago)
-            print(listcantformpago,"reporte formas de pago")
+            print(listcanchas,"Lista de canchas disponibles")
+            print(listrecaudacioncanchas,"Lista de recaudación de canchas")
+            print(listcantcanchas,"Lista de cantidad de usos de cada cancha")
+            print(listhorarios,"Lista de horarios disponibles")
+            print(listrecaudacionhorarios,"Lista de recaudación de horarios")
+            print(listcanthorarios,"Lista de cantidad de usos de cada horario")
+            print(listformpago,"Lista de formas de pago disponibles")
+            print(listrecaudacionformpago,"Lista de recaudación de formas de pago")
+            print(listcantformpago,"Lista de cantidad de usos de cada forma de pago")
             maximo,numcancha,porcentaje=funmod.cancha_mayor_recuaudo_con_porcentaje(listrecaudacioncanchas,listcanchas,listcantcanchas)
             minimo,numcancha10,porcentaje10=funmod.cancha_menor_recuaudo_con_porcentaje(listrecaudacioncanchas,listcanchas,listcantcanchas)
-            print("la cancha numero",numcancha,"es la que mas recaudo con: $",maximo,"con un porcentaje de:",porcentaje,"%")
-            print("la cancha numero",numcancha10,"es la que menos recaudo con: $",minimo,"con un porcentaje de:",porcentaje10,"%")
-            print("la recaudacion del 10% mas por efectivo fue de: $",sum(listadiezporciento))
+            print("La cancha numero",numcancha,"es la que mas recaudo con: $",maximo,"con un porcentaje de:",porcentaje,"% de usos")
+            print("La cancha numero",numcancha10,"es la que menos recaudo con: $",minimo,"con un porcentaje de:",porcentaje10,"% de usos")
+            print("La recaudacion del 10% mas por efectivo fue de: $",sum(listadiezporciento))
             totaltodo=funmod.calcular_total(listrecaudacionformpago)
             print("$",totaltodo,"recaudacion total")
             mayorcliente,hay2,prom,horarios7=funmod.mayor_cliente(listcanthorarios,listhorarios)
             if hay2==0:
-                print("el horario con la mayor cantidad de clientes es",horarios7,"con",mayorcliente,"clientes y un promedio de",prom,"clientes")
+                print("El horario con la mayor cantidad de clientes es",horarios7,"con",mayorcliente,"clientes y un promedio de",prom,"clientes")
             else:
-                print("hay varios horarios con la misma cantidad de clientes",listcanthorarios)
+                print("Hay varios horarios con la misma cantidad de clientes",listcanthorarios)
             listadoarmado=funmod.listado(listrecaudacionhorarios,listhorarios)
-            print("listado de la recaudacion de horarios\nrecaudacion\thorarios")
+            print("Listado de la recaudacion de horarios\nRecaudacion\tHorarios")
             for listrecaudacionhorarios,listhorarios in listadoarmado:
                 print(f"${listrecaudacionhorarios}\t\ta las {listhorarios} horas")
         else:
             general=-1
 if __name__=="__main__":
     main()
+
