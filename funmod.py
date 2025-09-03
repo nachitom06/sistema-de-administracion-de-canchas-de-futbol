@@ -1,18 +1,23 @@
+def dar_bienvenida():
+    """Objetivo: Dar la bienvenida"""
+    saludo="-------------------- Bienvenido al sistema administrador --------------------"
+    print(saludo)
+    
 def iniciar_matriz():
-    """objetivo: inicia las matrices"""
+    """Objetivo: Inicia las matrices"""
     matrizper=[[0 for _ in range(13)] for _ in range(3)]
     matriznombre=[[0 for _ in range(13)] for _ in range(3)]
     return matrizper,matriznombre
 
 def listado(recaudo,numerocanch):
-    """objetivo: arma listado de los horarios de mayor a menor recaudacion"""
+    """Objetivo: Arma listado de los horarios de mayor a menor recaudacion"""
     lista=list(zip(recaudo,numerocanch))
     lista.sort(key=lambda x:x[0])
     lista=lista[::-1]
     return lista
-
+    
 def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
-    """objetivo: guarda numero de cancha,cantidad de horas, horario y cliente"""
+    """Objetivo: Guarda numero de cancha,cantidad de horas, horario y cliente"""
     print("Los precios de las canchas son: Fútbol 5=$",num1,", Fútbol 8=$",num2,", Fútbol 11=$",num3)
     cobrar=int(input("Ingrese numero de cancha(fútbol 5, fútbol 8, fútbol 11): "))
     while cobrar not in[5,8,11]:
