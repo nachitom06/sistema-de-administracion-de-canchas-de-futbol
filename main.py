@@ -1,7 +1,7 @@
 import funmod
 import random
 def main():
-    """Objetivo: Se introduce tipo de cancha (F5, F8, F11) Y una hora de en el formato hora militar, como por ejemplo 15:00 PM = 1500, para reservar la cancha. abierto de 12:00Hs a 24:00Hs"""
+    """Objetivo: Se introduce un número (1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"""
     matrizper,matriznombre=funmod.iniciar_matriz()
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     general,recaudaciondiezporciento=0,0
@@ -133,4 +133,5 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
+
 
