@@ -1,6 +1,3 @@
-def hola():
-    print("hola")
-
 def iniciar_matriz():
     """objetivo: inicia las matrices"""
     matrizper=[[0 for _ in range(13)] for _ in range(3)]
