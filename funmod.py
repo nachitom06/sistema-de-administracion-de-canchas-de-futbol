@@ -138,10 +138,3 @@ def mayor_cliente(listacanthorarios,listahorarios):
     if conteo2>1:
         hay2=1
     return mayorclient,hay2,promedio,numcancha
-
-    
-"""agregar lista o matriz, ademas de las dos que ya tenemos, donde acumulamos la recaudacion por canchas y por horarios
-    agregar funcion ListadoCanchas de: cantidad de formas de pago(mercado pago 10% mas), cancha de mayor recaudacion y menor 
-    recaudacion, incremento por incluir mercado pago.
-    cambiar el precio de las canchas por un random.randint
-    def validacion de datos"""
