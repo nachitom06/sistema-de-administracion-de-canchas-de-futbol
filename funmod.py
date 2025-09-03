@@ -16,11 +16,11 @@ def listado(recaudo,numerocanch):
 
 def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
     """objetivo: guarda numero de cancha,cantidad de horas, horario y cliente"""
-    print("los precios de las canchas son: futbol 5=$",num1,", futbol 8=$",num2,", futbol 11=$",num3)
-    cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11):"))
+    print("Los precios de las canchas son: Fútbol 5=$",num1,", Fútbol 8=$",num2,", Fútbol 11=$",num3)
+    cobrar=int(input("Ingrese numero de cancha(fútbol 5, fútbol 8, fútbol 11): "))
     while cobrar not in[5,8,11]:
-        print("error no se encuentra en el rango")
-        cobrar=int(input("ingrese numero de cancha(futbol 5, futbol 8, futbol 11):"))
+        print("Error no se encuentra en el rango")
+        cobrar=int(input("Ingrese numero de cancha(fútbol 5, fútbol 8, fútbol 11): "))
     precio=0
     if cobrar==5:
         precio=num1
@@ -28,26 +28,26 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
         precio=num2
     else:
         precio=num3
-    canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha:"))
+    canthoras=int(input("Ingrese la cantidad de horas alquiladas de la cancha: "))
     while canthoras>13:
-        print("error: no se puede alquilar más de 13 horas seguidas")
-        canthoras=int(input("ingrese la cantidad de horas alquiladas de la cancha:"))
-    horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100):"))
+        print("Error: No se puede alquilar más de 13 horas seguidas")
+        canthoras=int(input("Ingrese la cantidad de horas alquiladas de la cancha: "))
+    horarioingreso=int(input("Ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100): "))
     while horarioingreso not in horarioscomp:
-        print("error, debe ingresar el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)")
-        horarioingreso=int(input("ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100):"))
-    clientela=input("ingrese el nombre y apellido de la persona")
+        print("Error, debe ingresar el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100)")
+        horarioingreso=int(input("Ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100): "))
+    clientela=input("Ingrese el nombre y apellido de la persona: ")
     if len(clientela)==0:
-        print("error: el nombre no puede estar vacio")
+        print("Error: el nombre no puede estar vacio")
     return (precio,canthoras,cobrar,horarioingreso,clientela)
 
 def calcular_cantidad_a_pagar(a,b):
-    """objetivo: indicar la cantidad que el cliente debe pagar"""
+    """Objetivo: Indicar la cantidad que el cliente debe pagar"""
     plata=lambda a,b: a*b
     return plata(a,b)
 
 def cargar_listas_de_canchas():
-    """objetivo: cargar listas"""
+    """Objetivo: Cargar listas"""
     canchas=[5,8,11]
     horarios=[1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400]
     formpago=["e","mp"]
@@ -62,7 +62,7 @@ def cargar_listas_de_canchas():
     return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela,listadiezporciento
     
 def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento,preciocuidado):
-    """objetivo: actualiza el reporte de metodo de pago"""
+    """Objetivo: Actualiza el reporte de metodo de pago"""
     fp=input("ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago")
     diezporcientoefe=0
     while fp not in formpagodef:
@@ -83,7 +83,7 @@ def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobro
     
 
 def reporte_canchas(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
-    """objetivo: actualiza el reporte de canchas"""
+    """Objetivo: Actualiza el reporte de canchas"""
     if numerocancha==5:
         rat=canchasdef.index(5)
         recaudacioncanchasdef[rat]+=cobrodef
@@ -98,14 +98,14 @@ def reporte_canchas(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,num
         cantcanchasdef[rataux2]+=1
 
 def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef,filadef):
-    """objetivo: actualiza el reporte de horarios"""
+    """Objetivo: Actualiza el reporte de horarios"""
     if filadef in horariosdef:
         raton=horariosdef.index(filadef)
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
 
 def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
-    """objetivo: calcula la cancha con mayor recaudo y el porcentaje de usos que tuvo"""
+    """Objetivo: Calcula la cancha con mayor recaudo y el porcentaje de usos que tuvo"""
     maxi=max(listita)
     cont=listita.index(maxi)
     conteo=listadecanchas[cont]
@@ -114,7 +114,7 @@ def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     return maxi,conteo,porcen
 
 def cancha_menor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
-    """objetivo: calcula la cancha con menor recaudo y el porcentaje de usos que tuvo"""
+    """Objetivo: Calcula la cancha con menor recaudo y el porcentaje de usos que tuvo"""
     mini=min(listita)
     cont=listita.index(mini)
     conteo=listadecanchas[cont]
@@ -128,7 +128,7 @@ def calcular_total(listaformapago):
     return total
 
 def mayor_cliente(listacanthorarios,listahorarios):
-    """objetivo: calcula el mayor cliente de los horarios con el promedio tambien"""
+    """Objetivo: Calcula el mayor cliente de los horarios con el promedio de todas las canchas también"""
     mayorclient=max(listacanthorarios)
     cancha=listacanthorarios.index(mayorclient)
     numcancha=listahorarios[cancha]
