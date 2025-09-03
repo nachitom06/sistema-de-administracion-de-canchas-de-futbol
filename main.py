@@ -2,6 +2,7 @@ import funmod
 import random
 def main():
     """Objetivo: Se introduce un número (1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"""
+    funmod.dar_bienvenida()
     matrizper,matriznombre=funmod.iniciar_matriz()
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     general,recaudaciondiezporciento=0,0
@@ -133,5 +134,6 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
+
 
 
