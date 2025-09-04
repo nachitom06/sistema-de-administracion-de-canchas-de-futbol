@@ -46,7 +46,7 @@ def main():
                         print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matriznombre)):
                             for j in range(len(matriznombre[i])):
-                                print("%6d" %(matriznombre[i][j]),end=" ")
+                                print("%-15s" %(matriznombre[i][j]),end=" ")
                             print()
                         print()
                     else:
@@ -93,7 +93,7 @@ def main():
                         print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matriznombre)):
                             for j in range(len(matriznombre[i])):
-                                print("%6d" %(matriznombre[i][j]),end=" ")
+                                print("%-15s" %(matriznombre[i][j]),end=" ")
                             print()
                         print()
                     else:
@@ -151,8 +151,3 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
-
-
-
-
-
