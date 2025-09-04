@@ -39,13 +39,13 @@ def main():
                         print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matrizper)):
-                            for j in rage(len(matrizper[i])):
+                            for j in range(len(matrizper[i])):
                                 print("%6d" %(matrizper[i][j]),end=" ")
                             print()
                         print()
                         print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matriznombre)):
-                            for j in rage(len(matriznombre[i])):
+                            for j in range(len(matriznombre[i])):
                                 print("%6d" %(matriznombre[i][j]),end=" ")
                             print()
                         print()
@@ -86,13 +86,13 @@ def main():
                         print("Cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de: ",nombrecancelado)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matrizper)):
-                            for j in rage(len(matrizper[i])):
+                            for j in range(len(matrizper[i])):
                                 print("%6d" %(matrizper[i][j]),end=" ")
                             print()
                         print()
                         print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matriznombre)):
-                            for j in rage(len(matriznombre[i])):
+                            for j in range(len(matriznombre[i])):
                                 print("%6d" %(matriznombre[i][j]),end=" ")
                             print()
                         print()
@@ -151,6 +151,7 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
+
 
 
 
