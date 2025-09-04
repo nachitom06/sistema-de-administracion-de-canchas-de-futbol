@@ -37,9 +37,18 @@ def main():
                         nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
                         matriznombre[fila][columna]=nombre
                         print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
-                        print("Canchas: ",matrizper)
+                        print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
+                        for i in range(len(matrizper)):
+                            for j in rage(len(matrizper[i])):
+                                print("%6d" %(matrizper[i][j]),end=" ")
+                            print()
                         print()
-                        print("Nombres de reservas: ",matriznombre)
+                        print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
+                        for i in range(len(matriznombre)):
+                            for j in rage(len(matriznombre[i])):
+                                print("%6d" %(matriznombre[i][j]),end=" ")
+                            print()
+                        print()
                     else:
                         print("Ese horario ya esta ocupado")
                     señ=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
@@ -75,9 +84,17 @@ def main():
                         matrizper[fila2][columna2]=0
                         matriznombre[fila2][columna2]=0
                         print("Cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de: ",nombrecancelado)
-                        print("Canchas: ",matrizper)
+                        print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
+                        for i in range(len(matrizper)):
+                            for j in rage(len(matrizper[i])):
+                                print("%6d" %(matrizper[i][j]),end=" ")
+                            print()
                         print()
-                        print("Nombres de reservas: ",matriznombre)
+                        print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
+                        for i in range(len(matriznombre)):
+                            for j in rage(len(matriznombre[i])):
+                                print("%6d" %(matriznombre[i][j]),end=" ")
+                            print()
                         print()
                     else:
                         print("Ese horario no se encuentra alquilado")
@@ -134,6 +151,7 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
+
 
 
 
