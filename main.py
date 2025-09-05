@@ -7,7 +7,13 @@ def main():
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     general,recaudaciondiezporciento=0,0
     while general==0:
-        herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
+        print("OPCIONES: ")
+        print("# 1 = reservar canchas")
+        print("# 2 = cancelar la reservacion de canchas")
+        print("# 3 = calcular cobro")
+        print("# 4 = mostrar reportes")
+        print("# -1 = finalizar programa")
+        herramienta=int(input("Ingrese el numero segun lo que desee: "))
         while herramienta not in[-1,1,2,3,4]:
             print("Error, el numero ingresado no se encuntra en lo indicado")
             herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
@@ -26,7 +32,7 @@ def main():
                         fila=1
                     else:
                         fila=2
-                    print(matrizper[fila],"Los horarios que se muestran ya estan tomados, si estan en 0 no estan alquilados")
+                    print(matrizper[fila],"Los horarios que se muestran ya estan tomados")
                     hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100): "))
                     while hora<1200 or hora>2400 or hora%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
@@ -35,6 +41,9 @@ def main():
                     if matrizper[fila][columna]==0:
                         matrizper[fila][columna]=hora
                         nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
+                        while len(nombre.strip())==0 or nombre.isdigit():
+                            print("Error el nombre que inngreso no es valido(digitos o vacio)")
+                            nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
                         matriznombre[fila][columna]=nombre
                         print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
@@ -73,7 +82,7 @@ def main():
                         fila2=1
                     else:
                         fila2=2
-                    print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados, o en 0 si no se encuentran alquilados")
+                    print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados")
                     hora2=int(input("Ingrese en formato militar la hora que desea cancelar el alquilar (1200 a 2400, de 100 en 100): "))
                     while hora2<1200 or hora2>2400 or hora2%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
@@ -148,7 +157,7 @@ def main():
             for listrecaudacionhorarios,listhorarios in listadoarmado:
                 print(f"${listrecaudacionhorarios}\t\ta las {listhorarios} horas")
         else:
-            print("finalización del programa")
+            print("-------------------- Finalización del Programa --------------------")
             print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
             for i in range(len(matrizper)):
                 for j in range(len(matrizper[i])):
@@ -156,13 +165,11 @@ def main():
                 print()
             print()
             print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
-                for i in range(len(matriznombre)):
-                    for j in range(len(matriznombre[i])):
-                        print("%-15s" %(matriznombre[i][j]),end=" ")
-                    print()
+            for i in range(len(matriznombre)):
+                for j in range(len(matriznombre[i])):
+                    print("%-15s" %(matriznombre[i][j]),end=" ")
                 print()
+            print()
             general=-1
 if __name__=="__main__":
     main()
-
-
