@@ -148,7 +148,21 @@ def main():
             for listrecaudacionhorarios,listhorarios in listadoarmado:
                 print(f"${listrecaudacionhorarios}\t\ta las {listhorarios} horas")
         else:
+            print("finalización del programa")
+            print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
+            for i in range(len(matrizper)):
+                for j in range(len(matrizper[i])):
+                    print("%6d" %(matrizper[i][j]),end=" ")
+                print()
+            print()
+            print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
+                for i in range(len(matriznombre)):
+                    for j in range(len(matriznombre[i])):
+                        print("%-15s" %(matriznombre[i][j]),end=" ")
+                    print()
+                print()
             general=-1
 if __name__=="__main__":
     main()
+
 
