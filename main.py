@@ -26,7 +26,7 @@ def main():
                         fila=1
                     else:
                         fila=2
-                    print(matrizper[fila],"Los horarios que se muestran ya estan tomados")
+                    print(matrizper[fila],"Los horarios que se muestran ya estan tomados, si estan en 0 no estan alquilados")
                     hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100): "))
                     while hora<1200 or hora>2400 or hora%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
@@ -73,7 +73,7 @@ def main():
                         fila2=1
                     else:
                         fila2=2
-                    print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados")
+                    print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados, o en 0 si no se encuentran alquilados")
                     hora2=int(input("Ingrese en formato militar la hora que desea cancelar el alquilar (1200 a 2400, de 100 en 100): "))
                     while hora2<1200 or hora2>2400 or hora2%100!=0:
                         print("La hora ingresada no se encuentra en el rango (1200 a 2400, de 100 en 100)")
@@ -151,3 +151,4 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
+
