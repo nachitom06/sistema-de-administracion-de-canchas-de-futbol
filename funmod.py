@@ -38,7 +38,7 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
     clientela=input("Ingrese el nombre y apellido de la persona: ")
     while len(clientela.strip())==0 or clientela.isdigit():
         print("Error el nombre que inngreso no es valido(digitos o vacio)")
-        cliedntela=input("Igrese su nombre y apellido al cual reservara la cancha: ")
+        clientela=input("Igrese su nombre y apellido al cual reservara la cancha: ")
     return (precio,canthoras,cobrar,horarioingreso,clientela)
 def calcular_cantidad_a_pagar(a,b):
     """objetivo: indicar la cantidad que el cliente debe pagar"""
