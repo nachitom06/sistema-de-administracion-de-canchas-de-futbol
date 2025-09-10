@@ -154,8 +154,8 @@ def main():
                 print("Hay varios horarios con la misma cantidad de clientes",listcanthorarios)
             listadoarmado=funmod.listado(listrecaudacionhorarios,listhorarios)
             print("Listado de la recaudacion de horarios\nRecaudacion\tHorarios")
-            for listrecaudacionhorarios,listhorarios in listadoarmado:
-                print(f"${listrecaudacionhorarios}\t\ta las {listhorarios} horas")
+            for recaudacionhorarios,horarios in listadoarmado:
+                print(f"${recaudacionhorarios}\t\ta las {horarios} horas")
         else:
             print("-------------------- Finalización del Programa --------------------")
             print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
@@ -173,4 +173,5 @@ def main():
             general=-1
 if __name__=="__main__":
     main()
+
 
