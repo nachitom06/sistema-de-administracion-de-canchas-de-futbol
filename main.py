@@ -175,5 +175,12 @@ if __name__=="__main__":
     main()
 
 
-"""añadir para la segunda etapa: interfaz de usuario/administrador, manejo de excepciones, todo excepciones, y si explica whiile tru o codebreaker sumarlo."""
+"""añadir para la segunda etapa: inicio de sesion. domingos no dispoibles por liga
+interfaz de usuario(ver horarios ocupados,reservar,cancelar reserva,torneos inscripcion, 
+organizacion de torneos, liga inscripcion, inscripcion de sponsors para torneo local y liga(todo el año), etc)
+/administrador(ver horarios ocupados,reservar,cancelar reserva,torneos inscripcion, organizacion de torneos, liga inscripcion, calcular cobros,
+reportes, calculo de repartido de plata ante torneo compartido con externos, inscripcion de sponsors para torneo local y liga(todo el año), 
+calcular cobro de liga, reporte de ganancias por torneo y liga, etc), manejo de excepciones, todo excepciones, tuplas, 
+diccionarios (agrandar la matriz por un diccionario para tambien poder alquilar por dia), y si explica while true o codebreaker sumarlo."""
+
 
