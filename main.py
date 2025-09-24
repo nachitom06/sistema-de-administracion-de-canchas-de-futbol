@@ -175,3 +175,5 @@ if __name__=="__main__":
     main()
 
 
+"""añadir para la segunda etapa: interfaz de usuario/administrador, manejo de excepciones, todo excepciones, y si explica whiile tru o codebreaker sumarlo."""
+
