@@ -8,6 +8,11 @@ def main():
     listaequiposliga=[0 for _ in range(20)]
     fixtureida=[]
     fixturevuelta=[]
+    puntosequipos=[]
+    resultadosida=[]
+    contadorpartidosida=[i for i in range(1,191)]
+    resultadosvuelta=[]
+    contadorpartidosvuelta=[x for x in range(1,191)]
     nombresaleatoriosequipos = ["Atlético del Sur", "Club Deportivo Aurora", "Racing Federal", "Juventud Unida","Sportivo Central", "Unión del Norte", "Estrella Roja", "Los Dragones FC","San Martín Juniors", "Nueva Esperanza", "Club Social Libertad", "Huracán del Valle","Defensores de la Costa", "Talleres Unidos", "Los Guerreros", "Boca del Oeste","River Plateño", "Cruz Azul del Sur", "Leones Dorados", "Águilas Negras","Real Horizonte", "Deportivo América", "Universitario Central", "Club Atlético Nacional","Fuerza Joven", "Pumas de la Sierra", "Toros Salvajes", "Estudiantes del Sol","Nueva Generación", "Atlético Popular", "Club Independiente", "San Lorenzo Unido","Deportivo Patria", "Olimpia del Sur", "Cultural Esperanza", "Ciclón Rojo","Guaraní Unido", "Leones del Sur", "Academia del Fútbol", "Sport Boys","Los Gladiadores", "Unión Deportiva Estrella", "Villa Real FC", "Juventud Federal","Defensa y Justicia Social", "Atlético Horizonte", "Deportivo Norteño", "Tigre Blanco","Halcones Verdes", "Nueva Alianza", "San Carlos Juniors", "Atlético Centenario","Los Piratas FC", "Club Deportivo Cosmos", "Juventud Atlética", "Rayo del Sur","Los Titanes", "Sporting Club Federal", "Atlético Ciudadela", "Universitario Unido","Club Social Victoria", "Deportivo Unión", "Santa Fe Atlético", "Real Central","Club Atlético Esperanza", "Independencia FC", "Sportivo Olimpo", "Guerreros del Sol","Águilas Plateadas", "Los Delfines", "Atlético Mundial", "Nueva Roma FC","San José Unido", "Estrella Federal", "Juventud Patriota", "Huracán del Centro","Deportivo Internacional", "Granaderos FC", "Racing Unido", "Unión Deportiva Norte","Atlético Azul", "Fuerza Guerrera", "Los Lobos", "Club Estudiantes Unidos","Rivera FC", "Boca Sur", "Atlético Colonial", "Deportivo Horizonte","Club Nacional Popular", "Los Cóndores", "Sporting Nueva Era", "Juventud del Norte","Atlético Moderno", "Los Pioneros", "Real Metropolitano", "Estrella Joven","Deportivo Victoria", "Unión San Pedro", "Club del Sol", "Atlético Bravo"]
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     listasponsorszona,listasponsors,disponibilidad,listadisponibilidad,listanombresponsor=[1,2,3,4,5,6],["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],[0 for i in range(6)],["disponible","no disponible"],[0 for i in range(6)]
@@ -335,7 +340,7 @@ def main():
                     for i in range(len(listaequiposliga)//2):
                         equipo1=listaequiposliga[i]
                         equipo2=listaequiposliga[len(listaequiposliga)-1-i]
-                        fixtureida.append((equipo1,equipo2))
+                        fixtureida.append([equipo1,equipo2])
                         listaequiposliga=listaequiposliga[:1]+listaequiposliga[-1:]+listaequiposliga[1:-1]
                 fixturevuelta=[[(b,a) for (a,b) in fecha] for fecha in fixtureida]
                 contadorfecha=1
@@ -431,9 +436,92 @@ def main():
                         break
                 if salir10:
                     break
-                
+                elif sponsors==1:
+                    print(f"\tsponsors\t\t\tdisponibilidad")
+                    disponible2=-1
+                    for pe in range(len(disponibilidad)):
+                        if disponibilidad[pe]==0:
+                            disponible2=0
+                        else:
+                            disponible2=1
+                        print(f"{listasponsorszona[pe]}\t{listasponsors[pe]}\t{listadisponibilidad[disponible2]}")
+                    while True:
+                        try:
+                            eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
+                            while eleccion not in listasponsorszona:
+                                print("error fuera de rango")
+                                eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
+                            
+                        except ValueError as mensaje14:
+                            print(mensaje14)
+                            continue
+                        while True:
+                            salir=False
+                            salir3=False
+
+                            nombresponsor=input("ingrese el nombre del sponsor")
+                            print(nombresponsor)
+                            while True:
+                                try:
+                                    confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
+                                    while confirmar not in[0,1]:
+                                        print("error el numero ingresado no se encuentra en el rango")
+                                        confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
+                                except ValueError as mensaje15:
+                                    print(mensaje15)
+                                    continue
+                                if confirmar==0:
+                                    disponibilidad[eleccion-1]=1
+                                    listanombresponsor[eleccion-1]=nombresponsor
+                                    salir=True
+                                    salir3=True
+                                    break
+                                    
+                                else:
+                                    break
+                            if salir:
+                                break
+                        if salir3:
+                            break
+                while True:
+                    salir10=False
+                    try:
+                        salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
+                    except ValueError as mensaje12:
+                        print(mensaje12)
+                        continue
+                    if salida==-1:
+                        salir10=True
+                        break
+                if salir10:
+                    break
                                 
-                        
+        elif herramienta==12:#simular partidos resultados, mostrar tabla de liga
+            while len(resultadosida)<190:
+                resu=[]
+                eq1=random.randint(0,15)
+                eq2=random.randint(0,15)
+                resultadosida.append([eq1,eq2])
+            while len(resultadosvuelta)<190:
+                resu=[]
+                eq12=random.randint(0,15)
+                eq22=random.randint(0,15)
+                resultadosvuelta.append([eq12,eq22])
+            listadopartidos=zip(list(fixtureida,resultadosida,contadorpartidosida))
+            print("Resultados partidos de ida")
+            for fix,resultaditos,contadorida in listadopartidos:
+                print(f"partido: {contadorida}\t{fix[contadorida-1][0]}:{resultaditos[contadorida-1][0]} vs {resultaditos[contadorida-1][1]}:{fix[contadorida-1][1]}")
+            print()
+            listadopartidosvuelta=zip(list(fixturevuelta,resultadosvuelta,contadorpartidosvuelta))
+            print("Resultados partidos de vuelta")
+            for fix2,resultaditos2,contadorvuelta in listadopartidosvuelta:
+                print(f"partido: {contadorvuelta}\t{fix2[contadorvuelta-1][0]}:{resultaditos2[contadorvuelta-1][0]} vs {resultaditos2[contadorvuelta-1][1]}:{fix2[contadorvuelta-1][1]}")
+            #falta hacer mostrar tabla de liga
+            
+
+
+
+
 
 
 
