@@ -6,6 +6,9 @@ def main():
     matrizper,matriznombre=funmod.iniciar_matriz()
     matriztorneos=[[0 for _ in range(4)] for _ in range(12)]
     listaequiposliga=[0 for _ in range(20)]
+    fixtureida=[]
+    fixturevuelta=[]
+    nombresaleatoriosequipos = ["Atlético del Sur", "Club Deportivo Aurora", "Racing Federal", "Juventud Unida","Sportivo Central", "Unión del Norte", "Estrella Roja", "Los Dragones FC","San Martín Juniors", "Nueva Esperanza", "Club Social Libertad", "Huracán del Valle","Defensores de la Costa", "Talleres Unidos", "Los Guerreros", "Boca del Oeste","River Plateño", "Cruz Azul del Sur", "Leones Dorados", "Águilas Negras","Real Horizonte", "Deportivo América", "Universitario Central", "Club Atlético Nacional","Fuerza Joven", "Pumas de la Sierra", "Toros Salvajes", "Estudiantes del Sol","Nueva Generación", "Atlético Popular", "Club Independiente", "San Lorenzo Unido","Deportivo Patria", "Olimpia del Sur", "Cultural Esperanza", "Ciclón Rojo","Guaraní Unido", "Leones del Sur", "Academia del Fútbol", "Sport Boys","Los Gladiadores", "Unión Deportiva Estrella", "Villa Real FC", "Juventud Federal","Defensa y Justicia Social", "Atlético Horizonte", "Deportivo Norteño", "Tigre Blanco","Halcones Verdes", "Nueva Alianza", "San Carlos Juniors", "Atlético Centenario","Los Piratas FC", "Club Deportivo Cosmos", "Juventud Atlética", "Rayo del Sur","Los Titanes", "Sporting Club Federal", "Atlético Ciudadela", "Universitario Unido","Club Social Victoria", "Deportivo Unión", "Santa Fe Atlético", "Real Central","Club Atlético Esperanza", "Independencia FC", "Sportivo Olimpo", "Guerreros del Sol","Águilas Plateadas", "Los Delfines", "Atlético Mundial", "Nueva Roma FC","San José Unido", "Estrella Federal", "Juventud Patriota", "Huracán del Centro","Deportivo Internacional", "Granaderos FC", "Racing Unido", "Unión Deportiva Norte","Atlético Azul", "Fuerza Guerrera", "Los Lobos", "Club Estudiantes Unidos","Rivera FC", "Boca Sur", "Atlético Colonial", "Deportivo Horizonte","Club Nacional Popular", "Los Cóndores", "Sporting Nueva Era", "Juventud del Norte","Atlético Moderno", "Los Pioneros", "Real Metropolitano", "Estrella Joven","Deportivo Victoria", "Unión San Pedro", "Club del Sol", "Atlético Bravo"]
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=funmod.cargar_listas_de_canchas()
     listasponsorszona,listasponsors,disponibilidad,listadisponibilidad,listanombresponsor=[1,2,3,4,5,6],["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],[0 for i in range(6)],["disponible","no disponible"],[0 for i in range(6)]
     recaudaciondiezporciento=0
@@ -26,7 +29,7 @@ def main():
             """si coincide con un numbre de usuario existente hay que poner que revise y todo lo de la contraseña"""
             conteo10=0
             while True:
-            
+                reinicio=False
                 try:
                     contra=int(input("ingrese su contraseña(5 digitos)"))
                 except ValueError as mensaje9:
@@ -34,12 +37,18 @@ def main():
                     continue
                 if contra!=0:#no coincide con el archivo, separar administrador y usuario
                     conteo10+=1
-                    print("contraseña incorrecta, intentos:2", conteo10)
-                    if conteo10>=3:
-                        raise DemasiadosIntentosError("Se intento demasiadas veces ingresar con una contraseña incorrecta")    
+                    print("contraseña incorrecta, intentos:", conteo10)
+                    try:
+                        if conteo10>=3:
+                            raise DemasiadosIntentosError("Se intento demasiadas veces ingresar con una contraseña incorrecta")    
+                    except DemasiadosIntentosError as saje:
+                        print(saje)
+                        break
                 else:
+                    reinicio=True
                     break
-        break
+        if reinicio:
+            break
 
     while True:
         print("OPCIONES: ")
@@ -50,7 +59,7 @@ def main():
         print("# -1 = finalizar programa")
         try:
             herramienta=int(input("Ingrese el numero segun lo que desee: "))
-            while herramienta not in[-1,1,2,3,4,8,11]:
+            while herramienta not in[-1,1,2,3,4,8,9,11]:
                 print("Error, el numero ingresado no se encuntra en lo indicado")
                 herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
         except ValueError as msg:
@@ -303,10 +312,55 @@ def main():
 
 
         elif herramienta==9:#rellenar liga, en total 20 equipos, 
-            continue
+            for i in range(len(listaequiposliga)):
+                if listaequiposliga[i]==0:
+                    """agarra de un archivo nombres aleatorios, por ahora agrego una lista"""
+                    listaequiposliga[i]=nombresaleatoriosequipos[random.randint(0,100)]
+            print("lista de equipos (20 cupos)")
+            for i in range(len(listaequiposliga)):
+                print(f"equipo:{i+1}\t{listaequiposliga[i]}")
+
+
         elif herramienta==10:#calcular los 38 partidos por equipo
-            print("hola")
             #doble bombo, es decir, se juega dos veces contra el mismo equipo (ida y vuelta). se finge el torneo para ver campeon
+            contador=0
+            for i in range(len(listaequiposliga)):
+                if listaequiposliga[i]==0:
+                    contador+=1
+            if contador>0:
+                print("faltan equipos")
+            else:
+                for x in range(len(listaequiposliga)-1):
+                    partidos=[]
+                    for i in range(len(listaequiposliga)//2):
+                        equipo1=listaequiposliga[i]
+                        equipo2=listaequiposliga[len(listaequiposliga)-1-i]
+                        fixtureida.append((equipo1,equipo2))
+                        listaequiposliga=listaequiposliga[:1]+listaequiposliga[-1:]+listaequiposliga[1:-1]
+                fixturevuelta=[[(b,a) for (a,b) in fecha] for fecha in fixtureida]
+                contadorfecha=1
+                print("Fixture de ida")
+                for ronda in fixtureida:
+                    print(f"partido:{contador}")
+                    for partidito in ronda:
+                        local=partidito[0]
+                        visitante=partidito[1]
+                        print(f"{local} vs {visitante}")
+                    contadorfecha+=1
+                contadorfechavuelta=1
+                print("Fixture de vuelta")
+                for rondavuelta in fixturevuelta:
+                    print(f"partido:{contador}")
+                    for partiditovuelta in rondavuelta:
+                        localvuelta=partiditovuelta[0]
+                        visitantevuelta=partiditovuelta[1]
+                        print(f"{localvuelta} vs {visitantevuelta}")
+                    contadorfechavuelta+=1
+
+
+
+
+        
         elif herramienta==11:#inscripcion sponsors
             salidita=False
             while True:
@@ -403,3 +457,4 @@ def main():
 
 if __name__=="__main__":
     main()
+
