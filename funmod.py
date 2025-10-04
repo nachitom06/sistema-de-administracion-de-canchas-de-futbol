@@ -1,9 +1,387 @@
+import random
+import listas
 def dar_bienvenida():
     """Objetivo: Dar la bienvenida"""
     saludo="-------------------- Bienvenido al sistema administrador --------------------"
     print(saludo)
+
+def hacer_sponsors(disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica):
+            print(f"\tsponsors\t\t\tdisponibilidad")
+            disponible=-1
+            for p in range(len(disponibilidad)):
+                if disponibilidad[p]==0:
+                    disponible=0
+                else:
+                    disponible=1
+                print(f"{listasponsorszona[p]}\t{listasponsors[p]}\t{listadisponibilidad[disponible]}")
+            while True:
+                try:
+                    eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
+                    while eleccion not in listasponsorszona:
+                        print("error fuera de rango")
+                        eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
+                            
+                    
+                except ValueError as mensaje14:
+                    print(mensaje14)
+                    continue
+                if disponibilidad[eleccion-1]==0:
+                    
+                    while True:
+                        salir=False
+                        salir3=False
+
+                        nombresponsor=input("ingrese el nombre del sponsor")
+                        print(nombresponsor)
+                        while True:
+                            try:
+                                confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
+                                while confirmar not in[0,1]:
+                                    print("error el numero ingresado no se encuentra en el rango")
+                                    confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
+                            except ValueError as mensaje15:
+                                print(mensaje15)
+                                continue
+                            if confirmar==0:
+                                disponibilidad[eleccion-1]=1
+                                listanombresponsor[eleccion-1]=nombresponsor
+                                guardo=sponsorcito["listasponsors"][eleccion-1]
+                                estadistica["sponsorsuso"][guardo]+=1
+                                listas.guardar_sponsors(sponsorcito)
+                                salir=True
+                                salir3=True
+                                break
+                                        
+                            else:
+                                break
+                        if salir:
+                            break
+                    if salir3:
+                        break
+                else:
+                    print("no se encuentra disponible")
+                    break
+            while True:
+                salir10=False
+                try:
+                    salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
+                except ValueError as mensaje12:
+                    print(mensaje12)
+                    continue
+                if salida==-1:
+                    salir10=True
+                    break
+                else:
+                    break
+            
+def recomendaciones(estadistica):
+    entrada=estadistica["entradasvendidas"]
+    max=0
+    maxsector=""
+    for sector in entrada:
+        if entrada[sector]>max:
+            max=entrada[sector]
+            maxsector=sector
+    print(f"debido a la cantidad vendida de entradas de {maxsector} con {max} entradas vendidas, se recomienda ampliar para tener mayores ingresos")
+    sponsorfe=estadistica["sponsorsuso"]
+    maxuso=0
+    maxusosponsor=""
+    for ronda in sponsorfe:
+        if sponsorfe[ronda]>maxuso:
+            maxuso=sponsorfe[ronda]
+            maxusosponsor=ronda
+    print(f"con el uso del sponsor en: {maxusosponsor} con un uso de {maxuso} se recomienda ampliar el espacio para colocar más sponsors en ese sector")
+    cualvende=estadistica["cualvendemas"]
+    maxvendidas=0
+    maxvendidascopa=""
+    for letercita in cualvende:
+        if cualvende[letercita]>maxvendidas:
+            maxvendidas=cualvende[letercita]
+            maxvendidascopa=letercita
+    print(f" vende más: {maxvendidascopa} con {maxvendidas} por lo tanto conviene hacer mas de esos")
+    reservamas=estadistica["cuál reserva"]
+    maxreserva=0
+    maxreservacancha=""
+    for cato in reservamas:
+        if reservamas[cato]>maxreserva:
+            maxreserva=reservamas[cato]
+            maxreservacancha=cato
+    print(f"recomendación contruir otra cancha de {maxreservacancha} para generar más ingresos, ya que fue la más reservada con: {maxreserva}")
+
+def cobrar_entradas(sector,cantidad,listaentradas,estadisticas):
+    if sector=="vip":
+        sector1=random.randint(8500,10000)
+    elif sector=="platea":
+        sector1=random.randint(3500,5000)
+    else:
+        sector1=random.randint(1500,3000)
+    total=sector1*cantidad
+    print("cantidad a pagar: ",total)
+    listaentradas.append(total)
+    estadisticas["entradasvendidas"][sector]+=cantidad
+
+def ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,fasegrupos):
+    for r in range(len(fasegrupos1aux)):
+        if len(fasegrupos1resultados[r])<2:
+            golcitos1=random.randint(0,15)
+            golcitos2=random.randint(0,15)
+            fasegrupos1resultados[r].append([golcitos1,golcitos2])
+            resultaditosgeneral[fasegrupos].append([golcitos1,golcitos2])
+            listas.guardar_torneo(resultaditosgeneral)
+
+def ingresar_manual_partidos(cuartosaux,cuartosresultados,resultaditosgeneral,cuartos):
+    for r in range(len(cuartosaux)):
+        if len(cuartosresultados[r])<2:
+            jugadorescuartos1=cuartosaux[r][0]
+            jugadorescuartos2=cuartosaux[r][1]
+            while True:
+                try:
+                    golescuartos1=int(input(f"Ingrese los goles de {jugadorescuartos1}: "))
+                    while golescuartos1<0:
+                        print("Error, no puede ser menor a 0")
+                        golescuartos1=int(input(f"Ingrese los goles de {jugadorescuartos1}: "))
+                    golescuartos2=int(input(f"Ingrese los goles de {jugadorescuartos2}: "))
+                    while golescuartos2<0:
+                        print("Error, no puede ser menor a 0")
+                        golescuartos2=int(input(f"Ingrese los goles de {jugadorescuartos2}: "))
+                except ValueError as mostra5:
+                    print(mostra5)
+                    continue
+                cuartosresultados[r].append([golescuartos1,golescuartos2])
+                resultaditosgeneral[cuartos].append([golescuartos1,golescuartos2])
+                listas.guardar_torneo(resultaditosgeneral)
+                print(f"Resultado: {jugadorescuartos1} : {golescuartos1} vs {golescuartos2} : {jugadorescuartos2}")
+                break
+        else:
+            print("Este partido ya tiene resultado")
+
+def calcular_partidos(fasegrupos1,fasegrupo1partidos):
+    for x in range(len(fasegrupos1)-1):            
+        for i in range(len(fasegrupos1)//2):
+            equipo1torneo=fasegrupos1[i]
+            equipo2torneo=fasegrupos1[len(fasegrupos1)-1-i]
+            fasegrupo1partidos.append([equipo1torneo,equipo2torneo])
+            fasegrupos1=fasegrupos1[:1]+fasegrupos1[-1:]+fasegrupos1[1:-1]
+
+def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,fixturevuelta,resultadosvuelta):
+    for r in range(len(fixtureida)):
+                if len(resultadosida[r])<2:
+                    jugador3=fixtureida[r][0]
+                    jugador4=fixtureida[r][1]
+                    jugado3=listaauxiliarliga.index(jugador3)
+                    jugado4=listaauxiliarliga.index(jugador4)
+
+                    while True:
+                        try:
+                            resta1=int(input("ingrese los goles del primer equipo"))
+                            while resta1<0:
+                                print("error, no puede ser menor a 0")
+                                resta1=int(input("ingrese los goles del primer equipo"))
+                            resta2=int(input("ingrese los goles del primer equipo"))
+                            while resta2<0:
+                                print("error, no puede ser menor a 0")
+                                resta2=int(input("ingrese los goles del primer equipo"))
+                        except ValueError as mensaje16:
+                            print(mensaje16)
+                            continue
+                        resultadosida[r].append([resta1,resta2])
+                        ligaderesultados["liga"].append([resta1,resta2])
+                        listas.guardar_liga(ligaderesultados)
+                        print(f"el resultado del partido de ida fue: {jugador3}{jugado3} vs {jugado4}{jugador4}")
+                        break
+                else:
+                    for t in range(len(fixturevuelta)):
+                        if len(resultadosvuelta[t])<2:
+                            jugador5=fixturevuelta[t][0]
+                            jugador6=fixtureida[t][1]
+                            jugado5=listaauxiliarliga.index(jugador5)
+                            jugado6=listaauxiliarliga.index(jugador6)
+
+                            while True:
+                                try:
+                                    resta3=int(input("ingrese los goles del primer equipo"))
+                                    while resta3<0:
+                                        print("error, no puede ser menor a 0")
+                                        Resta3=int(input("ingrese los goles del primer equipo"))
+                                    resta4=int(input("ingrese los goles del primer equipo"))
+                                    while resta4<0:
+                                        print("error, no puede ser menor a 0")
+                                        resta4=int(input("ingrese los goles del primer equipo"))
+                                except ValueError as mensaje17:
+                                    print(mensaje17)
+                                    continue
+                                resultadosvuelta[t].append([resta3,resta4])
+                                ligaderesultados["liga"].append([resta3,resta4])
+                                listas.guardar_liga(ligaderesultados)
+                                print(f"el resultado del partido de ida fue: {jugador5}{jugado5} vs {jugado6}{jugador6}")
+                                break
+                        else:
+                            print("los resultados ya están llenos")
+                            break
+def alquilar(sector,pedido,):
+    if sector in listas.ocupados:
+        print("sector totalmente ocupado")
+    if listas.entradas[sector]>=pedido:
+        listas.entradas[sector]-=pedido
+        if listas.entradas[sector]==0:
+            listas.ocupados.add(sector)
+    else:
+        print("no hay suficientes entradas")
+
+def mostrar_disponibles(datillo):
+    disponibles=listas.disponible-listas.ocupados
+    print("sectores disponibles: ",disponibles)
+    for p in datillo:
+        print(f"{p} : {datillo[p]} asientos libres")
+def alquilartorneo(sector,pedido,):
+    if sector in listas.ocupadostorneo:
+        print("sector totalmente ocupado")
+    if listas.entradastorneo[sector]>=pedido:
+        listas.entradastorneo[sector]-=pedido
+        if listas.entradastorneo[sector]==0:
+            listas.ocupadostorneo.add(sector)
+    else:
+        print("no hay suficientes entradas")
+
+def mostrar_disponiblestorneo():
+    disponibles=listas.disponibletorneo-listas.ocupadostorneo
+    print("sectores disponibles: ",disponibles)
+    for p in disponibles:
+        print(f"{p} : {disponibles[p]} asientos libres")
+
+
+def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2):
+    conteo20=0
+    print(stringer)
+    print(stringer2)
+    for i in range(len(listaequiposliga)):
+        print(f"equipo:{i+1}\t{listaequiposliga[i]}")
+    for c in range(len(listaequiposliga)):
+        if listaequiposliga[c]==0:
+            conteo20+=1
+    if conteo20!=0:
+                    
+        while True:
+            nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
+            while len(nombreequipo.strip())==0 or nombreequipo.isdigit():
+                print("error no ingreso nada o ingreso numeros")
+                nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
+            print("nombre del equipo:",nombreequipo)
+            while True:
+                try:
+                    confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
+                    while confirmacion not in[-1,0,1]:
+                        print("error, numero fuera de rango")
+                        confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
+                except ValueError as mensaje11:
+                    print(mensaje11)
+                    continue
+                if confirmacion==1:
+                    break
+                elif confirmacion==0:
+                    for v in range(len(listaequiposliga)):
+                        if listaequiposliga[v]==0:
+                            listaequiposliga[v]=nombreequipo
+                            listas.guardar_listaliga(listaequiposliga)
+                            print(f"equipo:{nombreequipo} inscripto correctamente")
+                            break
+                    break
+                            
+                else:
+                    break
+            while True:
+                salir2=False
+                try:
+                    salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
+                except ValueError as mensaje12:
+                    print(mensaje12)
+                    continue
+                if salida==-1:
+                    salir2=True
+                    break
+                            
+                else:
+                    break
+            if salir2:
+                break
+def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,nombrefase):
+    completos=0
+    for r in range(len(fasegrupos1aux)):
+        if len(fasegrupos1resultados[r])<2:
+            jugadores11=fasegrupos1aux[r][0]
+            jugadores12=fasegrupos1aux[r][1]
+            while True:
+                try:
+                    goles1=int(input(f"Ingrese los goles de {jugadores11}: "))
+                    while goles1<0:
+                        print("Error, no puede ser menor a 0")
+                        goles1=int(input(f"Ingrese los goles de {jugadores11}: "))
+                    goles2=int(input(f"Ingrese los goles de {jugadores12}: "))
+                    while goles2<0:
+                        print("Error, no puede ser menor a 0")
+                        goles2=int(input(f"Ingrese los goles de {jugadores12}: "))
+                except ValueError as mostra:
+                    print(mostra)
+                    continue
+                fasegrupos1resultados[r].append([goles1,goles2])
+                resultaditosgeneral[nombrefase].append([goles1,goles2])
+                listas.guardar_torneo(resultaditosgeneral)
+                print(f"Resultado: {jugadores11} : {goles1} vs {goles2} : {jugadores12} ")
+                break
+        else:
+            completos+=1
+    if completos==len(fasegrupos1aux):
+        print("Ya se jugaron todos los partidos de la zona 1")
+def resultados_aleatorios_fasegrupos(fasegrupos1resultados):
+    while len(fasegrupos1resultados)<12:
+                resu=[]
+                fase1eq1=random.randint(0,15)
+                fase1eq2=random.randint(0,15)
+                fasegrupos1resultados.append([fase1eq1,fase1eq2])
+
+def resultados_aleatorios_liga(resultadosida,ligaderesultados):
+    while len(resultadosida)<190:
+                resu=[]
+                eq1=random.randint(0,15)
+                eq2=random.randint(0,15)
+                resultadosida.append([eq1,eq2])
+                ligaderesultados["liga"].append([eq1,eq2])
+                listas.guardar_liga(ligaderesultados)
+                listas.guardar_resultadosidita(resultadosida)
+
+def calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol):
+    fixtureida=[partido for fecha in fixtureida for partido in fecha]
+    for l in range(len(fixtureida)):
+                jugador1=fixtureida[l][0]
+                jugador2=fixtureida[l][1]
+                jugado1=listaauxiliarliga.index(jugador1)
+                jugado2=listaauxiliarliga.index(jugador2)
+                partidosjugados[jugado1]+=1
+                partidosjugados[jugado2]+=1
+                if resultadosida[l][0]>resultadosida[l][1]:
+                    ganados[jugado1]+=1
+                    puntos[jugado1]+=3
+                    perdidos[jugado2]+=1
+                elif resultadosida[l][0]<resultadosida[l][1]:
+                    ganados[jugado2]+=1
+                    puntos[jugado2]+=3
+                    perdidos[jugado1]+=1
+                else:
+                    empatados[jugado1]+=1
+                    puntos[jugado1]+=1
+                    empatados[jugado2]+=1
+                    puntos[jugado2]+=1
+
+                golesfavor[jugado1]+=resultadosida[l][0]
+                golesfavor[jugado2]+=resultadosida[l][1]
+                golescontra[jugado1]+=resultadosida[l][1]
+                golescontra[jugado2]+=resultadosida[l][0]
+                diferenciagol[jugado1]+=resultadosida[l][0]-resultadosida[l][1]
+                diferenciagol[jugado2]+=resultadosida[l][1]-resultadosida[l][0]
+        
 def iniciar_matriz():
     """objetivo: inicia las matrices"""
+    
     matrizper=[[0 for _ in range(13)] for _ in range(3)]
     matriznombre=[[0 for _ in range(13)] for _ in range(3)]
     return matrizper,matriznombre
@@ -37,7 +415,7 @@ def guardar_precio_cantidad_horas(num1,num2,num3,horarioscomp):
         horarioingreso=int(input("Ingrese el horario de ingreso a la cancha, 1200 a 2400(de 100 en 100): "))
     clientela=input("Ingrese el nombre y apellido de la persona: ")
     while len(clientela.strip())==0 or clientela.isdigit():
-        print("Error el nombre que inngreso no es valido(digitos o vacio)")
+        print("Error el nombre que ingreso no es valido(digitos o vacio)")
         clientela=input("Igrese su nombre y apellido al cual reservara la cancha: ")
     return (precio,canthoras,cobrar,horarioingreso,clientela)
 def calcular_cantidad_a_pagar(a,b):
@@ -97,6 +475,12 @@ def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef
         raton=horariosdef.index(filadef)
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
+def reporte_torneo(recaudaciontorneo):
+    recaudetorneo=((1000000*16)//2)
+    recaudaciontorneo.append(recaudetorneo)
+def reporte_liga(recaudacionliga):
+    recaudeliga=((80000*20*38)//2)
+    recaudacionliga.append(recaudeliga)
 def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     """objetivo: calcula la cancha con mayor recaudo y el porcentaje de usos que tuvo"""
     maxi=max(listita)
@@ -134,3 +518,4 @@ def mayor_cliente(listacanthorarios,listahorarios):
     if conteo2>1:
         hay2=1
     return mayorclient,hay2,promedio,numcancha
+#por ahora viene bien, hay que probar las que dice en main copy.py
