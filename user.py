@@ -3,6 +3,15 @@ import random
 import funmod
 import csv
 def user():
+    disponible=listas.disponible
+    disponibletorneo=listas.disponibletorneo
+    ocupadas=listas.ocupadas
+    ocupadastorneo=listas.ocupadastorneo
+
+    fixtureida=listas.cargar_fixturevueltita()
+    fixturevuelta=listas.cargar_fixturevueltita()
+    resultadosida=listas.cargar_resultadosidita()
+    resultadosvuelta=listas.cargar_resultadosvueltita()
     stringer="bienvenido a inscripcion en el Torneo Nacional"
     stringer2="lista de equipos (16 cupos)"
     stringer3="bienvenido a inscripcion en la Super Liga Nacional"
@@ -19,9 +28,9 @@ def user():
     listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=listas.listcanchas,listas.listhorarios,listas.listformpago,listas.listrecaudacioncanchas,listas.listrecaudacionhorarios,listas.listrecaudacionformpago,listas.listcantcanchas,listas.listcanthorarios,listas.listcantformpago,listas.listaclientes,listas.listadiezporciento
     nombredelaliga=listas.todo["nombredelaliga"]
     nombredeltorneo=listas.todo["nombredeltorneo"]
-    listaequiposliga=listas.todo["listaequiposliga"]
-    listaauxiliarliga=listas.todo["listaauxiliarliga"]
-    listaequipostorneo=listas.todo["listaequipostorneo"]
+    listaequiposliga=listas.listaequiposliga
+    listaauxiliarliga=listas.listaequiposliga
+    listaequipostorneo=listas.listaequipostorneo
     cuartosresultados=listas.todo["cuartosresultados"]
     ganadorescuartos=listas.todo["ganadorescuartos"]
     ganadoressemis=listas.todo["ganadoressemis"]
@@ -49,8 +58,7 @@ def user():
     contadorpartidosfase2=listas.todo["contadorpartidosfase2"]
     contadorpartidosfase3=listas.todo["contadorpartidosfase3"]
     contadorpartidosfase4=listas.todo["contadorpartidosfase4"]
-    fixtureida=listas.todo["fixtureida"]
-    fixturevuelta=listas.todo["fixturevuelta"]
+    
     recaudacionesliga=listas.todo["recaudacionesliga"]
     recaudacionestorneo=listas.todo["recaudacionestorne"]
     puntosequipos=listas.todo["puntosequipos"]
@@ -95,8 +103,7 @@ def user():
     golescontrafase4=listas.todo["golescontrafase4"]
     diferenciagolfase4=listas.todo["diferenciagolfase4"]
     contadorpartidosida=listas.todo["contadorpartidosida"]
-    resultadosida=listas.todo["resultadosida"]
-    resultadosvuelta=listas.todo["resultadosvuelta"]
+    
     contadorpartidosvuelta=listas.todo["contadorpartidosvuelta"]
     nombresaleatoriosequipos=listas.todo["nombresaleatoriosequipos"]
     listasponsorszona=listas.todo["listasponsorszona"]
@@ -121,7 +128,7 @@ def user():
         print("# -1 = finalizar programa")
         try:
             herramienta=int(input("Ingrese el numero segun lo que desee: "))
-            while herramienta not in[-1,1,2,3,4,5,6,7]:
+            while herramienta not in[-1,1,2,3,4,5,6,7,8,9]:
                 print("Error, el numero ingresado no se encuntra en lo indicado")
                 herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
         except ValueError as msg:
@@ -340,7 +347,7 @@ def user():
                 contadorfechavuelta+=1"""
             for partido in fixtureliga["fixture"]:
                 numero,local,visitante=partido
-                print(f"partido: {numero:-6}{local:15} vs {visitante:-15}")
+                print(f"partido: {numero:<6}{local:15} vs {visitante:<15}")
 
 
 
@@ -683,7 +690,7 @@ def user():
                             decercion="vip"
                         elif entraditas==2:
                             decercion="platea"
-                        elif entraditas==2:
+                        elif entraditas==3:
                             decercion="popular"
                         else:
                             break
@@ -691,10 +698,11 @@ def user():
                     except ValueError as mensajito:
                         print(mensajito)
                         continue
-                    funmod.mostrar_disponibles(entradas)
-                    funmod.alquilar(decercion,cantidad)
+                    funmod.mostrar_disponibles(entradas,disponible,ocupadas)
+                    funmod.alquilar(decercion,cantidad,ocupadas,entradas)
                     listas.guardar_entradas(entradas)
-                    estadistica["cualvendemas"]["entradasliga"]+=1
+                    funmod.mostrar_disponibles(entradas,disponible,ocupadas)
+                    estadistica["cualvendemas"]["entradasliga"]+=cantidad
                     listas.guardar_estadisticas(estadistica)
                     break
                 elif numero==2:
@@ -708,7 +716,7 @@ def user():
                             decercion="vip"
                         elif entraditas==2:
                             decercion="platea"
-                        elif entraditas==2:
+                        elif entraditas==3:
                             decercion="popular"
                         else:
                             break
@@ -716,10 +724,11 @@ def user():
                     except ValueError as mensajito:
                         print(mensajito)
                         continue
-                    funmod.mostrar_disponiblestorneo(entradastorneo)
-                    funmod.alquilartorneo(decercion,cantidad,estadistica)
+                    funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
+                    funmod.alquilartorneo(decercion,cantidad,ocupadastorneo,entradastorneo)
                     listas.guardar_entradastorneo(entradastorneo)
-                    estadistica["cualvendemas"]["entradastorneo"]+=1
+                    funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
+                    estadistica["cualvendemas"]["entradastorneo"]+=cantidad
                     listas.guardar_estadisticas(estadistica)
                     break
                 else:
@@ -741,4 +750,5 @@ def user():
                 print()
             print()
             break
-#este hay que probar todo, es mas o menos como el de admin pero con menos, pero hay que probar todas las posibilidades de herramientas.
+
+#funciona todo, podriamos revisarlo de vuelta antes de entregarlo.
