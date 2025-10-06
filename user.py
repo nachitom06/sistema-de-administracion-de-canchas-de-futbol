@@ -751,4 +751,4 @@ def user():
             print()
             break
 
-#funciona todo, podriamos revisarlo de vuelta antes de entregarlo.
+#funciona todo, podriamos revisarlo de vuelta antes de entregarlo. tambien se podria borrar el exceso
