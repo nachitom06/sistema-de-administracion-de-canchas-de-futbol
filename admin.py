@@ -390,7 +390,7 @@ def admin():
                 
                 for ronda in fixturecompletito:
                     for local,bebe in ronda:
-                        fixturecompleto["fixture"].append([contadorfechaaux,local,bebe])
+                        fixturecompleto["fixture"].append([local,bebe])
                         contadorfechaaux+=1
                 listas.guardar_partidosdeliga(fixturecompleto)
                         
@@ -595,9 +595,9 @@ def admin():
             print(fixturevuelta)
             print(resultadosida)
             print(resultadosvuelta)
-            funmod.calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol)
-            funmod.calcular_tabla(fixturevuelta,listaauxiliarliga,partidosjugados,resultadosvuelta,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol)
-            
+            funmod.calcular_tabla(fixturecompleto["fixture"],listaauxiliarliga,partidosjugados,ligaderesultados["liga"],ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol)
+            """funmod.calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol)
+            funmod.calcular_tabla(fixturevuelta,listaauxiliarliga,partidosjugados,resultadosvuelta,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol)"""
 
             liga=list(zip(listaauxiliarliga,partidosjugados,ganados,perdidos,empatados,puntos,golesfavor,golescontra,diferenciagol))
             liga.sort(key=lambda x:x[5],reverse=True)
