@@ -1448,5 +1448,5 @@ def main():
 if __name__=="__main__":
     main()
 #hay que revisar si funciona bien el 8(sacarle la opcion de sponsors torneo, dejar solo sponsors liga),falta revisar el 10 un poco 
-    #para ver si funciona del todo. falta revisar 11 en adelante para ver si hay que corregir cosas
-    #1,2,3,4,5,6,7,9 funcionan bien por el momento, para iniciarlo se pone primero 6, despues 7, despues 9 y despues 10
+    #para ver si funciona del todo. falta revisar 18 en adelante para ver si hay que corregir cosas
+    #1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17 funcionan bien por el momento, para iniciarlo se pone primero 6, despues 7, despues 9 y despues 10
