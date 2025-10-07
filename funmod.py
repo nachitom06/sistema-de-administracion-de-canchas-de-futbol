@@ -130,31 +130,32 @@ def ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditos
             listas.guardar_torneo(resultaditosgeneral)
 
 def ingresar_manual_partidos(cuartosaux,cuartosresultados,resultaditosgeneral,cuartos):
-    for r in range(len(cuartosaux)):
-        if len(cuartosresultados[r])<2:
-            jugadorescuartos1=cuartosaux[r][0]
-            jugadorescuartos2=cuartosaux[r][1]
-            while True:
-                try:
-                    golescuartos1=int(input(f"Ingrese los goles de {jugadorescuartos1}: "))
-                    while golescuartos1<0:
-                        print("Error, no puede ser menor a 0")
-                        golescuartos1=int(input(f"Ingrese los goles de {jugadorescuartos1}: "))
-                    golescuartos2=int(input(f"Ingrese los goles de {jugadorescuartos2}: "))
-                    while golescuartos2<0:
-                        print("Error, no puede ser menor a 0")
-                        golescuartos2=int(input(f"Ingrese los goles de {jugadorescuartos2}: "))
-                except ValueError as mostra5:
-                    print(mostra5)
-                    continue
-                cuartosresultados[r].append([golescuartos1,golescuartos2])
-                resultaditosgeneral[cuartos].append([golescuartos1,golescuartos2])
-                listas.guardar_torneo(resultaditosgeneral)
-                print(f"Resultado: {jugadorescuartos1} : {golescuartos1} vs {golescuartos2} : {jugadorescuartos2}")
-                break
-        else:
-            print("Este partido ya tiene resultado")
-
+    
+                for r in range(len(cuartosaux)):
+                
+                    jugadorescuartos1=cuartosaux[r][0]
+                    jugadorescuartos2=cuartosaux[r][1]
+                    if r<len(resultaditosgeneral[cuartos]) and len(resultaditosgeneral[cuartos][r])==2:
+                        print(f"El partido {jugadorescuartos1} vs {jugadorescuartos2} ya tiene resultado")
+                        continue
+                    while True:
+                        try:
+                            golescuartos1=int(input(f"Ingrese los goles de {jugadorescuartos1}: "))
+                            while golescuartos1<0:
+                                print("Error, no puede ser menor a 0")
+                                golescuartos1=int(input(f"Ingrese los goles de {jugadorescuartos1}: "))
+                            golescuartos2=int(input(f"Ingrese los goles de {jugadorescuartos2}: "))
+                            while golescuartos2<0:
+                                print("Error, no puede ser menor a 0")
+                                golescuartos2=int(input(f"Ingrese los goles de {jugadorescuartos2}: "))
+                        except ValueError as mostra5:
+                            print(mostra5)
+                            continue
+                        resultaditosgeneral[cuartos].append([golescuartos1,golescuartos2])
+                        listas.guardar_torneo(resultaditosgeneral)
+                        print(f"Resultado: {jugadorescuartos1} : {golescuartos1} vs {golescuartos2} : {jugadorescuartos2}")
+                        break
+            
 def calcular_partidos(fasegrupos1,fasegrupo1partidos):
     for x in range(len(fasegrupos1)-1):            
         for i in range(len(fasegrupos1)//2):
@@ -165,7 +166,7 @@ def calcular_partidos(fasegrupos1,fasegrupo1partidos):
 
 def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,fixturevuelta,resultadosvuelta):
     for r in range(len(fixtureida)):
-                if len(resultadosida[r])<2:
+                if len(resultadosida["resultadosidita"][r])<2:
                     jugador3=fixtureida[r][0]
                     jugador4=fixtureida[r][1]
                     jugado3=listaauxiliarliga.index(jugador3)
@@ -191,7 +192,7 @@ def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,
                         break
                 else:
                     for t in range(len(fixturevuelta)):
-                        if len(resultadosvuelta[t])<2:
+                        if len(resultadosvuelta["resultadosvueltita"][t])<2:
                             jugador5=fixturevuelta[t][0]
                             jugador6=fixtureida[t][1]
                             jugado5=listaauxiliarliga.index(jugador5)
@@ -218,39 +219,39 @@ def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,
                         else:
                             print("los resultados ya están llenos")
                             break
-def alquilar(sector,pedido,):
-    if sector in listas.ocupados:
+def alquilar(sector,pedido,ocupadas,entradas):
+    if sector in ocupadas:
         print("sector totalmente ocupado")
-    if listas.entradas[sector]>=pedido:
-        listas.entradas[sector]-=pedido
-        if listas.entradas[sector]==0:
-            listas.ocupados.add(sector)
+    if entradas[sector]>=pedido:
+        entradas[sector]-=pedido
+        if entradas[sector]==0:
+            ocupadas.add(sector)
     else:
         print("no hay suficientes entradas")
 
-def mostrar_disponibles(datillo):
-    disponibles=listas.disponible-listas.ocupados
+def mostrar_disponibles(datillo,disponible,ocupadas):
+    disponibles=disponible-ocupadas
     print("sectores disponibles: ",disponibles)
     for p in datillo:
         print(f"{p} : {datillo[p]} asientos libres")
-def alquilartorneo(sector,pedido,):
-    if sector in listas.ocupadostorneo:
+def alquilartorneo(sector,pedido,ocupadastorneo,entradastorneo):
+    if sector in ocupadastorneo:
         print("sector totalmente ocupado")
-    if listas.entradastorneo[sector]>=pedido:
-        listas.entradastorneo[sector]-=pedido
-        if listas.entradastorneo[sector]==0:
-            listas.ocupadostorneo.add(sector)
+    if entradastorneo[sector]>=pedido:
+        entradastorneo[sector]-=pedido
+        if entradastorneo[sector]==0:
+            ocupadastorneo.add(sector)
     else:
         print("no hay suficientes entradas")
 
-def mostrar_disponiblestorneo():
-    disponibles=listas.disponibletorneo-listas.ocupadostorneo
+def mostrar_disponiblestorneo(datillo,disponibletorneo,ocupadastorneo):
+    disponibles=disponibletorneo-ocupadastorneo
     print("sectores disponibles: ",disponibles)
-    for p in disponibles:
-        print(f"{p} : {disponibles[p]} asientos libres")
+    for p in datillo:
+        print(f"{p} : {datillo[p]} asientos libres")
 
 
-def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2):
+def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listaliga):
     conteo20=0
     print(stringer)
     print(stringer2)
@@ -282,7 +283,7 @@ def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2):
                     for v in range(len(listaequiposliga)):
                         if listaequiposliga[v]==0:
                             listaequiposliga[v]=nombreequipo
-                            listas.guardar_listaliga(listaequiposliga)
+                            guardar_listaliga(listaequiposliga)
                             print(f"equipo:{nombreequipo} inscripto correctamente")
                             break
                     break
@@ -332,26 +333,28 @@ def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditos
             completos+=1
     if completos==len(fasegrupos1aux):
         print("Ya se jugaron todos los partidos de la zona 1")
-def resultados_aleatorios_fasegrupos(fasegrupos1resultados):
-    while len(fasegrupos1resultados)<12:
+def resultados_aleatorios_fasegrupos(fasegrupos1resultados,fixturetorneo):
+    while len(fasegrupos1resultados)<(len(fixturetorneo)):
                 resu=[]
                 fase1eq1=random.randint(0,15)
                 fase1eq2=random.randint(0,15)
                 fasegrupos1resultados.append([fase1eq1,fase1eq2])
 
-def resultados_aleatorios_liga(resultadosida,ligaderesultados):
-    while len(resultadosida)<190:
+def resultados_aleatorios_liga(resultadosida,ligaderesultados,biene,guardar_resultadosidita):
+    while len(resultadosida[biene])<190:
                 resu=[]
                 eq1=random.randint(0,15)
                 eq2=random.randint(0,15)
-                resultadosida.append([eq1,eq2])
+                resultadosida[biene].append([eq1,eq2])
                 ligaderesultados["liga"].append([eq1,eq2])
                 listas.guardar_liga(ligaderesultados)
-                listas.guardar_resultadosidita(resultadosida)
+                guardar_resultadosidita(resultadosida)
 
 def calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol):
-    fixtureida=[partido for fecha in fixtureida for partido in fecha]
-    for l in range(len(fixtureida)):
+    """fixtureida=[partido for fecha in fixtureida for partido in fecha]"""
+    print(len(fixtureida))
+    print(len(resultadosida))
+    for l in range(len(resultadosida)):
                 jugador1=fixtureida[l][0]
                 jugador2=fixtureida[l][1]
                 jugado1=listaauxiliarliga.index(jugador1)
@@ -360,17 +363,19 @@ def calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ga
                 partidosjugados[jugado2]+=1
                 if resultadosida[l][0]>resultadosida[l][1]:
                     ganados[jugado1]+=1
-                    puntos[jugado1]+=3
+                    """puntos[jugado1]+=3"""
                     perdidos[jugado2]+=1
+                    """puntos[jugado2]+=0"""
                 elif resultadosida[l][0]<resultadosida[l][1]:
                     ganados[jugado2]+=1
-                    puntos[jugado2]+=3
+                    """puntos[jugado2]+=3"""
                     perdidos[jugado1]+=1
-                else:
+                    """puntos[jugado1]+=0"""
+                elif resultadosida[l][0]==resultadosida[l][1]:
                     empatados[jugado1]+=1
-                    puntos[jugado1]+=1
+                    """puntos[jugado1]+=1"""
                     empatados[jugado2]+=1
-                    puntos[jugado2]+=1
+                    """puntos[jugado2]+=1"""
 
                 golesfavor[jugado1]+=resultadosida[l][0]
                 golesfavor[jugado2]+=resultadosida[l][1]
@@ -378,7 +383,8 @@ def calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ga
                 golescontra[jugado2]+=resultadosida[l][0]
                 diferenciagol[jugado1]+=resultadosida[l][0]-resultadosida[l][1]
                 diferenciagol[jugado2]+=resultadosida[l][1]-resultadosida[l][0]
-        
+    for i in range(len(listaauxiliarliga)):
+        puntos[i]=ganados[i]*3+empatados[i]
 def iniciar_matriz():
     """objetivo: inicia las matrices"""
     
@@ -518,4 +524,5 @@ def mayor_cliente(listacanthorarios,listahorarios):
     if conteo2>1:
         hay2=1
     return mayorclient,hay2,promedio,numcancha
+
 #por ahora viene bien, hay que probar las que dice en main copy.py
