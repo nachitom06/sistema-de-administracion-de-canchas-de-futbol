@@ -3,6 +3,8 @@ import json
 import pathlib
 todo={"matriztorneos":[[0 for _ in range(4)] for _ in range(12)],"nombredelaliga":"Super Liga Nacional","nombredeltorneo":"Torneo Nacional","cuartosresultados":[],"ganadorescuartos":[],"ganadoressemis":[],"semisresultados":[],"finalresultados":[],"ganadorfinal":[],"campeontorneo":[],"campeones":[],"fasegrupos1":[0 for _ in range(4)],"fasegrupos2":[0 for _ in range(4)],"fasegrupos3":[0 for _ in range(4)],"fasegrupos4":[0 for _ in range(4)],"fasegrupo1partidos":[],"fasegrupo2partidos":[],"fasegrupo3partidos":[],"fasegrupo4partidos":[],"cuartos":[],"semis":[],"final":[],"fasegrupos1resultados":[],"fasegrupos2resultados":[],"fasegrupos3resultados":[],"fasegrupos4resultados":[],"contadorpartidosfase1":[],"contadorpartidosfase2":[],"contadorpartidosfase3":[],"contadorpartidosfase4":[],"fixtureida":[],"recaudacionesliga":[],"recaudacionestorne":[],"fasegrupos1aux":[],"fasegrupos2aux":[],"fasegrupos3aux":[],"fasegrupos4aux":[],"cuartosaux":[],"semisaux":[],"finalaux":[],"fixturevuelta":[],"puntosequipos":[],"partidosjugados":[0 for _ in range(20)],"ganados":[0 for _ in range(20)],"empatados":[0 for _ in range(20)],"perdidos":[0 for _ in range(20)],"puntos":[0 for _ in range(20)],"golesfavor":[0 for _ in range(20)],"golescontra":[0 for _ in range(20)],"diferenciagol":[0 for _ in range(20)],"resultadosida":[],"partidosjugadosfase1":[0 for _ in range(20)],"ganadosfase1":[0 for _ in range(20)],"empatadosfase1":[0 for _ in range(20)],"perdidosfase1":[0 for _ in range(20)],"puntosfase1":[0 for _ in range(20)],"golesfavorfase1":[0 for _ in range(20)],"golescontrafase1":[0 for _ in range(20)],"diferenciagolfase1":[0 for _ in range(20)],"partidosjugadosfase2":[0 for _ in range(20)],"ganadosfase2":[0 for _ in range(20)],"empatadosfase2":[0 for _ in range(20)],"perdidosfase2":[0 for _ in range(20)],"puntosfase2":[0 for _ in range(20)],"golesfavorfase2":[0 for _ in range(20)],"golescontrafase2":[0 for _ in range(20)],"diferenciagolfase2":[0 for _ in range(20)],"partidosjugadosfase3":[0 for _ in range(20)],"ganadosfase3":[0 for _ in range(20)],"empatadosfase3":[0 for _ in range(20)],"perdidosfase3":[0 for _ in range(20)],"puntosfase3":[0 for _ in range(20)],"golesfavorfase3":[0 for _ in range(20)],"golescontrafase3":[0 for _ in range(20)],"diferenciagolfase3":[0 for _ in range(20)],"partidosjugadosfase4":[0 for _ in range(20)],"ganadosfase4":[0 for _ in range(20)],"empatadosfase4":[0 for _ in range(20)],"perdidosfase4":[0 for _ in range(20)],"puntosfase4":[0 for _ in range(20)],"golesfavorfase4":[0 for _ in range(20)],"golescontrafase4":[0 for _ in range(20)],"diferenciagolfase4":[0 for _ in range(20)],"contadorpartidosida":[i for i in range(1,191)],"resultadosvuelta":[],"contadorpartidosvuelta":[x for x in range(1,191)],"nombresaleatoriosequipos":["Atlético del Sur", "Club Deportivo Aurora", "Racing Federal", "Juventud Unida","Sportivo Central", "Unión del Norte", "Estrella Roja", "Los Dragones FC","San Martín Juniors", "Nueva Esperanza", "Club Social Libertad", "Huracán del Valle","Defensores de la Costa", "Talleres Unidos", "Los Guerreros", "Boca del Oeste","River Plateño", "Cruz Azul del Sur", "Leones Dorados", "Águilas Negras","Real Horizonte", "Deportivo América", "Universitario Central", "Club Atlético Nacional","Fuerza Joven", "Pumas de la Sierra", "Toros Salvajes", "Estudiantes del Sol","Nueva Generación", "Atlético Popular", "Club Independiente", "San Lorenzo Unido","Deportivo Patria", "Olimpia del Sur", "Cultural Esperanza", "Ciclón Rojo","Guaraní Unido", "Leones del Sur", "Academia del Fútbol", "Sport Boys","Los Gladiadores", "Unión Deportiva Estrella", "Villa Real FC", "Juventud Federal","Defensa y Justicia Social", "Atlético Horizonte", "Deportivo Norteño", "Tigre Blanco","Halcones Verdes", "Nueva Alianza", "San Carlos Juniors", "Atlético Centenario","Los Piratas FC", "Club Deportivo Cosmos", "Juventud Atlética", "Rayo del Sur","Los Titanes", "Sporting Club Federal", "Atlético Ciudadela", "Universitario Unido","Club Social Victoria", "Deportivo Unión", "Santa Fe Atlético", "Real Central","Club Atlético Esperanza", "Independencia FC", "Sportivo Olimpo", "Guerreros del Sol","Águilas Plateadas", "Los Delfines", "Atlético Mundial", "Nueva Roma FC","San José Unido", "Estrella Federal", "Juventud Patriota", "Huracán del Centro","Deportivo Internacional", "Granaderos FC", "Racing Unido", "Unión Deportiva Norte","Atlético Azul", "Fuerza Guerrera", "Los Lobos", "Club Estudiantes Unidos","Rivera FC", "Boca Sur", "Atlético Colonial", "Deportivo Horizonte","Club Nacional Popular", "Los Cóndores", "Sporting Nueva Era", "Juventud del Norte","Atlético Moderno", "Los Pioneros", "Real Metropolitano", "Estrella Joven","Deportivo Victoria", "Unión San Pedro", "Club del Sol", "Atlético Bravo"],"listasponsorszona":[1,2,3,4,5,6],"listasponsors":["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],"disponibilidad":[0 for i in range(6)],"listadisponibilidad":["disponible","no disponible"],"listanombresponsor":[0 for i in range(6)],"recaudaciondiezporciento":0,"disponibilidadtorneo":[0 for i in range(6)],"listanombresponsortorneo":[0 for i in range(6)]
     }
+ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol=[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)]
+
 archivo=pathlib.Path("reservas.json")
 def guardar_matirzpe(matrizpe):
     try:
@@ -207,7 +209,150 @@ def guardar_listaliga(lista10):
     except FileNotFoundError as men3:
         print(men3)
 listaequiposliga=cargar_listaliga()
+torneooficial=pathlib.Path("torneooficial.json")
+def cargar_torneooficial():
+    if not torneooficial.exists():
+        lista11=[]
+        guardar_torneooficial(lista11)
+        return lista11
+    else:
+        try:
+            with open(torneooficial,"r",encoding="utf-8") as bro2:
+                return json.load(bro2)
+        except IOError as men:
+            print(men)
+            lista11=[]
+            guardar_torneooficial(lista11)
+            return lista11
+        except PermissionError as men2:
+            print(men2)
+            lista11=[]
+            guardar_torneooficial(lista11)
+            return lista11
+        except FileNotFoundError as men3:
+            print(men3)
+            lista11=[]
+            guardar_torneooficial(lista11)
+            return lista11
 
+def guardar_torneooficial(lista11):
+    try:
+        with open(torneooficial,"w",encoding="utf-8") as listadeltorneo:
+            json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+torneooficial2=pathlib.Path("torneooficial2.json")
+def cargar_torneooficial2():
+    if not torneooficial2.exists():
+        lista11=[]
+        guardar_torneooficial2(lista11)
+        return lista11
+    else:
+        try:
+            with open(torneooficial2,"r",encoding="utf-8") as bro2:
+                return json.load(bro2)
+        except IOError as men:
+            print(men)
+            lista11=[]
+            guardar_torneooficial2(lista11)
+            return lista11
+        except PermissionError as men2:
+            print(men2)
+            lista11=[]
+            guardar_torneooficial2(lista11)
+            return lista11
+        except FileNotFoundError as men3:
+            print(men3)
+            lista11=[]
+            guardar_torneooficial2(lista11)
+            return lista11
+
+def guardar_torneooficial2(lista11):
+    try:
+        with open(torneooficial2,"w",encoding="utf-8") as listadeltorneo:
+            json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+torneooficial3=pathlib.Path("torneooficial3.json")
+def cargar_torneooficial3():
+    if not torneooficial3.exists():
+        lista11=[]
+        guardar_torneooficial3(lista11)
+        return lista11
+    else:
+        try:
+            with open(torneooficial3,"r",encoding="utf-8") as bro2:
+                return json.load(bro2)
+        except IOError as men:
+            print(men)
+            lista11=[]
+            guardar_torneooficial3(lista11)
+            return lista11
+        except PermissionError as men2:
+            print(men2)
+            lista11=[]
+            guardar_torneooficial3(lista11)
+            return lista11
+        except FileNotFoundError as men3:
+            print(men3)
+            lista11=[]
+            guardar_torneooficial3(lista11)
+            return lista11
+
+def guardar_torneooficial3(lista11):
+    try:
+        with open(torneooficial3,"w",encoding="utf-8") as listadeltorneo:
+            json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+torneooficial4=pathlib.Path("torneooficial4.json")
+def cargar_torneooficial4():
+    if not torneooficial4.exists():
+        lista11=[]
+        guardar_torneooficial4(lista11)
+        return lista11
+    else:
+        try:
+            with open(torneooficial4,"r",encoding="utf-8") as bro2:
+                return json.load(bro2)
+        except IOError as men:
+            print(men)
+            lista11=[]
+            guardar_torneooficial3(lista11)
+            return lista11
+        except PermissionError as men2:
+            print(men2)
+            lista11=[]
+            guardar_torneooficial4(lista11)
+            return lista11
+        except FileNotFoundError as men3:
+            print(men3)
+            lista11=[]
+            guardar_torneooficial4(lista11)
+            return lista11
+
+def guardar_torneooficial4(lista11):
+    try:
+        with open(torneooficial4,"w",encoding="utf-8") as listadeltorneo:
+            json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
 listatorneo=pathlib.Path("inscripciones_torneo.json")
 def cargar_listatorneo():
     if not listatorneo.exists():
@@ -702,4 +847,5 @@ def guardar_fixturevueltita(datos2):
         print(men2)
     except FileNotFoundError as men3:
         print(men3)
+        
 #esto esta bien, hay que acomodarlo nomas, pero cuando funcione todo
