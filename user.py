@@ -8,7 +8,7 @@ def user():
     ocupadas=listas.ocupadas
     ocupadastorneo=listas.ocupadastorneo
 
-    fixtureida=listas.cargar_fixturevueltita()
+    fixtureida=listas.cargar_fixtureidita()
     fixturevuelta=listas.cargar_fixturevueltita()
     resultadosida=listas.cargar_resultadosidita()
     resultadosvuelta=listas.cargar_resultadosvueltita()
@@ -269,7 +269,7 @@ def user():
 
         
         elif herramienta==3:#inscripcion liga, 
-            funmod.inscripciones_a_la_liga(listaequiposliga,stringer3,stringer4)
+            funmod.inscripciones_a_la_liga(listaequiposliga,stringer3,stringer4,listas.guardar_listaliga)
             """conteo20=0
             print("bienvenido a inscripcion en la Super Liga Nacional")
             print("lista de equipos (20 cupos)")
@@ -590,7 +590,7 @@ def user():
      
 
         elif herramienta==7:#inscripcion torneo, 
-            funmod.inscripciones_a_la_liga(listaequipostorneo,stringer,stringer2)
+            funmod.inscripciones_a_la_liga(listaequipostorneo,stringer,stringer2,listas.guardar_listatorneo)
             """conteo30=0
             print("bienvenido a inscripcion en el Torneo Nacional")
             print("lista de equipos (16 cupos)")
@@ -701,6 +701,7 @@ def user():
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     funmod.alquilar(decercion,cantidad,ocupadas,entradas)
                     listas.guardar_entradas(entradas)
+                    funmod.cobrar_entradas(decercion,cantidad,entradas,estadistica)
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     estadistica["cualvendemas"]["entradasliga"]+=cantidad
                     listas.guardar_estadisticas(estadistica)
@@ -727,6 +728,7 @@ def user():
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     funmod.alquilartorneo(decercion,cantidad,ocupadastorneo,entradastorneo)
                     listas.guardar_entradastorneo(entradastorneo)
+                    funmod.cobrar_entradas(decercion,cantidad,entradastorneo,estadistica)
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     estadistica["cualvendemas"]["entradastorneo"]+=cantidad
                     listas.guardar_estadisticas(estadistica)
@@ -751,4 +753,5 @@ def user():
             print()
             break
 
+#ya revise pero se podria revisar devuelta porque hice cambios en el admin
 #funciona todo, podriamos revisarlo de vuelta antes de entregarlo. tambien se podria borrar el exceso
