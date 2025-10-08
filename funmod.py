@@ -99,7 +99,7 @@ def recomendaciones(estadistica):
             maxvendidas=cualvende[letercita]
             maxvendidascopa=letercita
     print(f" vende más: {maxvendidascopa} con {maxvendidas} por lo tanto conviene hacer mas de esos")
-    reservamas=estadistica["cuál reserva"]
+    reservamas=estadistica["cualreserva"]
     maxreserva=0
     maxreservacancha=""
     for cato in reservamas:
@@ -108,7 +108,7 @@ def recomendaciones(estadistica):
             maxreservacancha=cato
     print(f"recomendación contruir otra cancha de {maxreservacancha} para generar más ingresos, ya que fue la más reservada con: {maxreserva}")
 
-def cobrar_entradas(sector,cantidad,listaentradas,estadisticas):
+def cobrar_entradas(sector,cantidad,listaentradas,estadisticas,pagoentradas):
     if sector=="vip":
         sector1=random.randint(8500,10000)
     elif sector=="platea":
@@ -117,15 +117,16 @@ def cobrar_entradas(sector,cantidad,listaentradas,estadisticas):
         sector1=random.randint(1500,3000)
     total=sector1*cantidad
     print("cantidad a pagar: ",total)
-    listaentradas.append(total)
+    pagoentradas.append(total)
     estadisticas["entradasvendidas"][sector]+=cantidad
 
+
 def ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,fasegrupos):
-    for r in range(len(fasegrupos1aux)):
-        if len(fasegrupos1resultados[r])<2:
+    while len(fasegrupos1resultados)<(len(fasegrupos1aux)):
+        
             golcitos1=random.randint(0,15)
             golcitos2=random.randint(0,15)
-            fasegrupos1resultados[r].append([golcitos1,golcitos2])
+            fasegrupos1resultados.append([golcitos1,golcitos2])
             resultaditosgeneral[fasegrupos].append([golcitos1,golcitos2])
             listas.guardar_torneo(resultaditosgeneral)
 
@@ -442,7 +443,7 @@ def cargar_listas_de_canchas():
     listaclientela=[]
     listadiezporciento=[]
     return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela,listadiezporciento
-def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento,preciocuidado):
+def reporte_metodo_pago(reportes,formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento,preciocuidado):
     """Objetivo: Actualiza el reporte de metodo de pago"""
     fp=input("Ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago: ")
     diezporcientoefe=0
@@ -453,40 +454,59 @@ def reporte_metodo_pago(formpagodef,recaudacionformpagodef,cantformpagodef,cobro
         recaudacionformpagodef[ran]+=(cobrodef*110//100)
         print(cobrodef*110//100,"es el importe a pagar con efectivo(10% mas)")
         cantformpagodef[ran]+=1
+        reportes["listrecaudacionformpago"][ran]+=(cobrodef*110//100)
+        reportes["listcantformpago"][ran]+=1
         diezporcientoefe=(cobrodef*110//100)-cobrodef
         listadediezporciento.append(diezporcientoefe)
         preciocuidado=(cobrodef*110//100)
+        reportes["listadiezporciento"].append(diezporcientoefe)
+        listas.guardar_reportes(reportes)
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
+        reportes["listrecaudacionformpago"][ranaux]+=cobrodef
+        reportes["listcantformpago"][ranaux]+=1
+    listas.guardar_reportes(reportes)
     return preciocuidado
-def reporte_canchas(canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
+def reporte_canchas(reportes,canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
     """objetivo: actualiza el reporte de canchas"""
     if numerocancha==5:
         rat=canchasdef.index(5)
         recaudacioncanchasdef[rat]+=cobrodef
         cantcanchasdef[rat]+=1
+        reportes["listrecaudacioncanchas"][rat]+=cobrodef
+        reportes["listcantcanchas"][rat]+=1
     elif numerocancha==8:
         rataux=canchasdef.index(8)
         recaudacioncanchasdef[rataux]+=cobrodef
         cantcanchasdef[rataux]+=1
+        reportes["listrecaudacioncanchas"][rataux]+=cobrodef
+        reportes["listcantcanchas"][rataux]+=1
     else:
         rataux2=canchasdef.index(11)
         recaudacioncanchasdef[rataux2]+=cobrodef
         cantcanchasdef[rataux2]+=1
-def reporte_horarios(horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef,filadef):
+        reportes["listrecaudacioncanchas"][rataux2]+=cobrodef
+        reportes["listcantcanchas"][rataux2]+=1
+    listas.guardar_reportes(reportes)
+def reporte_horarios(reportes,horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef,filadef):
     """objetivo: actualiza el reporte de horarios"""
     if filadef in horariosdef:
         raton=horariosdef.index(filadef)
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
-def reporte_torneo(recaudaciontorneo):
+        reportes["listrecaudacionhorarios"][raton]+=cobrodef
+        reportes["listcanthorarios"][raton]+=1
+        listas.guardar_reportes(reportes)
+def reporte_torneo(reportes,recaudaciontorneo):
     recaudetorneo=((1000000*16)//2)
-    recaudaciontorneo.append(recaudetorneo)
-def reporte_liga(recaudacionliga):
+    reportes["recaudacionestorneo"].append(recaudetorneo)
+    listas.guardar_reportes(reportes)
+def reporte_liga(reportes,recaudacionliga):
     recaudeliga=((80000*20*38)//2)
-    recaudacionliga.append(recaudeliga)
+    reportes["recaudacionesliga"].append(recaudeliga)
+    listas.guardar_reportes(reportes)   
 def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     """objetivo: calcula la cancha con mayor recaudo y el porcentaje de usos que tuvo"""
     maxi=max(listita)
@@ -524,5 +544,6 @@ def mayor_cliente(listacanthorarios,listahorarios):
     if conteo2>1:
         hay2=1
     return mayorclient,hay2,promedio,numcancha
+
 
 #por ahora viene bien, hay que probar las que dice en main copy.py
