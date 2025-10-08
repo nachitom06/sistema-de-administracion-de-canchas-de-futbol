@@ -111,7 +111,8 @@ def cargar_reportes():
         "listaclientes":[],
         "listadiezporciento":[],
         "recaudacionestorneo":[],
-        "recaudacionesliga":[]}
+        "recaudacionesliga":[],
+        "pagoentrada":[]}
         guardar_reportes(datos)
         return datos
     else:
@@ -132,7 +133,8 @@ def cargar_reportes():
             "listaclientes":[],
             "listadiezporciento":[],
             "recaudacionestorneo":[],
-            "recaudacionesliga":[]}
+            "recaudacionesliga":[],
+            "pagoentrada":[]}
             guardar_reportes(datos)
             return datos
         except PermissionError as men2:
@@ -149,7 +151,8 @@ def cargar_reportes():
             "listaclientes":[],
             "listadiezporciento":[],
             "recaudacionestorneo":[],
-            "recaudacionesliga":[]}
+            "recaudacionesliga":[],
+            "pagoentrada":[]}
             guardar_reportes(datos)
             return datos
         except FileNotFoundError as men3:
@@ -166,11 +169,12 @@ def cargar_reportes():
             "listaclientes":[],
             "listadiezporciento":[],
             "recaudacionestorneo":[],
-            "recaudacionesliga":[]}
+            "recaudacionesliga":[],
+            "pagoentrada":[]}
             guardar_reportes(datos)
             return datos
    
-listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento,recaudacionestorneo,recaudacionesliga=cargar_reportes()
+listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento,recaudacionestorneo,recaudacionesliga,pagoentrada=cargar_reportes()
 
 listaliga=pathlib.Path("inscripciones_liga.json")
 def cargar_listaliga():
@@ -847,5 +851,4 @@ def guardar_fixturevueltita(datos2):
         print(men2)
     except FileNotFoundError as men3:
         print(men3)
-        
 #esto esta bien, hay que acomodarlo nomas, pero cuando funcione todo
