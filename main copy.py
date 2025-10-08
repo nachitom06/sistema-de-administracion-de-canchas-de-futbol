@@ -97,9 +97,10 @@ def main():
             while nuevacontra.isalpha() or len(nuevacontra)!=6:
                 print("error, no tiene 6 digitos o no puso solo numeros")
                 nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos)").strip()
-            int(nuevacontra)
+            nuevacontra=int(nuevacontra)
             nitro[nuevousuario]={"contraseña":nuevacontra}
             listas.guardar_usuarios(comprobacionusuario,nitro)
+            usuarios=listas.cargar_usuarios(comprobacionusuario)
             print("usuario registrado con exito")
 
     if administrador==1:
@@ -1447,8 +1448,10 @@ def main():
 
 if __name__=="__main__":
     main()
+
 #hay que revisar si funciona bien el 8(sacarle la opcion de sponsors torneo, dejar solo sponsors liga),falta revisar el 10 un poco 
-    #para ver si funciona del todo. falta revisar 26 (son los mismos que 22,23,24,25 solo que aleatorios) en adelante para ver si hay que corregir cosas
-    #1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25 funcionan bien por el momento, para iniciarlo se pone primero 6, despues 7, despues 9 y despues 10
+    #para ver si funciona del todo. 
+    #1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 funcionan bien por el momento, para iniciarlo se pone primero 6, despues 7, despues 9 y despues 10
 #si no se tienen los archivos, para el torneo primero se rellena los equipos 14,calcular partidos 15,resultados aleatorios 16,tabla fase de grupos 17,
-#calcular cuartos 18,cuartos resultados 23,calcular semifinal 19,semifinal resultados 24,calcular final torneo 20,final resultados 25,campeon final torneo 21  
+#calcular cuartos 18,cuartos resultados 23,calcular semifinal 19,semifinal resultados 24,calcular final torneo 20,final resultados 25,campeon final torneo 21 
+#se puede revisar una vez mas antes de entregar
