@@ -4,6 +4,9 @@ import csv
 import funmod
 
 def admin():
+    
+    reportaje=listas.cargar_reportes()
+    pagoentrada=reportaje["pagoentrada"]
     disponible=listas.disponible
     disponibletorneo=listas.disponibletorneo
     ocupadas=listas.ocupadas
@@ -35,7 +38,7 @@ def admin():
     resultaditosgeneral=listas.cargar_torneo()
     matrizper,matriznombre=listas.matrizper,listas.matriznombre
     matriztorneos=listas.todo["matriztorneos"]
-    listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=listas.listcanchas,listas.listhorarios,listas.listformpago,listas.listrecaudacioncanchas,listas.listrecaudacionhorarios,listas.listrecaudacionformpago,listas.listcantcanchas,listas.listcanthorarios,listas.listcantformpago,listas.listaclientes,listas.listadiezporciento
+    listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=reportaje["listcanchas"],reportaje["listhorario"],reportaje["listformpago"],reportaje["listrecaudacioncanchas"],reportaje["listrecaudacionhorarios"],reportaje["listrecaudacionformpago"],reportaje["listcantcanchas"],reportaje["listcanthorarios"],reportaje["listcantformpago"],reportaje["listaclientes"],reportaje["listadiezporciento"]
     nombredelaliga=listas.todo["nombredelaliga"]
     nombredeltorneo=listas.todo["nombredeltorneo"]
     listaequiposliga=listas.listaequiposliga
@@ -73,8 +76,8 @@ def admin():
     contadorpartidosfase3=listas.todo["contadorpartidosfase3"]
     contadorpartidosfase4=listas.todo["contadorpartidosfase4"]
     
-    recaudacionesliga=listas.todo["recaudacionesliga"]
-    recaudacionestorneo=listas.recaudacionestorneo
+    recaudacionesliga=reportaje["recaudacionesliga"]
+    recaudacionestorneo=reportaje["recaudacionestorneo"]
     puntosequipos=listas.todo["puntosequipos"]
     partidosjugados=[0 for _ in range(20)]
     ganados=[0 for _ in range(20)]
@@ -173,7 +176,7 @@ def admin():
         print("# -1 = finalizar programa")
         try:
             herramienta=int(input("Ingrese el numero segun lo que desee: "))
-            while herramienta not in[-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29]:
+            while herramienta not in[-1,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]:
                 print("Error, el numero ingresado no se encuntra en lo indicado")
                 herramienta=int(input("Ingrese el numero segun lo que desee(1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa): "))
         except ValueError as msg:
@@ -317,10 +320,13 @@ def admin():
                 precios,horas,cancha,ingresohora,clientes=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000),listhorarios)
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 listaclientes.append(clientes)
+                reportaje["listaclientes"].append(clientes)
+                listas.guardar_reportes(reportaje)
                 print("cantidad a pagar: $",cobro)
-                cobrofinal=funmod.reporte_metodo_pago(listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento,cobro)
-                funmod.reporte_canchas(listcanchas,listrecaudacioncanchas,listcantcanchas,cobrofinal,cancha)
-                funmod.reporte_horarios(listhorarios,listrecaudacionhorarios,listcanthorarios,cobrofinal,ingresohora)
+                cobrofinal=funmod.reporte_metodo_pago(reportaje,listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento,cobro)
+                funmod.reporte_canchas(reportaje,listcanchas,listrecaudacioncanchas,listcantcanchas,cobrofinal,cancha)
+                funmod.reporte_horarios(reportaje,listhorarios,listrecaudacionhorarios,listcanthorarios,cobrofinal,ingresohora)
+                
                 while True:
                     try:
                         sigo2=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
@@ -361,7 +367,7 @@ def admin():
                 print(f"${recaudacionhorarios}\t\ta las {horarios} horas")
             print("la recaudacion de los torneos fue de: $",sum(recaudacionestorneo))
             print("la recaudacion de la liga fue de: $",sum(recaudacionesliga))
-            listas.guardar_reportes()
+            listas.guardar_reportes(reportaje)
         
         
         elif herramienta==5:#inscripcion liga, 
@@ -745,7 +751,7 @@ def admin():
                     print("Total recaudado por el torneo: $",1000000*16)
                     print("Ganancia total recaudado por el torneo: $",((1000000*16)//2))
                     print("Premio del campeón del torneo: $",((1000000*16)//2))
-                    funmod.reporte_torneo(recaudacionestorneo)
+                    funmod.reporte_torneo(reportaje,recaudacionestorneo)
                     break
 
                 else:
@@ -768,7 +774,7 @@ def admin():
                             print("Total recaudado por la liga: $",80000*20*38)
                             print("Ganancia total recaudado por la liga: $",((80000*20*38)//2))
                             print("Premio del campeón de liga: $",((80000*20*38)//2))
-                            funmod.reporte_liga(recaudacionesliga)
+                            funmod.reporte_liga(reportaje,recaudacionesliga)
                             salida10=True
                             break
                     if salida10:
@@ -1213,8 +1219,10 @@ def admin():
                 print(f"{fix[0]} {res[0][0]} vs {res[0][1]} {fix[1]}")
 
         elif herramienta==27:   #cuartos aleatorio
+            cuartos=fixturetorneo["fixturecuartos"]
             funmod.ingreso_aleatorio_partidos(cuartos,cuartosresultados,resultaditosgeneral,"cuartos")
-
+            cuartosresultados=resultaditosgeneral["cuartos"]
+            
             """for r in range(len(cuartosaux)):
                 if len(cuartosresultados[r])<2:
                     golcitoscuartos1=random.randint(0,15)
@@ -1226,11 +1234,12 @@ def admin():
             print("RESULTADOS CUARTOS DE FINAL")
             abiertocuartos=list(zip(cuartos,cuartosresultados))
             for fix,res in abiertocuartos:
-                print(f"{fix[0]} {res[0][0]} vs {res[0][1]} {fix[1]}")
+                print(f"{fix[0]} {res[0]} vs {res[1]} {fix[1]}")
 
         elif herramienta==28:   #semis aleatorio
-            funmod.ingreso_aleatorio_partidos(semisaux,semisresultados,resultaditosgeneral,"semis")
-
+            semis=fixturetorneo["fixturesemis"]
+            funmod.ingreso_aleatorio_partidos(semis,semisresultados,resultaditosgeneral,"semis")
+            semisresultados=resultaditosgeneral["semis"]
             """for r in range(len(semisaux)):
                 if len(semisresultados[r])<2:
                     golcitossemis1=random.randint(0,15)
@@ -1240,13 +1249,15 @@ def admin():
                     listas.guardar_torneo(resultaditosgeneral)"""
 
             print("RESULTADOS SEMIFINALES")
-            abiertosemis=list(zip(semisaux,semisresultados))
+            abiertosemis=list(zip(semis,semisresultados))
             for fix,res in abiertosemis:
-                print(f"{fix[0]} {res[0][0]} vs {res[0][1]} {fix[1]}")
+                print(f"{fix[0]} {res[0]} vs {res[1]} {fix[1]}")
 
         elif herramienta==29:   #final aleatorio
-            funmod.ingreso_aleatorio_partidos(finalaux,finalresultados,resultaditosgeneral,"final")
-
+            final=fixturetorneo["fixturefinal"]
+            funmod.ingreso_aleatorio_partidos(final,finalresultados,resultaditosgeneral,"final")
+            finalresultados=resultaditosgeneral["final"]
+            
             """for r in range(len(finalaux)):
                 if len(finalresultados[r])<2:
                     golcitosfinal1=random.randint(0,15)
@@ -1256,9 +1267,9 @@ def admin():
                     listas.guardar_torneo(resultaditosgeneral)"""
 
             print("RESULTADO FINAL")
-            abiertofinal=list(zip(finalaux,finalresultados))
+            abiertofinal=list(zip(final,finalresultados))
             for fix,res in abiertofinal:
-                print(f"{fix[0]} {res[0][0]} vs {res[0][1]} {fix[1]}")
+                print(f"{fix[0]} {res[0]} vs {res[1]} {fix[1]}")
 
         
 
@@ -1285,7 +1296,7 @@ def admin():
                             decercion="vip"
                         elif entraditas==2:
                             decercion="platea"
-                        elif entraditas==2:
+                        elif entraditas==3:
                             decercion="popular"
                         else:
                             break
@@ -1296,10 +1307,11 @@ def admin():
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     funmod.alquilar(decercion,cantidad,ocupadas,entradas)
                     listas.guardar_entradas(entradas)
-                    funmod.cobrar_entradas(decercion,cantidad,entradas,estadistica)
+                    funmod.cobrar_entradas(decercion,cantidad,entradas,estadistica,pagoentrada)
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     estadistica["cualvendemas"]["entradasliga"]+=cantidad
                     listas.guardar_estadisticas(estadistica)
+                    listas.guardar_reportes(reportaje)
                     break
                 elif numero==2:
                     try:
@@ -1323,10 +1335,11 @@ def admin():
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     funmod.alquilartorneo(decercion,cantidad,ocupadastorneo,entradastorneo)
                     listas.guardar_entradastorneo(entradastorneo)
-                    funmod.cobrar_entradas(decercion,cantidad,entradastorneo,estadistica)
+                    funmod.cobrar_entradas(decercion,cantidad,entradastorneo,estadistica,pagoentrada)
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     estadistica["cualvendemas"]["entradastorneo"]+=cantidad
                     listas.guardar_estadisticas(estadistica)
+                    listas.guardar_reportes(reportaje)
                     break
                 else:
                     break
@@ -1348,6 +1361,7 @@ def admin():
                 print()
             print()
             break
+
 
 
 
