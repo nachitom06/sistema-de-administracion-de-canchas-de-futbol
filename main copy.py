@@ -101,7 +101,7 @@ def main():
                 nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos)").strip()
             nuevacontra=int(nuevacontra)
             nitro[nuevousuario]=nuevacontra
-            listas.guardar_usuarios(comprobacionusuario,{nuevousuario:nuevacontra})
+            listas.guardar_usuarios(comprobacionusuario,nitro)
             usuarios=listas.cargar_usuarios(comprobacionusuario)
             print("usuario registrado con exito")
 
@@ -109,6 +109,9 @@ def main():
         admin.admin(usuario)
     else:
         user.user(usuario)
+
+
+
 
 
 
