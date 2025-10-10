@@ -1,13 +1,19 @@
 import listas
 import random
 import funmod
-import csv
-def user():
+import datetime
+def user(user):
+    reportaje=listas.cargar_reportes()
+    pagoentrada=reportaje["pagoentrada"]
+    tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = inscripción liga","# 4 = calcular partidos de liga (mostrarlos)","# 5 = inscripcion sponsors","# 6 = tabla de liga","# 7 = inscripción torneo","# 8 = ver torneo","# 9 = comprar entradas","# -1 = finalizar programa")
     disponible=listas.disponible
     disponibletorneo=listas.disponibletorneo
     ocupadas=listas.ocupadas
     ocupadastorneo=listas.ocupadastorneo
-
+    vendemas=listas.cargar_cualvendemas()
+    reservamas=listas.cargar_cualreserva()
+    usosponsors=listas.cargar_sponsorsuso()
+    entradasvendi=listas.cargar_entradasvendidas()
     fixtureida=listas.cargar_fixtureidita()
     fixturevuelta=listas.cargar_fixturevueltita()
     resultadosida=listas.cargar_resultadosidita()
@@ -134,7 +140,16 @@ def user():
         except ValueError as msg:
             print(msg)
             continue
-                
+        try:
+            herraaux=herramienta
+            if herraaux==-1:
+                funci=tuplasin[10]
+            else:
+                funci=tuplasin[herramienta-1]
+        except IndexError as msj:
+            print(msj)
+        tiempo=datetime.datetime.now()
+        listas.guardar_bitacora(user,funci,tiempo)  
         if herramienta==1:
             while True:
                 try:
@@ -175,7 +190,12 @@ def user():
                         listas.guardar_matirzpe(matrizper)
                         listas.guardar_matirznombr(matriznombre)
                         string=f"fut{cancha}"
-                        estadistica["cualreserva"][string]+=1
+                        if "cualreserva" in estadistica:
+                            if string in estadistica["cualreserva"]:
+                                estadistica["cualreserva"][string]+=1
+                        if string in reservamas:
+                            reservamas[string]+=1
+                        listas.guardar_cualreserva(reservamas)
                         listas.guardar_estadisticas(estadistica)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matrizper)):
@@ -240,7 +260,12 @@ def user():
                         listas.guardar_matirzpe(matrizper)
                         listas.guardar_matirznombr(matriznombre)
                         string2=f"fut{cancha2}"
-                        estadistica["cualreserva"][string2]-=1
+                        if "cualreserva" in estadistica:
+                            if string2 in estadistica["cualreserva"]:
+                                estadistica["cualreserva"][string2]-=1
+                        if string2 in reservamas:
+                            reservamas[string2]-=1
+                        listas.guardar_cualreserva(reservamas)
                         listas.guardar_estadisticas(estadistica)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matrizper)):
@@ -355,22 +380,11 @@ def user():
         elif herramienta==5:#inscripcion sponsors
             salidita=False
             while True:
-                try:
-                    sponsors=int(input("ingrese 0 si desea tener su sponsor en la Super Liga Nacional, o 1 si desea tener sponsor en el torneo nacional"))
-                    while sponsors not in[0,1]:
-                        print("error el numero ingresado no se encuentra en el rango")
-                        sponsors=int(input("ingrese 0 si desea tener su sponsor en la Super Liga Nacional, o 1 si desea tener sponsor en el torneo nacional"))
-                except ValueError as mensaje13:
-                    print(mensaje13)
-                    continue
-                if sponsors==0:
-                    eleccion=funmod.hacer_sponsors(disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica)
+                    eleccion=funmod.hacer_sponsors(usosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica)
+                    listas.guardar_sponsorsuso(usosponsors)
                     listas.guardar_estadisticas(estadistica)
                     break
-                elif sponsors==1:
-                    eleccion=funmod.hacer_sponsors(disponibilidadtorneo,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsortorneo,sponsorcito,estadistica)
-                    listas.guardar_estadisticas(estadistica)
-                    break
+                
             """salidita=False
             while True:
                 try:
@@ -569,9 +583,9 @@ def user():
             print(f"CAMPEON DE LA SUPER LIGA NACIONAL: \t {liga[0][0]} \t con un premio de $30400000")"""
             try:
                 with open("tabla_de_liga.csv","r",newline="",encoding="utf-8") as leercsv:
-                    leer=csv.reader(leercsv)
-                    for fila in leer:
-                        for celda in fila:
+                    for fila in leercsv:
+                        celdas=fila.strip().split(";")
+                        for celda in celdas:
                             print(celda,end="\t")
                         print()
             except IOError as men:
@@ -701,10 +715,16 @@ def user():
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     funmod.alquilar(decercion,cantidad,ocupadas,entradas)
                     listas.guardar_entradas(entradas)
-                    funmod.cobrar_entradas(decercion,cantidad,entradas,estadistica)
+                    funmod.cobrar_entradas(entradasvendi,decercion,cantidad,entradas,estadistica,pagoentrada)
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
-                    estadistica["cualvendemas"]["entradasliga"]+=cantidad
+                    if "cualvendemas" in estadistica:
+                        if "entradasliga" in estadistica["cualvendemas"]:
+                            estadistica["cualvendemas"]["entradasliga"]+=cantidad
+                    if "entradasliga" in vendemas:
+                        vendemas["entradasliga"]+=cantidad
+                    listas.guardar_cualvendemas(vendemas)
                     listas.guardar_estadisticas(estadistica)
+                    listas.guardar_entradasvendidas(entradasvendi)
                     break
                 elif numero==2:
                     try:
@@ -728,10 +748,16 @@ def user():
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     funmod.alquilartorneo(decercion,cantidad,ocupadastorneo,entradastorneo)
                     listas.guardar_entradastorneo(entradastorneo)
-                    funmod.cobrar_entradas(decercion,cantidad,entradastorneo,estadistica)
+                    funmod.cobrar_entradas(entradasvendi,decercion,cantidad,entradastorneo,estadistica,pagoentrada)
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
-                    estadistica["cualvendemas"]["entradastorneo"]+=cantidad
+                    if "cualvendemas" in estadistica:
+                        if "entradastorneo" in estadistica["cualvendemas"]:                    
+                            estadistica["cualvendemas"]["entradastorneo"]+=cantidad
+                    if "entradastorneo" in vendemas:
+                        vendemas["entradastorneo"]+=cantidad
+                    listas.guardar_cualvendemas(vendemas)
                     listas.guardar_estadisticas(estadistica)
+                    listas.guardar_entradasvendidas(entradasvendi)
                     break
                 else:
                     break
@@ -752,6 +778,7 @@ def user():
                 print()
             print()
             break
+
 
 #ya revise pero se podria revisar devuelta porque hice cambios en el admin
 #funciona todo, podriamos revisarlo de vuelta antes de entregarlo. tambien se podria borrar el exceso
