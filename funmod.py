@@ -5,7 +5,13 @@ def dar_bienvenida():
     saludo="-------------------- Bienvenido al sistema administrador --------------------"
     print(saludo)
 
-def hacer_sponsors(disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica):
+def calcular_cantidad_posiblesdecontraseñas(let,cc,cn):
+    if cn==0:
+        return let
+    let*=cc    
+    return calcular_cantidad_posiblesdecontraseñas(let,cc,cn-1)
+
+def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica):
             print(f"\tsponsors\t\t\tdisponibilidad")
             disponible=-1
             for p in range(len(disponibilidad)):
@@ -45,8 +51,13 @@ def hacer_sponsors(disponibilidad,listasponsorszona,listasponsors,listadisponibi
                             if confirmar==0:
                                 disponibilidad[eleccion-1]=1
                                 listanombresponsor[eleccion-1]=nombresponsor
-                                guardo=sponsorcito["listasponsors"][eleccion-1]
-                                estadistica["sponsorsuso"][guardo]+=1
+                                if "listasponsors" in sponsorcito:
+                                    guardo=sponsorcito["listasponsors"][eleccion-1]
+                                    if  "sponsorsuso" in estadistica:
+                                        if guardo in estadistica["sponsorsuso"]:
+                                            estadistica["sponsorsuso"][guardo]+=1
+                                if guardo in usitosponsors:
+                                    usitosponsors[guardo]+=1
                                 listas.guardar_sponsors(sponsorcito)
                                 salir=True
                                 salir3=True
@@ -108,7 +119,7 @@ def recomendaciones(estadistica):
             maxreservacancha=cato
     print(f"recomendación contruir otra cancha de {maxreservacancha} para generar más ingresos, ya que fue la más reservada con: {maxreserva}")
 
-def cobrar_entradas(sector,cantidad,listaentradas,estadisticas,pagoentradas):
+def cobrar_entradas(entradavendit,sector,cantidad,listaentradas,estadisticas,pagoentradas):
     if sector=="vip":
         sector1=random.randint(8500,10000)
     elif sector=="platea":
@@ -118,7 +129,12 @@ def cobrar_entradas(sector,cantidad,listaentradas,estadisticas,pagoentradas):
     total=sector1*cantidad
     print("cantidad a pagar: ",total)
     pagoentradas.append(total)
-    estadisticas["entradasvendidas"][sector]+=cantidad
+    if "entradasvendidas" in estadisticas:
+        if sector in estadisticas["entradasvendidas"]:            
+            estadisticas["entradasvendidas"][sector]+=cantidad
+    if sector in entradavendit:
+        entradavendit[sector]+=cantidad
+
 
 
 def ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,fasegrupos):
