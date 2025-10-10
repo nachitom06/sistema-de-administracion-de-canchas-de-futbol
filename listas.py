@@ -5,6 +5,175 @@ todo={"matriztorneos":[[0 for _ in range(4)] for _ in range(12)],"nombredelaliga
     }
 ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol=[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)]
 
+cualvendemas=pathlib.Path("cualvendemas.csv")
+def cargar_cualvendemas():
+    if not cualvendemas.exists():
+        with open(cualvendemas,"w",encoding="utf-8") as leto:
+            leto.write("entradasliga,0\n")
+            leto.write("entradastorneo,0\n")
+        
+        return {"entradasliga":0,"entradastorneo":0}
+    else:
+        dat={}
+        try:
+            with open(cualvendemas,"r",encoding="utf-8") as forreal:
+                for linea in forreal:
+                    clave,valor=linea.strip().split(",")
+                    dat[clave]=int(valor)
+            return dat
+        except IOError as msj:
+            print(msj)
+            return {}
+        except PermissionError as men2:
+            print(men2)
+            return {}
+        except FileNotFoundError as men3:
+            print(men3)
+            return {}
+
+
+def guardar_cualvendemas(dat):
+    try: 
+        with open(cualvendemas,"w",encoding="utf-8") as forreal:
+            for clave,valor in dat.items():
+                forreal.write(f"{clave},{valor}\n")
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+
+
+entradasvendidas=pathlib.Path("entradasvendidas.csv")
+def cargar_entradasvendidas():
+    if not entradasvendidas.exists():
+        with open(entradasvendidas,"w",encoding="utf-8") as ferreal:
+            ferreal.write("vip,0\n")
+            ferreal.write("platea,0\n")
+            ferreal.write("popular,0\n")
+        return {"vip":0,"platea":0,"popular":0}
+    else:
+        pet={}
+        try:
+            with open(entradasvendidas,"r",encoding="utf-8") as forreal:
+                for linea in forreal:
+                    clave,valor=linea.strip().split(",")
+                    pet[clave]=int(valor)
+            return pet
+
+        except IOError as msj:
+            print(msj)
+            return {}
+        except PermissionError as men2:
+            print(men2)
+            return {}
+        except FileNotFoundError as men3:
+            print(men3)
+            return {}
+
+def guardar_entradasvendidas(dat):
+    try: 
+        with open(entradasvendidas,"w",encoding="utf-8") as forreal:
+            for clave,valor in dat.items():
+                forreal.write(f"{clave},{valor}\n")
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+
+
+cualreserva=pathlib.Path("cualreserva.csv")
+def cargar_cualreserva():
+    if not cualreserva.exists():
+        with open(cualreserva,"w",encoding="utf-8") as forlit:
+            forlit.write("fut5,0\n")
+            forlit.write("fut8,0\n")
+            forlit.write("fut11,0\n")
+        return {"fut5":0,"fut8":0,"fut11":0}
+    else:
+        det={}
+        try:
+            with open(cualreserva,"r",encoding="utf-8") as ferlit:
+                for linea in ferlit:
+                    clave,valor=linea.strip().split(",")
+                    det[clave]=int(valor)
+            return det
+        except IOError as msj:
+            print(msj)
+            return {}
+        except PermissionError as men2:
+            print(men2)
+            return {}
+        except FileNotFoundError as men3:
+            print(men3)
+            return {}
+
+def guardar_cualreserva(dat):
+    try: 
+        with open(cualreserva,"w",encoding="utf-8") as forreal:
+            for clave,valor in dat.items():
+                forreal.write(f"{clave},{valor}\n")
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+
+sponsorsuso=pathlib.Path("sponsorsuso.csv")
+def cargar_sponsorsuso():
+    if not sponsorsuso.exists():
+        with open(sponsorsuso,"w",encoding="utf-8") as ferlot:
+            ferlot.write("entrada,0\n")
+            ferlot.write("arco izquiero,0\n")
+            ferlot.write("arco derecho,0\n")
+            ferlot.write("gradas lado izquierdo,0\n")
+            ferlot.write("gradas lado derecho,0\n")
+            ferlot.write("fachada de club,0\n")
+        return {"entrada":0,"arco izquiero":0,"arco derecho":0,"gradas lado izquierdo":0,"gradas lado derecho":0,"fachada de club":0}
+    else:
+        lette={}
+        try:
+            with open(sponsorsuso,"r",encoding="utf-8") as forreal:
+                for linea in forreal:
+                    clave,valor=linea.strip().split(",")
+                    lette[clave]=int(valor)
+            return lette
+        except IOError as msj:
+            print(msj)
+            return {}
+        except PermissionError as men2:
+            print(men2)
+            return {}
+        except FileNotFoundError as men3:
+            print(men3)
+            return {}
+
+def guardar_sponsorsuso(dat):
+    try: 
+        with open(sponsorsuso,"w",encoding="utf-8") as forreal:
+            for clave,valor in dat.items():
+                forreal.write(f"{clave},{valor}\n") 
+    except IOError as men:
+        print(men)
+    except PermissionError as men2:
+        print(men2)
+    except FileNotFoundError as men3:
+        print(men3)
+
+bitacora=pathlib.Path("bitacora.txt")
+def cargar_bitacora():
+    if not bitacora.exists():
+        bitacora.touch()
+
+def guardar_bitacora(user,nuevo,datadeltiempo):
+    with open(bitacora,"at",encoding="utf-8") as forreal3:
+        forreal3.write(f"{user},{nuevo},{datadeltiempo}")
+        forreal3.write("\n")
+
 archivo=pathlib.Path("reservas.json")
 def guardar_matirzpe(matrizpe):
     try:
@@ -395,27 +564,37 @@ def guardar_listatorneo(lista11):
         print(men3)
 listaequipostorneo=cargar_listatorneo()
 
-comprobacionusuario=pathlib.Path("archivoinicio.json")
-comprobacionadmin=pathlib.Path("admininicio.json")
+comprobacionusuario=pathlib.Path("archivoinicio.jtxt")
+comprobacionadmin=pathlib.Path("admininicio.txt")
 def cargar_usuarios(comprobacion):
+    usuarios={}
+    administra={"nachom06":140906}
     if not comprobacion.exists():
-        return {}
-    try:
-        with open(comprobacion,"r",encoding="utf-8") as dale0:
-            return json.load(dale0)
-    except IOError as men:
-        print(men)
-        return {}
-    except PermissionError as men2:
-        print(men2)
-        return {}
-    except FileNotFoundError as men3:
-        print(men3)
-        return {}
+        if comprobacion==pathlib.Path("admininicio.txt"):
+            return administra
+        else: 
+            return usuarios
+    else:
+        try:
+            with open(comprobacion,"r",encoding="utf-8") as dale0:
+                for linea in dale0:
+                    usuario,contraseña=linea.strip().split(":")
+                    usuarios[usuario]=int(contraseña)
+            return usuarios
+        except IOError as men:
+            print(men)
+            return usuarios
+        except PermissionError as men2:
+            print(men2)
+            return usuarios
+        except FileNotFoundError as men3:
+            print(men3)
+            return usuarios
 def guardar_usuarios(dale20,user):
     try:
-        with open(dale20,"w",encoding="utf-8") as lit:
-            json.dump(user,lit,ensure_ascii=False, indent=2)
+        with open(dale20,"at",encoding="utf-8") as lit:
+            for usuario,contraseña in user.items():  
+                lit.write(f"{usuario}:{contraseña}\n")
     except IOError as men:
         print(men)
     except PermissionError as men2:
