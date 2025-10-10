@@ -2,7 +2,7 @@ import funmod
 import user
 import admin
 import listas
-import csv
+
 import json
 import pathlib
 import random
@@ -10,8 +10,9 @@ def main():
     """Objetivo: Se introduce un número (1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"""
     funmod.dar_bienvenida()
     administrador=0
-    comprobacionusuario=pathlib.Path("archivoinicio.json")
-    comprobacionadmin=pathlib.Path("admininicio.json")
+    letek,cantidadcaracteres,cantidadcontra=1,10,6
+    comprobacionusuario=pathlib.Path("archivoinicio.txt")
+    comprobacionadmin=pathlib.Path("admininicio.txt")
     usuarios=listas.cargar_usuarios(comprobacionusuario)
     administradorclase=listas.cargar_usuarios(comprobacionadmin)
     class DemasiadosIntentosError(Exception):
@@ -41,7 +42,7 @@ def main():
                     except ValueError as mensaje9:
                         print(mensaje9)
                         continue
-                    if contra==usuarios[usuario]["contraseña"]:#no coincide con el archivo, separar administrador y usuario
+                    if contra==usuarios[usuario]:#no coincide con el archivo, separar administrador y usuario
                         print("bienvenido usuario")
                         administrador=0
                         reinicio=True
@@ -68,7 +69,7 @@ def main():
                     except ValueError as mensaje9:
                         print(mensaje9)
                         continue
-                    if contra==administradorclase[usuario]["contraseña"]:#no coincide con el archivo, separar administrador y usuario
+                    if contra==administradorclase[usuario]:#no coincide con el archivo, separar administrador y usuario
                         administrador=1
                         reinicio=True
                         break
@@ -93,20 +94,21 @@ def main():
             while nuevousuario in nitro:
                 print("el usuario ya existe")
                 nuevousuario=input("ingrese el nombre de usuario que desea: ").strip()
+            letek=funmod.calcular_cantidad_posiblesdecontraseñas(letek,cantidadcaracteres,cantidadcontra)
             nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos)").strip()
             while nuevacontra.isalpha() or len(nuevacontra)!=6:
                 print("error, no tiene 6 digitos o no puso solo numeros")
                 nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos)").strip()
             nuevacontra=int(nuevacontra)
-            nitro[nuevousuario]={"contraseña":nuevacontra}
-            listas.guardar_usuarios(comprobacionusuario,nitro)
+            nitro[nuevousuario]=nuevacontra
+            listas.guardar_usuarios(comprobacionusuario,{nuevousuario:nuevacontra})
             usuarios=listas.cargar_usuarios(comprobacionusuario)
             print("usuario registrado con exito")
 
     if administrador==1:
-        admin.admin()
+        admin.admin(usuario)
     else:
-        user.user()
+        user.user(usuario)
 
 
 
