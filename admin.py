@@ -1,10 +1,16 @@
 import listas
 import random
-import csv
+import pathlib
+import datetime
 import funmod
 
-def admin():
-    
+def admin(user):
+    comprobacionusuario=pathlib.Path("archivoinicio.txt")
+    tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = calcular cobro","# 4 = mostrar reportes","# 5 = inscripción liga","# 6 = rellenar liga (demostración)","# 7 = calcular partidos de liga","# 8 = inscripcion sponsors","# 9 = simular partidos resultados (demostración)","# 10 = tabla de liga","# 11 = poner resultados partidos liga","# 12 = cobro torneo o liga","# 13 = inscripcion torneo","# 14 = rellenar torneo (demostración)","# 15 = calcular los partidos del torneo","# 16 = resultados aleatorios fase de grupos (demostracion)","# 17 = tablas fase de grupos torneo","# 18 = calcular cuartos de final torneo","# 19 = calcular semifinal torneo","# 20 = calcular final torneo","# 21 = camepon final torneo","# 22 = fase de grupos resultados","# 23 = cuartos de final resultados","# 24 = semifinal resultados","# 25 = final resultados","# 26 = fase de grupos aleatoria resultados (demostración)","# 27 = cuartos de final aleatoria resultados (demostración)","# 28 = semifinal aleatoria resultados (demostración)","# 29 = final aleatoria resultados (demostración)","# 30 = comprar entradas","# 31 = proceso de archivos y recomendaciones en base a informes estadisticos","# 32 = dar de baja cuentas","# -1 = finalizar programa")
+    vendemas=listas.cargar_cualvendemas()
+    reservamas=listas.cargar_cualreserva()
+    usosponsors=listas.cargar_sponsorsuso()
+    entradasvendi=listas.cargar_entradasvendidas()
     reportaje=listas.cargar_reportes()
     pagoentrada=reportaje["pagoentrada"]
     disponible=listas.disponible
@@ -173,6 +179,7 @@ def admin():
         print("# 29 = final aleatoria resultados (demostración)")
         print("# 30 = comprar entradas")
         print("# 31 = proceso de archivos y recomendaciones en base a informes estadisticos")
+        print("# 32 = dar de baja una cuenta")
         print("# -1 = finalizar programa")
         try:
             herramienta=int(input("Ingrese el numero segun lo que desee: "))
@@ -182,7 +189,16 @@ def admin():
         except ValueError as msg:
             print(msg)
             continue
-                
+        try:
+            herraaux=herramienta
+            if herraaux==-1:
+                funci=tuplasin[33]
+            else:
+                funci=tuplasin[herramienta-1]
+        except IndexError as msj:
+            print(msj)
+        tiempo=datetime.datetime.now()
+        listas.guardar_bitacora(user,funci,tiempo)
         if herramienta==1:
             while True:
                 try:
@@ -223,7 +239,11 @@ def admin():
                         listas.guardar_matirzpe(matrizper)
                         listas.guardar_matirznombr(matriznombre)
                         string=f"fut{cancha}"
-                        estadistica["cualreserva"][string]+=1
+                        if "cualreserva" in estadistica:
+                            if string in estadistica["cualreserva"] and string in reservamas:
+                                estadistica["cualreserva"][string]+=1
+                                reservamas[string]+=1
+                        listas.guardar_cualreserva(reservamas)
                         listas.guardar_estadisticas(estadistica)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matrizper)):
@@ -288,7 +308,11 @@ def admin():
                         listas.guardar_matirzpe(matrizper)
                         listas.guardar_matirznombr(matriznombre)
                         string2=f"fut{cancha2}"
-                        estadistica["cualreserva"][string2]-=1
+                        if "cualreserva" in estadistica:
+                            if string2 in estadistica["cualreserva"] and string2 in reservamas:
+                                estadistica["cualreserva"][string2]-=1
+                                reservamas[string2]-=1
+                        listas.guardar_cualreserva(reservamas)
                         listas.guardar_estadisticas(estadistica)
                         print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                         for i in range(len(matrizper)):
@@ -320,7 +344,8 @@ def admin():
                 precios,horas,cancha,ingresohora,clientes=funmod.guardar_precio_cantidad_horas(random.randint(35000,45000),random.randint(65000,75000),random.randint(95000,105000),listhorarios)
                 cobro=funmod.calcular_cantidad_a_pagar(precios,horas)
                 listaclientes.append(clientes)
-                reportaje["listaclientes"].append(clientes)
+                if "listaclientes" in reportaje:
+                    reportaje["listaclientes"].append(clientes)
                 listas.guardar_reportes(reportaje)
                 print("cantidad a pagar: $",cobro)
                 cobrofinal=funmod.reporte_metodo_pago(reportaje,listformpago,listrecaudacionformpago,listcantformpago,cobro,listadiezporciento,cobro)
@@ -409,15 +434,18 @@ def admin():
                         equipo1=listaauxiliarcito[i]
                         equipo2=listaauxiliarcito[n-1-i]
                         partidos.append([equipo1,equipo2])
-                    fixtureida["fixtureidita"].append(partidos)
+                    if "fixtureidita" in fixtureida:
+                        fixtureida["fixtureidita"].append(partidos)
                     listaauxiliarcito=[listaauxiliarcito[0]]+[listaauxiliarcito[-1]]+listaauxiliarcito[1:-1]
-                for fecha in fixtureida["fixtureidita"]:
-                    partidotes=[[b,a] for [a,b] in fecha]
-                    fixturevuelta["fixturevueltita"].append(partidotes)
-                
+                if "fixtureidita" in fixtureida:
+                    for fecha in fixtureida["fixtureidita"]:
+                        partidotes=[[b,a] for [a,b] in fecha]
+                        fixturevuelta["fixturevueltita"].append(partidotes)
+                    
                 contadorfecha=1
                 contadorfechaaux=1
-                fixturecompletito=fixtureida["fixtureidita"]+fixturevuelta["fixturevueltita"]
+                if "fixtureidita" in fixtureida and "fixturevueltita" in fixturevuelta:
+                    fixturecompletito=fixtureida["fixtureidita"]+fixturevuelta["fixturevueltita"]
                 listas.guardar_fixtureidita(fixtureida)
                 listas.guardar_fixturevueltita(fixturevuelta)
 
@@ -425,8 +453,9 @@ def admin():
                 
                 for ronda in fixturecompletito:
                     for local,bebe in ronda:
-                        fixturecompleto["fixture"].append([local,bebe])
-                        contadorfechaaux+=1
+                        if "fixture" in fixturecompleto:
+                            fixturecompleto["fixture"].append([local,bebe])
+                            contadorfechaaux+=1
                 listas.guardar_partidosdeliga(fixturecompleto)
                           
 
@@ -455,22 +484,11 @@ def admin():
         elif herramienta==8:#inscripcion sponsors PUEDO HACER UNA FUNCION PORQUE ES EL SPONSORSLIGA Y SPONSORSTORNEO TIENEN LA MISMA MANERA DE INSCRIBIRSE
             salidita=False
             while True:
-                try:
-                    sponsors=int(input("ingrese 0 si desea tener su sponsor en la Super Liga Nacional, o 1 si desea tener sponsor en el torneo nacional"))
-                    while sponsors not in[0,1]:
-                        print("error el numero ingresado no se encuentra en el rango")
-                        sponsors=int(input("ingrese 0 si desea tener su sponsor en la Super Liga Nacional, o 1 si desea tener sponsor en el torneo nacional"))
-                except ValueError as mensaje13:
-                    print(mensaje13)
-                    continue
-                if sponsors==0:
-                    eleccion=funmod.hacer_sponsors(disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica)
+                    eleccion=funmod.hacer_sponsors(usosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica)
+                    listas.guardar_sponsorsuso(usosponsors)
                     listas.guardar_estadisticas(estadistica)
                     break
-                elif sponsors==1:
-                    eleccion=funmod.hacer_sponsors(disponibilidadtorneo,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsortorneo,sponsorcito,estadistica)
-                    listas.guardar_estadisticas(estadistica)
-                    break
+                
                 
 
             """salidita=False
@@ -661,11 +679,12 @@ def admin():
                 print(men3)
             try:
                 with open("tabla_de_liga.csv","a",newline="",encoding="utf-8") as guardarcsv:
-                    escribir=csv.writer(guardarcsv)
-                    escribir.writerow(["Equipos","Partidos jugados","Ganados","Empatados","Perdidos","Puntos","Goles a favor","Goles en contra","Diferencia de gol"])
+                    guardarcsv.write("Equipos"+","+"Partidos jugados"+","+"Ganados"+","+"Empatados"+","+"Perdidos"+","+"Puntos"+","+"Goles a favor"+","+"Goles en contra"+","+"Diferencia de gol"+"\n")
                     for fila in liga:
-                        escribir.writerow(fila)
-                    escribir.writerow([f"campeon: {liga[0][0]}"])
+                        for dato in fila:   
+                            guardarcsv.write(str(dato)+",")
+                        guardarcsv.write("\n")
+                    guardarcsv.write([f"campeon: {liga[0][0]}"]+"\n")
             except IOError as men4:
                 print(men4)
             except PermissionError as men5:
@@ -1307,15 +1326,21 @@ def admin():
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     funmod.alquilar(decercion,cantidad,ocupadas,entradas)
                     listas.guardar_entradas(entradas)
-                    funmod.cobrar_entradas(decercion,cantidad,entradas,estadistica,pagoentrada)
+                    funmod.cobrar_entradas(entradasvendi,decercion,cantidad,entradas,estadistica,pagoentrada)
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
-                    estadistica["cualvendemas"]["entradasliga"]+=cantidad
+                    if "cualvendemas" in estadistica:
+                        if "entradasliga" in estadistica["cualvendemas"]:
+                            estadistica["cualvendemas"]["entradasliga"]+=cantidad
+                    if "entradasliga" in vendemas:
+                        vendemas["entradasliga"]+=cantidad
+                    listas.guardar_entradasvendidas(entradasvendi)
+                    listas.guardar_cualvendemas(vendemas)
                     listas.guardar_estadisticas(estadistica)
                     listas.guardar_reportes(reportaje)
                     break
                 elif numero==2:
                     try:
-                        print(entradas)
+                        print(entradastorneo)
                         entraditas=int(input("ingrese 1 si desea alquilar vip, 2 para platea, 3 para popular o -1 para salir: "))
                         while entraditas not in[-1,1,2,3]:
                             print("error, el valor ingresado se encuentra fuera del rango")
@@ -1324,7 +1349,7 @@ def admin():
                             decercion="vip"
                         elif entraditas==2:
                             decercion="platea"
-                        elif entraditas==2:
+                        elif entraditas==3:
                             decercion="popular"
                         else:
                             break
@@ -1335,9 +1360,15 @@ def admin():
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     funmod.alquilartorneo(decercion,cantidad,ocupadastorneo,entradastorneo)
                     listas.guardar_entradastorneo(entradastorneo)
-                    funmod.cobrar_entradas(decercion,cantidad,entradastorneo,estadistica,pagoentrada)
+                    funmod.cobrar_entradas(entradasvendi,decercion,cantidad,entradastorneo,estadistica,pagoentrada)
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
-                    estadistica["cualvendemas"]["entradastorneo"]+=cantidad
+                    if "cualvendemas" in estadistica:
+                        if "entradastorneo" in estadistica["cualvendemas"]:
+                            estadistica["cualvendemas"]["entradastorneo"]+=cantidad
+                    if "entradastorneo" in vendemas:
+                        vendemas["entradastorneo"]+=cantidad
+                    listas.guardar_entradasvendidas(entradasvendi)
+                    listas.guardar_cualvendemas(vendemas)
                     listas.guardar_estadisticas(estadistica)
                     listas.guardar_reportes(reportaje)
                     break
@@ -1345,6 +1376,33 @@ def admin():
                     break
         elif herramienta==31:
             funmod.recomendaciones(estadistica)
+
+        elif herramienta==32:
+            salirdel=False
+            while True:
+                daraltacuenta=input("ingrese el usuario que desea dar de alta") 
+                while True:
+                    try:
+                        confir=int(input("ingrese 0 para confirmar, 1 para ingresar el nombre devuelta, -1 para salir"))
+                        while confir not in[-1,0,1]:
+                            print("error, valor ingresado fuera de rango")
+                            confir=int(input("ingrese 0 para confirmar, 1 para ingresar el nombre devuelta, -1 para salir"))
+                    except ValueError as msj:
+                        print(msj)
+                        continue
+                    if confir==0:
+                        nitro=listas.cargar_usuarios(comprobacionusuario)
+                        if daraltacuenta in nitro:
+                            del nitro[daraltacuenta]
+                        listas.guardar_usuarios(comprobacionusuario,nitro)
+                        break
+                    elif confir==1:
+                        break
+                    else:
+                        salirdel=True
+                        break
+                if salirdel:
+                    break
 
         else:
             print("-------------------- Finalización del Programa --------------------")
