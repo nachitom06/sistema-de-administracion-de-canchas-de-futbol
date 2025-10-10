@@ -403,7 +403,7 @@ def admin(user):
                 if listaequiposliga[i]==0:
                     while True:
                         """agarra de un archivo nombres aleatorios, por ahora agrego una lista"""
-                        randonum=nombresaleatoriosequipos[random.randint(0,99)]
+                        randonum=nombresaleatoriosequipos[random.randint(0,len(nombresaleatoriosequipos)-1)]
                         viril=listaequiposliga.count(randonum)
                         if viril==0:
                             listaequiposliga[i]=randonum
@@ -484,8 +484,7 @@ def admin(user):
         elif herramienta==8:#inscripcion sponsors PUEDO HACER UNA FUNCION PORQUE ES EL SPONSORSLIGA Y SPONSORSTORNEO TIENEN LA MISMA MANERA DE INSCRIBIRSE
             salidita=False
             while True:
-                    eleccion=funmod.hacer_sponsors(usosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica)
-                    listas.guardar_sponsorsuso(usosponsors)
+                    eleccion=funmod. listas.guardar_sponsorsuso(usosponsors)
                     listas.guardar_estadisticas(estadistica)
                     break
                 
@@ -812,9 +811,16 @@ def admin(user):
         elif herramienta==14:#rellenar torneo, en total 16 equipos, 
             for i in range(len(listaequipostorneo)):
                 if listaequipostorneo[i]==0:
-                    """agarra de un archivo nombres aleatorios, por ahora agrego una lista"""
-                    listaequipostorneo[i]=nombresaleatoriosequipos[random.randint(0,100)]
-                    listas.guardar_listatorneo(listaequipostorneo)
+                    while True:
+                        """agarra de un archivo nombres aleatorios, por ahora agrego una lista"""
+                        randonum=nombresaleatoriosequipos[random.randint(0,len(nombresaleatoriosequipos)-1)]
+                        viril=listaequiposliga.count(randonum)
+                        if viril==0:
+                            listaequiposliga[i]=randonum
+                            break
+                        else:
+                            continue
+            listas.guardar_listatorneo(listaequipostorneo)
             print("lista de equipos (16 cupos)")
             for i in range(len(listaequipostorneo)):
                 print(f"equipo:{i+1}\t{listaequipostorneo[i]}")
@@ -1419,6 +1425,7 @@ def admin(user):
                 print()
             print()
             break
+
 
 
 
