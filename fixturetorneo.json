@@ -1,0 +1,140 @@
+{
+  "fixturefasegrupos1": [
+    [
+      "Defensores de la Costa",
+      "Club Nacional Popular"
+    ],
+    [
+      "Club Nacional Popular",
+      "Boca Sur"
+    ],
+    [
+      "Defensores de la Costa",
+      "Boca Sur"
+    ],
+    [
+      "Boca Sur",
+      "Los Lobos"
+    ],
+    [
+      "Defensores de la Costa",
+      "Los Lobos"
+    ],
+    [
+      "Los Lobos",
+      "Club Nacional Popular"
+    ]
+  ],
+  "fixturefasegrupos2": [
+    [
+      "Unión Deportiva Norte",
+      "Los Guerreros"
+    ],
+    [
+      "Los Guerreros",
+      "Toros Salvajes"
+    ],
+    [
+      "Unión Deportiva Norte",
+      "Toros Salvajes"
+    ],
+    [
+      "Toros Salvajes",
+      "Juventud Unida"
+    ],
+    [
+      "Unión Deportiva Norte",
+      "Juventud Unida"
+    ],
+    [
+      "Juventud Unida",
+      "Los Guerreros"
+    ]
+  ],
+  "fixturefasegrupos3": [
+    [
+      "Atlético Azul",
+      "Deportivo Internacional"
+    ],
+    [
+      "Deportivo Internacional",
+      "Club Social Libertad"
+    ],
+    [
+      "Atlético Azul",
+      "Club Social Libertad"
+    ],
+    [
+      "Club Social Libertad",
+      "nachito fc"
+    ],
+    [
+      "Atlético Azul",
+      "nachito fc"
+    ],
+    [
+      "nachito fc",
+      "Deportivo Internacional"
+    ]
+  ],
+  "fixturefasegrupos4": [
+    [
+      "Pumas de la Sierra",
+      "Santa Fe Atlético"
+    ],
+    [
+      "Santa Fe Atlético",
+      "Deportivo Victoria"
+    ],
+    [
+      "Pumas de la Sierra",
+      "Deportivo Victoria"
+    ],
+    [
+      "Deportivo Victoria",
+      "Estrella Federal"
+    ],
+    [
+      "Pumas de la Sierra",
+      "Estrella Federal"
+    ],
+    [
+      "Estrella Federal",
+      "Santa Fe Atlético"
+    ]
+  ],
+  "fixturecuartos": [
+    [
+      "Club Nacional Popular",
+      "Deportivo Internacional"
+    ],
+    [
+      "Unión Deportiva Norte",
+      "Pumas de la Sierra"
+    ],
+    [
+      "Los Lobos",
+      "Club Social Libertad"
+    ],
+    [
+      "Juventud Unida",
+      "Deportivo Victoria"
+    ]
+  ],
+  "fixturesemis": [
+    [
+      "Club Nacional Popular",
+      "Club Social Libertad"
+    ],
+    [
+      "Unión Deportiva Norte",
+      "Juventud Unida"
+    ]
+  ],
+  "fixturefinal": [
+    [
+      "Club Nacional Popular",
+      "Juventud Unida"
+    ]
+  ]
+}
