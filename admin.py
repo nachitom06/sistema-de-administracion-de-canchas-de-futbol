@@ -3,10 +3,9 @@ import random
 import pathlib
 import datetime
 import funmod
-
 def admin(user):
     comprobacionusuario=pathlib.Path("archivoinicio.txt")
-    tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = calcular cobro","# 4 = mostrar reportes","# 5 = inscripción liga","# 6 = rellenar liga (demostración)","# 7 = calcular partidos de liga","# 8 = inscripcion sponsors","# 9 = simular partidos resultados (demostración)","# 10 = tabla de liga","# 11 = poner resultados partidos liga","# 12 = cobro torneo o liga","# 13 = inscripcion torneo","# 14 = rellenar torneo (demostración)","# 15 = calcular los partidos del torneo","# 16 = resultados aleatorios fase de grupos (demostracion)","# 17 = tablas fase de grupos torneo","# 18 = calcular cuartos de final torneo","# 19 = calcular semifinal torneo","# 20 = calcular final torneo","# 21 = camepon final torneo","# 22 = fase de grupos resultados","# 23 = cuartos de final resultados","# 24 = semifinal resultados","# 25 = final resultados","# 26 = fase de grupos aleatoria resultados (demostración)","# 27 = cuartos de final aleatoria resultados (demostración)","# 28 = semifinal aleatoria resultados (demostración)","# 29 = final aleatoria resultados (demostración)","# 30 = comprar entradas","# 31 = proceso de archivos y recomendaciones en base a informes estadisticos","# 32 = dar de baja cuentas","# -1 = finalizar programa")
+    tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = calcular cobro","# 4 = mostrar reportes","# 5 = inscripción liga","# 6 = rellenar liga (demostración)","# 7 = calcular partidos de liga","# 8 = inscripcion sponsors","# 9 = simular partidos resultados (demostración)","# 10 = tabla de liga","# 11 = poner resultados partidos liga","# 12 = cobro torneo o liga","# 13 = inscripcion torneo","# 14 = rellenar torneo (demostración)","# 15 = calcular los partidos del torneo","# 16 = resultados aleatorios fase de grupos (demostracion)","# 17 = tablas fase de grupos torneo","# 18 = calcular cuartos de final torneo","# 19 = calcular semifinal torneo","# 20 = calcular final torneo","# 21 = camepon final torneo","# 22 = fase de grupos resultados","# 23 = cuartos de final resultados","# 24 = semifinal resultados","# 25 = final resultados","# 26 = cuartos de final aleatoria resultados (demostración)","# 27 = semifinal aleatoria resultados (demostración)","# 28 = final aleatoria resultados (demostración)","# 29 = comprar entradas","# 30 = proceso de archivos y recomendaciones en base a informes estadisticos","# 31 = dar de baja cuentas","# -1 = finalizar programa")
     vendemas=listas.cargar_cualvendemas()
     reservamas=listas.cargar_cualreserva()
     usosponsors=listas.cargar_sponsorsuso()
@@ -173,13 +172,12 @@ def admin(user):
         print("# 23 = cuartos de final resultados")
         print("# 24 = semifinal resultados")
         print("# 25 = final resultados")
-        print("# 26 = fase de grupos aleatoria resultados (demostración)")
-        print("# 27 = cuartos de final aleatoria resultados (demostración)")
-        print("# 28 = semifinal aleatoria resultados (demostración)")
-        print("# 29 = final aleatoria resultados (demostración)")
-        print("# 30 = comprar entradas")
-        print("# 31 = proceso de archivos y recomendaciones en base a informes estadisticos")
-        print("# 32 = dar de baja una cuenta")
+        print("# 26 = cuartos de final aleatoria resultados (demostración)")
+        print("# 27 = semifinal aleatoria resultados (demostración)")
+        print("# 28 = final aleatoria resultados (demostración)")
+        print("# 29 = comprar entradas")
+        print("# 30 = proceso de archivos y recomendaciones en base a informes estadisticos")
+        print("# 31 = dar de baja una cuenta")
         print("# -1 = finalizar programa")
         try:
             herramienta=int(input("Ingrese el numero segun lo que desee: "))
@@ -192,7 +190,7 @@ def admin(user):
         try:
             herraaux=herramienta
             if herraaux==-1:
-                funci=tuplasin[33]
+                funci=tuplasin[len(tuplasin)-1]
             else:
                 funci=tuplasin[herramienta-1]
         except IndexError as msj:
@@ -200,6 +198,7 @@ def admin(user):
         tiempo=datetime.datetime.now()
         listas.guardar_bitacora(user,funci,tiempo)
         if herramienta==1:
+            salir10=False
             while True:
                 try:
                     fila=0
@@ -257,20 +256,26 @@ def admin(user):
                                 print("%-15s" %(matriznombre[i][j]),end=" ")
                             print()
                         print()
+                        break
                     else:
                         print("Ese horario ya esta ocupado")
-                    while True:
-                        try:
-                            señ=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
-                        except ValueError as mensaje2:
-                            print(mensaje2)
-                            continue
-                        if señ==-1:
-                            break
-                    break
-                break        
+                        break
+                while True:
+                    try:
+                        señ=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
+                    except ValueError as mensaje2:
+                        print(mensaje2)
+                        continue
+                    if señ==-1:
+                        salir10=True
+                        break
+                    else:
+                        break
+                if salir10:                    
+                    break        
                                 
         elif herramienta==2:
+            salir11=False
             while True:
                 try:
                     fila2=0
@@ -326,18 +331,23 @@ def admin(user):
                                 print("%-15s" %(matriznombre[i][j]),end=" ")
                             print()
                         print()
+                        break
                     else:
                         print("Ese horario no se encuentra alquilado")
-                    while True:
-                        try:
-                            señ2=int(input("Ingrese cualquier número entero si desea continuar o -1 para salir: "))
-                        except ValueError as mensaje5:
-                            print(mensaje5)
-                            continue
-                        if señ2==-1:
-                            break
-                    break
-                break
+                        break
+                while True:
+                    try:
+                        señ2=int(input("Ingrese cualquier número entero si desea continuar o -1 para salir: "))
+                    except ValueError as mensaje5:
+                        print(mensaje5)
+                        continue
+                    if señ2==-1:
+                        salir11=True
+                        break
+                    else:
+                        break
+                if salir11:                    
+                    break   
 
         elif herramienta==3:
             while True:
@@ -656,17 +666,21 @@ def admin(user):
             liga.sort(key=lambda x:x[5],reverse=True)
             print(nombredelaliga.center(180))
             print(f"{'Equipos':<20}{'Partidos jugados':<20}{'Ganados':<20}{'Perdidos':<20}{'Empatados':<20}{'Puntos':<20}{'Goles a favor':<20}{'Goles en contra':<20}{'Diferencia de gol':<20}")
-            for equipo,pj,g,e,p,pts,gf,gc,dg in liga:
-                print(f"{equipo:<20}{pj:<20}{g:<20}{e:<20}{p:<20}{pts:<20}{gf:<20}{gc:<20}{dg:<20}")
-            print(f"CAMPEON DE LA SUPER LIGA NACIONAL: \t {liga[0][0]} \t con un premio de $30400000")
-
+            try:
+                for equipo,pj,g,e,p,pts,gf,gc,dg in liga:
+                    print(f"{equipo:<20}{pj:<20}{g:<20}{e:<20}{p:<20}{pts:<20}{gf:<20}{gc:<20}{dg:<20}")
+                print(f"CAMPEON DE LA SUPER LIGA NACIONAL: \t {liga[0][0]} \t con un premio de $30400000")
+            except IndexError as men7:
+                print(men7)
             tablaliga=(nombredelaliga.center(180))+"\n"
             tablaliga+=(f"{'Equipos':<20}{'Partidos jugados':<20}{'Ganados':<20}{'Empatados':<20}{'Perdidos':<20}{'Puntos':<20}{'Goles a favor':<20}{'Goles en contra':<20}{'Diferencia de gol':<20}\n")
             
-            
-            for equipo,pj,g,e,p,pts,gf,gc,dg in liga:
-                tablaliga+=(f"{equipo:<20}{pj:<20}{g:<20}{e:<20}{p:<20}{pts:<20}{gf:<20}{gc:<20}{dg:<20}\n")
-            tablaliga+=(f"\nCAMPEON DE LA SUPER LIGA NACIONAL: \t {liga[0][0]} \t con un premio de $30400000\n")
+            try:
+                for equipo,pj,g,e,p,pts,gf,gc,dg in liga:
+                    tablaliga+=(f"{equipo:<20}{pj:<20}{g:<20}{e:<20}{p:<20}{pts:<20}{gf:<20}{gc:<20}{dg:<20}\n")
+                tablaliga+=(f"\nCAMPEON DE LA SUPER LIGA NACIONAL: \t {liga[0][0]} \t con un premio de $30400000\n")
+            except IndexError as men7:
+                print(men7)
             try:
                 with open("tabla_liga.txt","a",encoding="utf-8") as guardar:
                     guardar.write(tablaliga+"\n\n") 
@@ -683,13 +697,15 @@ def admin(user):
                         for dato in fila:   
                             guardarcsv.write(str(dato)+",")
                         guardarcsv.write("\n")
-                    guardarcsv.write([f"campeon: {liga[0][0]}"]+"\n")
+                    guardarcsv.write(f"campeon: {liga[0][0]}"+"\n")
             except IOError as men4:
                 print(men4)
             except PermissionError as men5:
                 print(men5)
             except FileNotFoundError as men6:
                 print(men6)
+            except IndexError as men7:
+                print(men7)
 #hay que subirlo a un archivo que va a contener las ligas tras años, premio = $30400000
 
 #hay que poner if Len(resultados[i])<2:
@@ -767,9 +783,10 @@ def admin(user):
                 if cobrito==1:
                     print("Cada equipo debe pagar $1000000 para la inscripcion al torneo")
                     print("Total recaudado por el torneo: $",1000000*16)
-                    print("Ganancia total recaudado por el torneo: $",((1000000*16)//2))
-                    print("Premio del campeón del torneo: $",((1000000*16)//2))
-                    funmod.reporte_torneo(reportaje,recaudacionestorneo)
+                    valor=funmod.ingresa_con_rango(0,100,"porcentaje de lo recaudado que va para el premio")
+                    print("Ganancia total recaudado por el torneo: $",(1000000*16)*(100-valor)//100)
+                    print("Premio del campeón del torneo: $",(1000000*16)*valor//100)
+                    funmod.reporte_torneo(reportaje,recaudacionestorneo,valor)
                     break
 
                 else:
@@ -790,9 +807,10 @@ def admin(user):
 
                         else:
                             print("Total recaudado por la liga: $",80000*20*38)
-                            print("Ganancia total recaudado por la liga: $",((80000*20*38)//2))
-                            print("Premio del campeón de liga: $",((80000*20*38)//2))
-                            funmod.reporte_liga(reportaje,recaudacionesliga)
+                            valor2=funmod.ingresa_con_rango(0,100,"porcentaje de lo recaudado que va para el premio")
+                            print("Ganancia total recaudado por la liga: $",((80000*20*38)*(100-valor2)//100))
+                            print("Premio del campeón de liga: $",((80000*20*38)*valor2//100))
+                            funmod.reporte_liga(reportaje,recaudacionesliga,valor2)
                             salida10=True
                             break
                     if salida10:
@@ -1189,14 +1207,14 @@ def admin(user):
             funmod.ingresar_manual_partidos(final,finalresultados,resultaditosgeneral,"final")
 
             
-        #PONERLO EN UNA FINCION FUNMOD
-        elif herramienta==26:   #fases de grupo aleatorias
+            #PONERLO EN UNA FINCION FUNMOD
+            """elif herramienta==26:   #fases de grupo aleatorias
             funmod.ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,"fasegrupos1")
             funmod.ingreso_aleatorio_partidos(fasegrupos2aux,fasegrupos2resultados,resultaditosgeneral,"fasegrupos2")
             funmod.ingreso_aleatorio_partidos(fasegrupos3aux,fasegrupos3resultados,resultaditosgeneral,"fasegrupos3")
             funmod.ingreso_aleatorio_partidos(fasegrupos4aux,fasegrupos4resultados,resultaditosgeneral,"fasegrupos4")
 
-            """for r in range(len(fasegrupos1aux)):
+            for r in range(len(fasegrupos1aux)):
                 if len(fasegrupos1resultados[r])<2:
                     golcitos1=random.randint(0,15)
                     golcitos2=random.randint(0,15)
@@ -1223,7 +1241,7 @@ def admin(user):
                     golcitos42=random.randint(0,15)
                     fasegrupos4resultados[r].append([golcitos41,golcitos42])
                     resultaditosgeneral["fasegrupos4"].append([golcitos41,golcitos42])
-                    listas.guardar_torneo(resultaditosgeneral)"""
+                    listas.guardar_torneo(resultaditosgeneral)
 
             print("RESULTADOS FASE DE GRUPOS")
             print("Zona 1:")
@@ -1241,9 +1259,9 @@ def admin(user):
             print("Zona 4:")
             abierto4=list(zip(fasegrupos4aux,fasegrupos4resultados))
             for fix,res in abierto4:
-                print(f"{fix[0]} {res[0][0]} vs {res[0][1]} {fix[1]}")
+                print(f"{fix[0]} {res[0][0]} vs {res[0][1]} {fix[1]}")"""
 
-        elif herramienta==27:   #cuartos aleatorio
+        elif herramienta==26:   #cuartos aleatorio
             cuartos=fixturetorneo["fixturecuartos"]
             funmod.ingreso_aleatorio_partidos(cuartos,cuartosresultados,resultaditosgeneral,"cuartos")
             cuartosresultados=resultaditosgeneral["cuartos"]
@@ -1261,7 +1279,7 @@ def admin(user):
             for fix,res in abiertocuartos:
                 print(f"{fix[0]} {res[0]} vs {res[1]} {fix[1]}")
 
-        elif herramienta==28:   #semis aleatorio
+        elif herramienta==27:   #semis aleatorio
             semis=fixturetorneo["fixturesemis"]
             funmod.ingreso_aleatorio_partidos(semis,semisresultados,resultaditosgeneral,"semis")
             semisresultados=resultaditosgeneral["semis"]
@@ -1278,7 +1296,7 @@ def admin(user):
             for fix,res in abiertosemis:
                 print(f"{fix[0]} {res[0]} vs {res[1]} {fix[1]}")
 
-        elif herramienta==29:   #final aleatorio
+        elif herramienta==28:   #final aleatorio
             final=fixturetorneo["fixturefinal"]
             funmod.ingreso_aleatorio_partidos(final,finalresultados,resultaditosgeneral,"final")
             finalresultados=resultaditosgeneral["final"]
@@ -1300,7 +1318,7 @@ def admin(user):
 
 
 
-        elif herramienta==30:
+        elif herramienta==29:
             while True:
                 try:
                     numero=int(input("ingresa 1 para liga, 2 para torneo, -1 para salir"))
@@ -1380,10 +1398,10 @@ def admin(user):
                     break
                 else:
                     break
-        elif herramienta==31:
+        elif herramienta==30:
             funmod.recomendaciones(estadistica)
 
-        elif herramienta==32:
+        elif herramienta==31:
             salirdel=False
             while True:
                 daraltacuenta=input("ingrese el usuario que desea dar de alta") 
@@ -1425,8 +1443,6 @@ def admin(user):
                 print()
             print()
             break
-
-
 
 
 
