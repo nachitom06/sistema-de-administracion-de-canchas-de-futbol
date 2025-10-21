@@ -1,0 +1,30 @@
+{
+  "listasponsors": [
+    "entrada",
+    "arco izquiero",
+    "arco derecho",
+    "gradas lado izquierdo",
+    "gradas lado derecho",
+    "fachada de club"
+  ],
+  "disponibilidad": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+  ],
+  "listadisponibilidad": [
+    "disponible",
+    "no disponible"
+  ],
+  "nombresponsor": [
+    0,
+    0,
+    "nachito fc",
+    0,
+    0,
+    0
+  ]
+}
