@@ -14,10 +14,6 @@ def user(user):
     reservamas=listas.cargar_cualreserva()
     usosponsors=listas.cargar_sponsorsuso()
     entradasvendi=listas.cargar_entradasvendidas()
-    fixtureida=listas.cargar_fixtureidita()
-    fixturevuelta=listas.cargar_fixturevueltita()
-    resultadosida=listas.cargar_resultadosidita()
-    resultadosvuelta=listas.cargar_resultadosvueltita()
     stringer="bienvenido a inscripcion en el Torneo Nacional"
     stringer2="lista de equipos (16 cupos)"
     stringer3="bienvenido a inscripcion en la Super Liga Nacional"
@@ -30,96 +26,14 @@ def user(user):
     blinger=listas.cargar_partidosdetorneo()
     bling=listas.cargar_torneo()
     fixtureliga=listas.cargar_partidosdeliga()
-    matriztorneos=listas.todo["matriztorneos"]
-    listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento=listas.listcanchas,listas.listhorarios,listas.listformpago,listas.listrecaudacioncanchas,listas.listrecaudacionhorarios,listas.listrecaudacionformpago,listas.listcantcanchas,listas.listcanthorarios,listas.listcantformpago,listas.listaclientes,listas.listadiezporciento
-    nombredelaliga=listas.todo["nombredelaliga"]
-    nombredeltorneo=listas.todo["nombredeltorneo"]
     listaequiposliga=listas.listaequiposliga
-    listaauxiliarliga=listas.listaequiposliga
     listaequipostorneo=listas.listaequipostorneo
-    cuartosresultados=listas.todo["cuartosresultados"]
-    ganadorescuartos=listas.todo["ganadorescuartos"]
-    ganadoressemis=listas.todo["ganadoressemis"]
-    semisresultados=listas.todo["semisresultados"]
-    finalresultados=listas.todo["finalresultados"]
-    ganadorfinal=listas.todo["ganadorfinal"]
-    campeontorneo=listas.todo["campeontorneo"]
-    campeones=listas.todo["campeones"]
-    fasegrupos1=listas.todo["fasegrupos1"]
-    fasegrupos2=listas.todo["fasegrupos2"]
-    fasegrupos3=listas.todo["fasegrupos3"]
-    fasegrupos4=listas.todo["fasegrupos4"]
-    fasegrupo1partidos=listas.todo["fasegrupo1partidos"]
-    fasegrupo2partidos=listas.todo["fasegrupo2partidos"]
-    fasegrupo3partidos=listas.todo["fasegrupo3partidos"]
-    fasegrupo4partidos=listas.todo["fasegrupo4partidos"]
-    cuartos=listas.todo["cuartos"]
-    semis=listas.todo["semis"]
-    final=listas.todo["final"]
-    fasegrupos1resultados=listas.todo["fasegrupos1resultados"]
-    fasegrupos2resultados=listas.todo["fasegrupos2resultados"]
-    fasegrupos3resultados=listas.todo["fasegrupos3resultados"]
-    fasegrupos4resultados=listas.todo["fasegrupos4resultados"]
-    contadorpartidosfase1=listas.todo["contadorpartidosfase1"]
-    contadorpartidosfase2=listas.todo["contadorpartidosfase2"]
-    contadorpartidosfase3=listas.todo["contadorpartidosfase3"]
-    contadorpartidosfase4=listas.todo["contadorpartidosfase4"]
-    
-    recaudacionesliga=listas.todo["recaudacionesliga"]
-    recaudacionestorneo=listas.todo["recaudacionestorne"]
-    puntosequipos=listas.todo["puntosequipos"]
-    partidosjugados=listas.todo["partidosjugados"]
-    ganados=listas.todo["ganados"]
-    empatados=listas.todo["empatados"]
-    perdidos=listas.todo["perdidos"]
-    puntos=listas.todo["puntos"]
-    golesfavor=listas.todo["golesfavor"]
-    golescontra=listas.todo["golescontra"]
-    diferenciagol=listas.todo["diferenciagol"]
-    partidosjugadosfase1=listas.todo["partidosjugadosfase1"]
-    ganadosfase1=listas.todo["ganadosfase1"]
-    empatadosfase1=listas.todo["empatadosfase1"]
-    perdidosfase1=listas.todo["perdidosfase1"]
-    puntosfase1=listas.todo["puntosfase1"]
-    golesfavorfase1=listas.todo["golesfavorfase1"]
-    golescontrafase1=listas.todo["golescontrafase1"]
-    diferenciagolfase1=listas.todo["diferenciagolfase1"]
-    partidosjugadosfase2=listas.todo["partidosjugadosfase2"]
-    ganadosfase2=listas.todo["ganadosfase2"]
-    empatadosfase2=listas.todo["empatadosfase2"]
-    perdidosfase2=listas.todo["perdidosfase2"]
-    puntosfase2=listas.todo["puntosfase2"]
-    golesfavorfase2=listas.todo["golesfavorfase2"]
-    golescontrafase2=listas.todo["golescontrafase2"]
-    diferenciagolfase2=listas.todo["diferenciagolfase2"]
-    partidosjugadosfase3=listas.todo["partidosjugadosfase3"]
-    ganadosfase3=listas.todo["ganadosfase3"]
-    empatadosfase3=listas.todo["empatadosfase3"]
-    perdidosfase3=listas.todo["perdidosfase3"]
-    puntosfase3=listas.todo["puntosfase3"]
-    golesfavorfase3=listas.todo["golesfavorfase3"]
-    golescontrafase3=listas.todo["golescontrafase3"]
-    diferenciagolfase3=listas.todo["diferenciagolfase3"]
-    partidosjugadosfase4=listas.todo["partidosjugadosfase4"]
-    ganadosfase4=listas.todo["ganadosfase4"]
-    empatadosfase4=listas.todo["empatadosfase4"]
-    perdidosfase4=listas.todo["perdidosfase4"]
-    puntosfase4=listas.todo["puntosfase4"]
-    golesfavorfase4=listas.todo["golesfavorfase4"]
-    golescontrafase4=listas.todo["golescontrafase4"]
-    diferenciagolfase4=listas.todo["diferenciagolfase4"]
-    contadorpartidosida=listas.todo["contadorpartidosida"]
-    
-    contadorpartidosvuelta=listas.todo["contadorpartidosvuelta"]
-    nombresaleatoriosequipos=listas.todo["nombresaleatoriosequipos"]
     listasponsorszona=listas.todo["listasponsorszona"]
     listasponsors=listas.todo["listasponsors"]
     disponibilidad=listas.todo["disponibilidad"]
-    disponibilidadtorneo=listas.todo["disponibilidadtorneo"]
     listadisponibilidad=listas.todo["listadisponibilidad"]
     listanombresponsor=listas.todo["listanombresponsor"]
-    listanombresponsortorneo=listas.todo["listanombresponsortorneo"]
-    recaudaciondiezporciento=listas.todo["recaudaciondiezporciento"]
+
     while True:
         print("OPCIONES: ")
         print("# 1 = reservar canchas")
@@ -143,7 +57,7 @@ def user(user):
         try:
             herraaux=herramienta
             if herraaux==-1:
-                funci=tuplasin[10]
+                funci=tuplasin[len(tuplasin)-1]
             else:
                 funci=tuplasin[herramienta-1]
         except IndexError as msj:
@@ -168,7 +82,10 @@ def user(user):
                     fila=1
                 else:
                     fila=2
-                print(matrizper[fila],"Los horarios que se muestran ya estan tomados")
+                try:
+                    print(matrizper[fila],"Los horarios que se muestran ya estan tomados")
+                except IndexError as msj:
+                    print(msj)
                 while True:
                     try:
                         hora=int(input("ingrese en formato militar la hora que desea alquilar (1200 a 2400, de 100 en 100): "))
@@ -179,38 +96,41 @@ def user(user):
                         print(mensa)
                         continue
                     columna=(hora-1200)//100
-                    if matrizper[fila][columna]==0:
-                        matrizper[fila][columna]=hora
-                        nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
-                        while len(nombre.strip())==0 or nombre.isdigit():
-                            print("Error el nombre que inngreso no es valido(digitos o vacio)")
+                    try:
+                        if matrizper[fila][columna]==0:
+                            matrizper[fila][columna]=hora
                             nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
-                        matriznombre[fila][columna]=nombre
-                        print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
-                        listas.guardar_matirzpe(matrizper)
-                        listas.guardar_matirznombr(matriznombre)
-                        string=f"fut{cancha}"
-                        if "cualreserva" in estadistica:
-                            if string in estadistica["cualreserva"]:
-                                estadistica["cualreserva"][string]+=1
-                        if string in reservamas:
-                            reservamas[string]+=1
-                        listas.guardar_cualreserva(reservamas)
-                        listas.guardar_estadisticas(estadistica)
-                        print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
-                        for i in range(len(matrizper)):
-                            for j in range(len(matrizper[i])):
-                                print("%6d" %(matrizper[i][j]),end=" ")
+                            while len(nombre.strip())==0 or nombre.isdigit():
+                                print("Error el nombre que inngreso no es valido(digitos o vacio)")
+                                nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
+                            matriznombre[fila][columna]=nombre
+                            print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
+                            listas.guardar_matirzpe(matrizper)
+                            listas.guardar_matirznombr(matriznombre)
+                            string=f"fut{cancha}"
+                            if "cualreserva" in estadistica:
+                                if string in estadistica["cualreserva"]:
+                                    estadistica["cualreserva"][string]+=1
+                            if string in reservamas:
+                                reservamas[string]+=1
+                            listas.guardar_cualreserva(reservamas)
+                            listas.guardar_estadisticas(estadistica)
+                            print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
+                            for i in range(len(matrizper)):
+                                for j in range(len(matrizper[i])):
+                                    print("%6d" %(matrizper[i][j]),end=" ")
+                                print()
                             print()
-                        print()
-                        print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
-                        for i in range(len(matriznombre)):
-                            for j in range(len(matriznombre[i])):
-                                print("%-15s" %(matriznombre[i][j]),end=" ")
+                            print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
+                            for i in range(len(matriznombre)):
+                                for j in range(len(matriznombre[i])):
+                                    print("%-15s" %(matriznombre[i][j]),end=" ")
+                                print()
                             print()
-                        print()
-                    else:
-                        print("Ese horario ya esta ocupado")
+                        else:
+                            print("Ese horario ya esta ocupado")
+                    except IndexError as msj2:
+                        print(msj2)
                     while True:
                         try:
                             señ=int(input("Ingrese cualquier numero entero si desea continuar o -1 para salir: "))
@@ -241,7 +161,10 @@ def user(user):
                     fila2=1
                 else:
                     fila2=2
-                print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados")
+                try:  
+                    print(matrizper[fila2],"Los horarios que se muestran son los que ya estan tomados")
+                except IndexError as msj3:
+                    print(msj3)
                 while True:
                     try:
                         hora2=int(input("Ingrese en formato militar la hora que desea cancelar el alquilar (1200 a 2400, de 100 en 100): "))
@@ -251,36 +174,39 @@ def user(user):
                     except ValueError as mensaje4:
                         print(mensaje4)
                         continue
-                    if hora2 in matrizper[fila2]:
-                        columna2=(hora2-1200)//100
-                        nombrecancelado=matriznombre[fila2][columna2]
-                        matrizper[fila2][columna2]=0
-                        matriznombre[fila2][columna2]=0
-                        print("Cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de: ",nombrecancelado)
-                        listas.guardar_matirzpe(matrizper)
-                        listas.guardar_matirznombr(matriznombre)
-                        string2=f"fut{cancha2}"
-                        if "cualreserva" in estadistica:
-                            if string2 in estadistica["cualreserva"]:
-                                estadistica["cualreserva"][string2]-=1
-                        if string2 in reservamas:
-                            reservamas[string2]-=1
-                        listas.guardar_cualreserva(reservamas)
-                        listas.guardar_estadisticas(estadistica)
-                        print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
-                        for i in range(len(matrizper)):
-                            for j in range(len(matrizper[i])):
-                                print("%6d" %(matrizper[i][j]),end=" ")
+                    try:
+                        if hora2 in matrizper[fila2]:
+                            columna2=(hora2-1200)//100
+                            nombrecancelado=matriznombre[fila2][columna2]
+                            matrizper[fila2][columna2]=0
+                            matriznombre[fila2][columna2]=0
+                            print("Cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de: ",nombrecancelado)
+                            listas.guardar_matirzpe(matrizper)
+                            listas.guardar_matirznombr(matriznombre)
+                            string2=f"fut{cancha2}"
+                            if "cualreserva" in estadistica:
+                                if string2 in estadistica["cualreserva"]:
+                                    estadistica["cualreserva"][string2]-=1
+                            if string2 in reservamas:
+                                reservamas[string2]-=1
+                            listas.guardar_cualreserva(reservamas)
+                            listas.guardar_estadisticas(estadistica)
+                            print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
+                            for i in range(len(matrizper)):
+                                for j in range(len(matrizper[i])):
+                                    print("%6d" %(matrizper[i][j]),end=" ")
+                                print()
                             print()
-                        print()
-                        print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
-                        for i in range(len(matriznombre)):
-                            for j in range(len(matriznombre[i])):
-                                print("%-15s" %(matriznombre[i][j]),end=" ")
+                            print("Matriz que en su interior tiene nombre a quien esta la reserva de las canchas si esta alquilada y en 0 si no esta alquilada")
+                            for i in range(len(matriznombre)):
+                                for j in range(len(matriznombre[i])):
+                                    print("%-15s" %(matriznombre[i][j]),end=" ")
+                                print()
                             print()
-                        print()
-                    else:
-                        print("Ese horario no se encuentra alquilado")
+                        else:
+                            print("Ese horario no se encuentra alquilado")
+                    except IndexError as msj4:
+                        print(msj4)
                     while True:
                         try:
                             señ2=int(input("Ingrese cualquier número entero si desea continuar o -1 para salir: "))
@@ -370,9 +296,10 @@ def user(user):
                     visitantevuelta=partiditovuelta[1]
                     print(f"{localvuelta} vs {visitantevuelta}")
                 contadorfechavuelta+=1"""
-            for partido in fixtureliga["fixture"]:
-                numero,local,visitante=partido
-                print(f"partido: {numero:<6}{local:15} vs {visitante:<15}")
+            if "fixture" in fixtureliga:
+                for partido in fixtureliga["fixture"]:
+                    numero,local,visitante=partido
+                    print(f"partido: {numero:<6}{local:15} vs {visitante:<15}")
 
 
 
@@ -778,6 +705,7 @@ def user(user):
                 print()
             print()
             break
+
             
 
 
