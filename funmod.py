@@ -5,6 +5,17 @@ def dar_bienvenida():
     saludo="-------------------- Bienvenido al sistema administrador --------------------"
     print(saludo)
 
+def ingresa_con_rango(desde,hasta,texto):
+    while True:
+        try:
+            num=int(input(texto))
+            if num<desde or num>hasta:
+                raise ValueError
+            break
+        except ValueError as mensajito:
+            print(mensajito)
+    return num
+
 def calcular_cantidad_posiblesdecontraseñas(let,cc,cn):
     if cn==0:
         return let
@@ -515,8 +526,8 @@ def reporte_horarios(reportes,horariosdef,recaudacionhorariosdef,canthorariosdef
         reportes["listrecaudacionhorarios"][raton]+=cobrodef
         reportes["listcanthorarios"][raton]+=1
         listas.guardar_reportes(reportes)
-def reporte_torneo(reportes,recaudaciontorneo):
-    recaudetorneo=((1000000*16)//2)
+def reporte_torneo(reportes,recaudaciontorneo,valor):
+    recaudetorneo=((1000000*16)*(100-valor)//100)
     reportes["recaudacionestorneo"].append(recaudetorneo)
     listas.guardar_reportes(reportes)
 def reporte_liga(reportes,recaudacionliga):
@@ -560,6 +571,7 @@ def mayor_cliente(listacanthorarios,listahorarios):
     if conteo2>1:
         hay2=1
     return mayorclient,hay2,promedio,numcancha
+
 
 
 #por ahora viene bien, hay que probar las que dice en main copy.py
