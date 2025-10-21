@@ -1,0 +1,100 @@
+{
+  "listcanchas": [
+    5,
+    8,
+    11
+  ],
+  "listhorario": [
+    1200,
+    1300,
+    1400,
+    1500,
+    1600,
+    1700,
+    1800,
+    1900,
+    2000,
+    2100,
+    2200,
+    2300,
+    2400
+  ],
+  "listformpago": [
+    "e",
+    "mp"
+  ],
+  "listrecaudacioncanchas": [
+    82280,
+    0,
+    0
+  ],
+  "listrecaudacionhorarios": [
+    82280,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "listrecaudacionformpago": [
+    82280,
+    0
+  ],
+  "listcantcanchas": [
+    2,
+    0,
+    0
+  ],
+  "listcanthorarios": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "listcantformpago": [
+    2,
+    0
+  ],
+  "listaclientes": [
+    "nacho monzon",
+    "nacho monzon",
+    "nacho monzon",
+    "nacho monzon"
+  ],
+  "listadiezporciento": [
+    3740,
+    3740
+  ],
+  "recaudacionestorneo": [
+    8000000,
+    8000000,
+    8000000
+  ],
+  "recaudacionesliga": [
+    30400000,
+    30400000,
+    30400000,
+    30400000,
+    30400000
+  ],
+  "pagoentrada": [
+    54750,
+    8725
+  ]
+}
