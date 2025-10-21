@@ -1,0 +1,11 @@
+nachitomonzon,# 1 = reservar canchas,2025-10-09 09:56:08.495089
+nachitomonzon,# 5 = inscripcion sponsors,2025-10-09 09:56:57.500392
+nachitomonzon,# 9 = comprar entradas,2025-10-09 09:57:30.811019
+nachitomonzon,# 9 = comprar entradas,2025-10-09 10:02:49.011106
+nachitomonzon,# 9 = comprar entradas,2025-10-09 10:03:31.045527
+nachom06,# 30 = comprar entradas,2025-10-09 10:06:45.892768
+nachom06,# 1 = reservar canchas,2025-10-14 20:54:12.342749
+nachom06,# 1 = reservar canchas,2025-10-15 16:15:30.707660
+nachom06,# -1 = finalizar programa,2025-10-15 17:07:35.002663
+juanisaccani,# -1 = finalizar programa,2025-10-15 17:09:00.767364
+juanisaccani,# -1 = finalizar programa,2025-10-15 17:12:02.018637
