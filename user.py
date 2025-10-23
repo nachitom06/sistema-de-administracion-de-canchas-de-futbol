@@ -3,36 +3,30 @@ import random
 import funmod
 import datetime
 def user(user):
-    reportaje=listas.cargar_reportes()
+    cualvendemas,entradasvendidas,fixturevueltita,fixtureidita,resultadosvueltita,resultadosidita,expediente,entradonas2,entradonas,sponsors,fixturetorneo,fixture,liguita,torneito,torneooficial4,torneooficial3,listatorneo,listaliga,torneooficial,torneooficial2,reportes,cualreserva,sponsorsuso,bitacora,archivo,archivo2=listas.cargar_rutas_archivos()
+    reportaje=listas.cargar_reportes(reportes)
     pagoentrada=reportaje["pagoentrada"]
     tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = inscripción liga","# 4 = calcular partidos de liga (mostrarlos)","# 5 = inscripcion sponsors","# 6 = tabla de liga","# 7 = inscripción torneo","# 8 = ver torneo","# 9 = comprar entradas","# -1 = finalizar programa")
-    disponible=listas.disponible
-    disponibletorneo=listas.disponibletorneo
-    ocupadas=listas.ocupadas
-    ocupadastorneo=listas.ocupadastorneo
-    vendemas=listas.cargar_cualvendemas()
-    reservamas=listas.cargar_cualreserva()
-    usosponsors=listas.cargar_sponsorsuso()
-    entradasvendi=listas.cargar_entradasvendidas()
+    disponible,ocupadas,disponibletorneo,ocupadastorneo=listas.cargar_entradasdelisto()
+    vendemas=listas.cargar_cualvendemas(cualvendemas)
+    reservamas=listas.cargar_cualreserva(cualreserva)
+    usosponsors=listas.cargar_sponsorsuso(sponsorsuso)
+    entradasvendi=listas.cargar_entradasvendidas(entradasvendidas)
     stringer="bienvenido a inscripcion en el Torneo Nacional"
     stringer2="lista de equipos (16 cupos)"
     stringer3="bienvenido a inscripcion en la Super Liga Nacional"
     stringer4="lista de equipos (20 cupos)"
-    entradastorneo=listas.cargar_entradastorneo()
-    entradas=listas.cargar_entradas()
-    estadistica=listas.cargar_estadisticas()
-    sponsorcito=listas.cargar_sponsors()
-    matrizper,matriznombre=listas.matrizper,listas.matriznombre
-    blinger=listas.cargar_partidosdetorneo()
-    bling=listas.cargar_torneo()
-    fixtureliga=listas.cargar_partidosdeliga()
-    listaequiposliga=listas.listaequiposliga
-    listaequipostorneo=listas.listaequipostorneo
-    listasponsorszona=listas.todo["listasponsorszona"]
-    listasponsors=listas.todo["listasponsors"]
-    disponibilidad=listas.todo["disponibilidad"]
-    listadisponibilidad=listas.todo["listadisponibilidad"]
-    listanombresponsor=listas.todo["listanombresponsor"]
+    entradastorneo=listas.cargar_entradastorneo(entradonas2)
+    entradas=listas.cargar_entradas(entradonas)
+    estadistica=listas.cargar_estadisticas(expediente)
+    sponsorcito=listas.cargar_sponsors(sponsors)
+    matrizper=listas.cargar_matrizpe(archivo)
+    matriznombre=listas.cargar_matriznombr(archivo2)
+    blinger=listas.cargar_partidosdetorneo(fixturetorneo)
+    bling=listas.cargar_torneo(torneito)
+    fixtureliga=listas.cargar_partidosdeliga(fixture)
+    listaequiposliga=listas.cargar_listaliga(listaliga)
+    listaequipostorneo=listas.cargar_listatorneo(listatorneo)
 
     while True:
         print("OPCIONES: ")
@@ -63,7 +57,7 @@ def user(user):
         except IndexError as msj:
             print(msj)
         tiempo=datetime.datetime.now()
-        listas.guardar_bitacora(user,funci,tiempo)  
+        listas.guardar_bitacora(user,funci,tiempo,bitacora)  
         if herramienta==1:
             while True:
                 try:
@@ -105,16 +99,16 @@ def user(user):
                                 nombre=input("Igrese su nombre y apellido al cual reservara la cancha: ")
                             matriznombre[fila][columna]=nombre
                             print("Reserva realizada con exito: Cancha de futbol",cancha,"a las",hora,"horas a nombre de:",nombre)
-                            listas.guardar_matirzpe(matrizper)
-                            listas.guardar_matirznombr(matriznombre)
+                            listas.guardar_matirzpe(matrizper,archivo)
+                            listas.guardar_matirznombr(matriznombre,archivo2)
                             string=f"fut{cancha}"
                             if "cualreserva" in estadistica:
                                 if string in estadistica["cualreserva"]:
                                     estadistica["cualreserva"][string]+=1
                             if string in reservamas:
                                 reservamas[string]+=1
-                            listas.guardar_cualreserva(reservamas)
-                            listas.guardar_estadisticas(estadistica)
+                            listas.guardar_cualreserva(reservamas,cualreserva)
+                            listas.guardar_estadisticas(estadistica,expediente)
                             print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                             for i in range(len(matrizper)):
                                 for j in range(len(matrizper[i])):
@@ -181,16 +175,16 @@ def user(user):
                             matrizper[fila2][columna2]=0
                             matriznombre[fila2][columna2]=0
                             print("Cancelación realizada con exito: cancha de futbol",cancha2,"de las",hora2,"horas a nombre de: ",nombrecancelado)
-                            listas.guardar_matirzpe(matrizper)
-                            listas.guardar_matirznombr(matriznombre)
+                            listas.guardar_matirzpe(matrizper,archivo)
+                            listas.guardar_matirznombr(matriznombre,archivo2)
                             string2=f"fut{cancha2}"
                             if "cualreserva" in estadistica:
                                 if string2 in estadistica["cualreserva"]:
                                     estadistica["cualreserva"][string2]-=1
                             if string2 in reservamas:
                                 reservamas[string2]-=1
-                            listas.guardar_cualreserva(reservamas)
-                            listas.guardar_estadisticas(estadistica)
+                            listas.guardar_cualreserva(reservamas,cualreserva)
+                            listas.guardar_estadisticas(estadistica,expediente)
                             print("Matriz que en su interior tiene horarios en formato militar si esta alquilada y en 0 si no esta alquilada")
                             for i in range(len(matrizper)):
                                 for j in range(len(matrizper[i])):
@@ -220,7 +214,7 @@ def user(user):
 
         
         elif herramienta==3:#inscripcion liga, 
-            funmod.inscripciones_a_la_liga(listaequiposliga,stringer3,stringer4,listas.guardar_listaliga)
+            funmod.inscripciones_a_la_liga(listaequiposliga,stringer3,stringer4,listas.guardar_listaliga,listaliga)
             """conteo20=0
             print("bienvenido a inscripcion en la Super Liga Nacional")
             print("lista de equipos (20 cupos)")
@@ -307,207 +301,16 @@ def user(user):
         elif herramienta==5:#inscripcion sponsors
             salidita=False
             while True:
-                    eleccion=funmod.hacer_sponsors(usosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica)
-                    listas.guardar_sponsorsuso(usosponsors)
-                    listas.guardar_estadisticas(estadistica)
+                    funmod.hacer_sponsors(usosponsors,sponsorcito["disponibilidad"],sponsorcito["listasponsorszona"],sponsorcito["listasponsors"],sponsorcito["listadisponibilidad"],sponsorcito["listanombresponsor"],sponsorcito,estadistica)
+                    listas.guardar_sponsorsuso(usosponsors,sponsorsuso)
+                    listas.guardar_estadisticas(estadistica,expediente)
                     break
                 
-            """salidita=False
-            while True:
-                try:
-                    sponsors=int(input("ingrese 0 si desea tener su sponsor en la Super Liga Nacional, o 1 si desea tener sponsor en el torneo nacional"))
-                    while sponsors not in[0,1]:
-                        print("error el numero ingresado no se encuentra en el rango")
-                        sponsors=int(input("ingrese 0 si desea tener su sponsor en la Super Liga Nacional, o 1 si desea tener sponsor en el torneo nacional"))
-                except ValueError as mensaje13:
-                    print(mensaje13)
-                    continue
-                if sponsors==0:
-                    print(f"\tsponsors\t\t\tdisponibilidad")
-                    disponible=-1
-                    for p in range(len(disponibilidad)):
-                        if disponibilidad[p]==0:
-                            disponible=0
-                        else:
-                            disponible=1
-                        print(f"{listasponsorszona[p]}\t{listasponsors[p]}\t{listadisponibilidad[disponible]}")
-                    while True:
-                        try:
-                            eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
-                            while eleccion not in listasponsorszona:
-                                print("error fuera de rango")
-                                eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
-                            
-                        except ValueError as mensaje14:
-                            print(mensaje14)
-                            continue
-                        while True:
-                            salir=False
-                            salir3=False
-
-                            nombresponsor=input("ingrese el nombre del sponsor")
-                            print(nombresponsor)
-                            while True:
-                                try:
-                                    confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
-                                    while confirmar not in[0,1]:
-                                        print("error el numero ingresado no se encuentra en el rango")
-                                        confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
-                                except ValueError as mensaje15:
-                                    print(mensaje15)
-                                    continue
-                                if confirmar==0:
-                                    disponibilidad[eleccion-1]=1
-                                    listanombresponsor[eleccion-1]=nombresponsor
-                                    salir=True
-                                    salir3=True
-                                    break
-                                    
-                                else:
-                                    break
-                            if salir:
-                                break
-                        if salir3:
-                            break
-                while True:
-                    salir10=False
-                    try:
-                        salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
-                    except ValueError as mensaje12:
-                        print(mensaje12)
-                        continue
-                    if salida==-1:
-                        salir10=True
-                        break
-                if salir10:
-                    break
-                elif sponsors==1:
-                    print(f"\tsponsors\t\t\tdisponibilidad")
-                    disponible2=-1
-                    for pe in range(len(disponibilidad)):
-                        if disponibilidad[pe]==0:
-                            disponible2=0
-                        else:
-                            disponible2=1
-                        print(f"{listasponsorszona[pe]}\t{listasponsors[pe]}\t{listadisponibilidad[disponible2]}")
-                    while True:
-                        try:
-                            eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
-                            while eleccion not in listasponsorszona:
-                                print("error fuera de rango")
-                                eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
-                            
-                        except ValueError as mensaje14:
-                            print(mensaje14)
-                            continue
-                        while True:
-                            salir=False
-                            salir3=False
-
-                            nombresponsor=input("ingrese el nombre del sponsor")
-                            print(nombresponsor)
-                            while True:
-                                try:
-                                    confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
-                                    while confirmar not in[0,1]:
-                                        print("error el numero ingresado no se encuentra en el rango")
-                                        confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
-                                except ValueError as mensaje15:
-                                    print(mensaje15)
-                                    continue
-                                if confirmar==0:
-                                    disponibilidad[eleccion-1]=1
-                                    listanombresponsor[eleccion-1]=nombresponsor
-                                    salir=True
-                                    salir3=True
-                                    break
-                                    
-                                else:
-                                    break
-                            if salir:
-                                break
-                        if salir3:
-                            break
-                while True:
-                    salir10=False
-                    try:
-                        salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
-                    except ValueError as mensaje12:
-                        print(mensaje12)
-                        continue
-                    if salida==-1:
-                        salir10=True
-                        break
-                if salir10:
-                    break"""
-                                
-       
+           
             
 
         
         elif herramienta==6:#tengo que hacer el doble creo
-            """for l in range(len(fixtureida)):
-                jugador1=fixtureida[l][0]
-                jugador2=fixtureida[l][1]
-                jugado1=listaauxiliarliga.index(jugador1)
-                jugado2=listaauxiliarliga.index(jugador2)
-                partidosjugados[jugado1]+=1
-                partidosjugados[jugado2]+=1
-                if resultadosida[l][0]>resultadosida[l][1]:
-                    ganados[jugado1]+=1
-                    puntos[jugado1]+=3
-                    perdidos[jugado2]+=1
-                elif resultadosida[l][0]<resultadosida[l][1]:
-                    ganados[jugado2]+=1
-                    puntos[jugado2]+=3
-                    perdidos[jugado1]+=1
-                else:
-                    empatados[jugado1]+=1
-                    puntos[jugado1]+=1
-                    empatados[jugado2]+=1
-                    puntos[jugado2]+=1
-
-                golesfavor[jugado1]+=resultadosida[l][0]
-                golesfavor[jugado2]+=resultadosida[l][1]
-                golescontra[jugado1]+=resultadosida[l][1]
-                golescontra[jugado2]+=resultadosida[l][0]
-                diferenciagol[jugado1]+=golesfavor[jugado1]-golescontra[jugado1]
-                diferenciagol[jugado2]+=golesfavor[jugado2]-golescontra[jugado2]
-            for l in range(len(fixturevuelta)):
-                jugador1vuelta=fixturevuelta[l][0]
-                jugador2vuelta=fixturevuelta[l][1]
-                jugado1vuelta=listaauxiliarliga.index(jugador1vuelta)
-                jugado2vuelta=listaauxiliarliga.index(jugador2vuelta)
-                partidosjugados[jugado1vuelta]+=1
-                partidosjugados[jugado2vuelta]+=1
-                if resultadosvuelta[l][0]>resultadosvuelta[l][1]:
-                    ganados[jugado1vuelta]+=1
-                    puntos[jugado1vuelta]+=3
-                    perdidos[jugado2vuelta]+=1
-                elif resultadosvuelta[l][0]<resultadosvuelta[l][1]:
-                    ganados[jugado2vuelta]+=1
-                    puntos[jugado2vuelta]+=3
-                    perdidos[jugado1vuelta]+=1
-                else:
-                    empatados[jugado1vuelta]+=1
-                    puntos[jugado1vuelta]+=1
-                    empatados[jugado2vuelta]+=1
-                    puntos[jugado2vuelta]+=1
-
-                golesfavor[jugado1vuelta]+=resultadosvuelta[l][0]
-                golesfavor[jugado2vuelta]+=resultadosvuelta[l][1]
-                golescontra[jugado1vuelta]+=resultadosvuelta[l][1]
-                golescontra[jugado2vuelta]+=resultadosvuelta[l][0]
-                diferenciagol[jugado1vuelta]+=golesfavor[jugado1vuelta]-golescontra[jugado1vuelta]
-                diferenciagol[jugado2vuelta]+=golesfavor[jugado2vuelta]-golescontra[jugado2vuelta]
-            liga=list(zip(listaauxiliarliga,partidosjugados,ganados,perdidos,empatados,puntos,golesfavor,golescontra,diferenciagol))
-            liga.sort(ley=lambda x:x[5],reverse=True)
-            print(nombredelaliga.center(180))
-            print(f"{"Equipos":-20}{"Partidos jugados":-20}{"Ganados":-20}{"Empatados":-20}{"Perdidos":-20}{"Puntos":-20}{"Goles a favor":-20}{"Goles en contra":-20}{"Diferencia de gol":-20}")
-            for leter in liga:
-                print(f"{listaauxiliarliga[leter]:-20}{partidosjugados[leter]:-20}{ganados[leter]:-20}{empatados[leter]:-20}{perdidos[leter]:-20}{puntos[leter]:-20}{golesfavor[leter]:-20}{golescontra[leter]:-20}{diferenciagol[leter]:-20}")
-
-            print(f"CAMPEON DE LA SUPER LIGA NACIONAL: \t {liga[0][0]} \t con un premio de $30400000")"""
             try:
                 with open("tabla_de_liga.csv","r",newline="",encoding="utf-8") as leercsv:
                     for fila in leercsv:
@@ -531,60 +334,8 @@ def user(user):
      
 
         elif herramienta==7:#inscripcion torneo, 
-            funmod.inscripciones_a_la_liga(listaequipostorneo,stringer,stringer2,listas.guardar_listatorneo)
-            """conteo30=0
-            print("bienvenido a inscripcion en el Torneo Nacional")
-            print("lista de equipos (16 cupos)")
-            for i in range(len(listaequipostorneo)):
-                print(f"equipo:{i+1}\t{listaequipostorneo[i]}")
-            for c in range(len(listaequipostorneo)):
-                if listaequipostorneo[c]==0:
-                    conteo30+=1
-            if conteo30!=0:
-                    
-                while True:
-                    nombreequipotorneo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
-                    while len(nombreequipotorneo.strip())==0 or nombreequipotorneo.isdigit():
-                        print("error no ingreso nada o ingreso numeros")
-                        nombreequipotorneo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
-                    print("nombre del equipo:",nombreequipotorneo)
-                    while True:
-                        try:
-                            confirmaciontorneo=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
-                            while confirmaciontorneo not in[-1,0,1]:
-                                print("error, numero fuera de rango")
-                                confirmaciontorneo=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
-                        except ValueError as mensaje17:
-                            print(mensaje17)
-                            continue
-                        if confirmaciontorneo==1:
-                            break
-                        elif confirmaciontorneo==0:
-                            for v in range(len(listaequipostorneo)):
-                                if listaequipostorneo[v]==0:
-                                    listaequipostorneo[v]=nombreequipotorneo
-                                    listas.guardar_listatorneo(listaequipostorneo)
-                                    print(f"equipo:{nombreequipotorneo} inscripto correctamente")
-                                    break
-                            break
-                            
-                        else:
-                            break
-                    while True:
-                        salir2torneo=False
-                        try:
-                            salidatorneo=int(input("ingrese cualquier numero para seguir o -1 para salir"))
-                        except ValueError as mensaje18:
-                            print(mensaje18)
-                            continue
-                        if salidatorneo==-1:
-                            salir2torneo=True
-                            break
-                            
-                        else:
-                            break
-                    if salir2torneo:
-                        break"""
+            funmod.inscripciones_a_la_liga(listaequipostorneo,stringer,stringer2,listas.guardar_listatorneo,listatorneo)
+            
     
                         #ver torneo mediante archivos, averiguar que son y como se hace para agregarlo
         elif herramienta==8:#ver torneo
@@ -641,7 +392,7 @@ def user(user):
                         continue
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     funmod.alquilar(decercion,cantidad,ocupadas,entradas)
-                    listas.guardar_entradas(entradas)
+                    listas.guardar_entradas(entradas,entradonas)
                     funmod.cobrar_entradas(entradasvendi,decercion,cantidad,entradas,estadistica,pagoentrada)
                     funmod.mostrar_disponibles(entradas,disponible,ocupadas)
                     if "cualvendemas" in estadistica:
@@ -649,9 +400,9 @@ def user(user):
                             estadistica["cualvendemas"]["entradasliga"]+=cantidad
                     if "entradasliga" in vendemas:
                         vendemas["entradasliga"]+=cantidad
-                    listas.guardar_cualvendemas(vendemas)
-                    listas.guardar_estadisticas(estadistica)
-                    listas.guardar_entradasvendidas(entradasvendi)
+                    listas.guardar_cualvendemas(vendemas,cualvendemas)
+                    listas.guardar_estadisticas(estadistica,expediente)
+                    listas.guardar_entradasvendidas(entradasvendi,entradasvendidas)
                     break
                 elif numero==2:
                     try:
@@ -674,7 +425,7 @@ def user(user):
                         continue
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     funmod.alquilartorneo(decercion,cantidad,ocupadastorneo,entradastorneo)
-                    listas.guardar_entradastorneo(entradastorneo)
+                    listas.guardar_entradastorneo(entradastorneo,entradonas2)
                     funmod.cobrar_entradas(entradasvendi,decercion,cantidad,entradastorneo,estadistica,pagoentrada)
                     funmod.mostrar_disponiblestorneo(entradastorneo,disponibletorneo,ocupadastorneo)
                     if "cualvendemas" in estadistica:
@@ -682,9 +433,9 @@ def user(user):
                             estadistica["cualvendemas"]["entradastorneo"]+=cantidad
                     if "entradastorneo" in vendemas:
                         vendemas["entradastorneo"]+=cantidad
-                    listas.guardar_cualvendemas(vendemas)
-                    listas.guardar_estadisticas(estadistica)
-                    listas.guardar_entradasvendidas(entradasvendi)
+                    listas.guardar_cualvendemas(vendemas,cualvendemas)
+                    listas.guardar_estadisticas(estadistica,expediente)
+                    listas.guardar_entradasvendidas(entradasvendi,entradasvendidas)
                     break
                 else:
                     break
@@ -705,8 +456,6 @@ def user(user):
                 print()
             print()
             break
-
-            
 
 
 #ya revise pero se podria revisar devuelta porque hice cambios en el admin
