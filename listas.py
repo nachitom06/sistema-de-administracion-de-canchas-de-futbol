@@ -2,16 +2,16 @@ import funmod
 import json
 import pathlib
 
-def cargar_cualvendemas():
+def cargar_cualvendemas(cualvendemas):
     if not cualvendemas.exists():
-        with open(cualvendemas,"w",encoding="utf-8") as leto:
+        with open(cualvendemas,"wt",encoding="utf-8") as leto:
             leto.write("entradasliga,0\n")
             leto.write("entradastorneo,0\n")
         return {"entradasliga":0,"entradastorneo":0}
     else:
         dat={}
         try:
-            with open(cualvendemas,"r",encoding="utf-8") as forreal:
+            with open(cualvendemas,"rt",encoding="utf-8") as forreal:
                 for linea in forreal:
                     clave,valor=linea.strip().split(",")
                     dat[clave]=int(valor)
@@ -19,16 +19,16 @@ def cargar_cualvendemas():
         except OSError as msj:
             print(msj)
             return {}
-def guardar_cualvendemas(dat):
+def guardar_cualvendemas(dat,cualvendemas):
     try: 
-        with open(cualvendemas,"w",encoding="utf-8") as forreal:
+        with open(cualvendemas,"wt",encoding="utf-8") as forreal:
             for clave,valor in dat.items():
                 forreal.write(f"{clave},{valor}\n")
     except OSError as men:
         print(men)
-def cargar_entradasvendidas():
+def cargar_entradasvendidas(entradasvendidas):
     if not entradasvendidas.exists():
-        with open(entradasvendidas,"w",encoding="utf-8") as ferreal:
+        with open(entradasvendidas,"wt",encoding="utf-8") as ferreal:
             ferreal.write("vip,0\n")
             ferreal.write("platea,0\n")
             ferreal.write("popular,0\n")
@@ -36,7 +36,7 @@ def cargar_entradasvendidas():
     else:
         pet={}
         try:
-            with open(entradasvendidas,"r",encoding="utf-8") as forreal:
+            with open(entradasvendidas,"rt",encoding="utf-8") as forreal:
                 for linea in forreal:
                     clave,valor=linea.strip().split(",")
                     pet[clave]=int(valor)
@@ -44,16 +44,16 @@ def cargar_entradasvendidas():
         except OSError as msj:
             print(msj)
             return {}
-def guardar_entradasvendidas(dat):
+def guardar_entradasvendidas(dat,entradasvendidas):
     try: 
-        with open(entradasvendidas,"w",encoding="utf-8") as forreal:
+        with open(entradasvendidas,"wt",encoding="utf-8") as forreal:
             for clave,valor in dat.items():
                 forreal.write(f"{clave},{valor}\n")
     except OSError as men:
         print(men)
-def cargar_cualreserva():
+def cargar_cualreserva(cualreserva):
     if not cualreserva.exists():
-        with open(cualreserva,"w",encoding="utf-8") as forlit:
+        with open(cualreserva,"wt",encoding="utf-8") as forlit:
             forlit.write("fut5,0\n")
             forlit.write("fut8,0\n")
             forlit.write("fut11,0\n")
@@ -61,7 +61,7 @@ def cargar_cualreserva():
     else:
         det={}
         try:
-            with open(cualreserva,"r",encoding="utf-8") as ferlit:
+            with open(cualreserva,"rt",encoding="utf-8") as ferlit:
                 for linea in ferlit:
                     clave,valor=linea.strip().split(",")
                     det[clave]=int(valor)
@@ -69,16 +69,16 @@ def cargar_cualreserva():
         except OSError as msj:
             print(msj)
             return {}
-def guardar_cualreserva(dat):
+def guardar_cualreserva(dat,cualreserva):
     try: 
-        with open(cualreserva,"w",encoding="utf-8") as forreal:
+        with open(cualreserva,"wt",encoding="utf-8") as forreal:
             for clave,valor in dat.items():
                 forreal.write(f"{clave},{valor}\n")
     except OSError as men:
         print(men)
-def cargar_sponsorsuso():
+def cargar_sponsorsuso(sponsorsuso):
     if not sponsorsuso.exists():
-        with open(sponsorsuso,"w",encoding="utf-8") as ferlot:
+        with open(sponsorsuso,"wt",encoding="utf-8") as ferlot:
             ferlot.write("entrada,0\n")
             ferlot.write("arco izquiero,0\n")
             ferlot.write("arco derecho,0\n")
@@ -89,7 +89,7 @@ def cargar_sponsorsuso():
     else:
         lette={}
         try:
-            with open(sponsorsuso,"r",encoding="utf-8") as forreal:
+            with open(sponsorsuso,"rt",encoding="utf-8") as forreal:
                 for linea in forreal:
                     clave,valor=linea.strip().split(",")
                     lette[clave]=int(valor)
@@ -97,67 +97,67 @@ def cargar_sponsorsuso():
         except OSError as msj:
             print(msj)
             return {}
-def guardar_sponsorsuso(dat):
+def guardar_sponsorsuso(dat,sponsorsuso):
     try: 
-        with open(sponsorsuso,"w",encoding="utf-8") as forreal:
+        with open(sponsorsuso,"wt",encoding="utf-8") as forreal:
             for clave,valor in dat.items():
                 forreal.write(f"{clave},{valor}\n") 
     except OSError as men:
         print(men)
-def cargar_bitacora():
+def cargar_bitacora(bitacora):
     if not bitacora.exists():
         bitacora.touch()
-def guardar_bitacora(user,nuevo,datadeltiempo):
+def guardar_bitacora(user,nuevo,datadeltiempo,bitacora):
     with open(bitacora,"at",encoding="utf-8") as forreal3:
         forreal3.write(f"{user},{nuevo},{datadeltiempo}")
         forreal3.write("\n")
-def guardar_matirzpe(matrizpe):
+def guardar_matirzpe(matrizpe,archivo):
     try:
-        with open(archivo,"w",encoding="utf-8") as matrices:
+        with open(archivo,"wt",encoding="utf-8") as matrices:
             json.dump(matrizpe,matrices,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def guardar_matirznombr(matriznombr):
+def guardar_matirznombr(matriznombr,archivo2):
     try:
-        with open(archivo2,"w",encoding="utf-8") as matrices2:
+        with open(archivo2,"wt",encoding="utf-8") as matrices2:
             json.dump(matriznombr,matrices2,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_matrizpe():
+def cargar_matrizpe(archivo):
     if not archivo.exists():
         matrizcita=[[0 for _ in range(13)] for _ in range(3)]
         guardar_matirzpe(matrizcita)
         return matrizcita
     else:
         try:
-            with open(archivo,"r",encoding="utf-8") as literal:
+            with open(archivo,"rt",encoding="utf-8") as literal:
                 return json.load(literal)
         except OSError as men:
             print(men)
             matrizcita=[[0 for _ in range(13)] for _ in range(3)]
             guardar_matirzpe(matrizcita)
             return matrizcita
-def cargar_matriznombr():
+def cargar_matriznombr(archivo2):
     if not archivo2.exists():
         matrizcita2=[[0 for _ in range(13)] for _ in range(3)]
         guardar_matirznombr(matrizcita2)
         return matrizcita2
     else:
         try:
-            with open(archivo2,"r",encoding="utf-8") as literal2:
+            with open(archivo2,"rt",encoding="utf-8") as literal2:
                 return json.load(literal2)
         except OSError as men:
             print(men)
             matrizcita2=[[0 for _ in range(13)] for _ in range(3)]
             guardar_matirznombr(matrizcita2)
             return matrizcita2
-def guardar_reportes(datos):
+def guardar_reportes(datos,reportes):
     try:
-        with open(reportes,"w",encoding="utf-8") as datal:
+        with open(reportes,"wt",encoding="utf-8") as datal:
             json.dump(datos,datal,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_reportes():
+def cargar_reportes(reportes):
     if not reportes.exists():
         datos={"listcanchas":[5,8,11],
         "listhorario":[1200,1300,1400,1500,1600,1700,1800,1900,2000,2100,2200,2300,2400],
@@ -177,7 +177,7 @@ def cargar_reportes():
         return datos
     else:
         try:
-            with open(reportes,"r",encoding="utf-8") as datal2:
+            with open(reportes,"rt",encoding="utf-8") as datal2:
                 return json.load(datal2)
         except OSError as men:
             print(men)
@@ -197,123 +197,123 @@ def cargar_reportes():
             "pagoentrada":[]}
             guardar_reportes(datos)
             return datos
-def cargar_listaliga():
+def cargar_listaliga(listaliga):
     if not listaliga.exists():
         lista10=[0 for _ in range(20)]
         guardar_listaliga(lista10)
         return lista10
     else:
         try:
-            with open(listaliga,"r",encoding="utf-8") as bro:
+            with open(listaliga,"rt",encoding="utf-8") as bro:
                 return json.load(bro)
         except OSError as men:
             print(men)
             lista10=[0 for _ in range(20)]
             guardar_listaliga(lista10)
             return lista10
-def guardar_listaliga(lista10):
+def guardar_listaliga(lista10,listaliga):
     try:
-        with open(listaliga,"w",encoding="utf-8") as listadelaliga:
+        with open(listaliga,"wt",encoding="utf-8") as listadelaliga:
             json.dump(lista10,listadelaliga,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_torneooficial():
+def cargar_torneooficial(torneooficial):
     if not torneooficial.exists():
         lista11=[]
         guardar_torneooficial(lista11)
         return lista11
     else:
         try:
-            with open(torneooficial,"r",encoding="utf-8") as bro2:
+            with open(torneooficial,"rt",encoding="utf-8") as bro2:
                 return json.load(bro2)
         except OSError as men:
             print(men)
             lista11=[]
             guardar_torneooficial(lista11)
             return lista11
-def guardar_torneooficial(lista11):
+def guardar_torneooficial(lista11,torneooficial):
     try:
-        with open(torneooficial,"w",encoding="utf-8") as listadeltorneo:
+        with open(torneooficial,"wt",encoding="utf-8") as listadeltorneo:
             json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_torneooficial2():
+def cargar_torneooficial2(torneooficial2):
     if not torneooficial2.exists():
         lista11=[]
         guardar_torneooficial2(lista11)
         return lista11
     else:
         try:
-            with open(torneooficial2,"r",encoding="utf-8") as bro2:
+            with open(torneooficial2,"rt",encoding="utf-8") as bro2:
                 return json.load(bro2)
         except OSError as men:
             print(men)
             lista11=[]
             guardar_torneooficial2(lista11)
             return lista11
-def guardar_torneooficial2(lista11):
+def guardar_torneooficial2(lista11,torneooficial2):
     try:
-        with open(torneooficial2,"w",encoding="utf-8") as listadeltorneo:
+        with open(torneooficial2,"wt",encoding="utf-8") as listadeltorneo:
             json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_torneooficial3():
+def cargar_torneooficial3(torneooficial3):
     if not torneooficial3.exists():
         lista11=[]
         guardar_torneooficial3(lista11)
         return lista11
     else:
         try:
-            with open(torneooficial3,"r",encoding="utf-8") as bro2:
+            with open(torneooficial3,"rt",encoding="utf-8") as bro2:
                 return json.load(bro2)
         except OSError as men:
             print(men)
             lista11=[]
             guardar_torneooficial3(lista11)
             return lista11
-def guardar_torneooficial3(lista11):
+def guardar_torneooficial3(lista11,torneooficial3):
     try:
-        with open(torneooficial3,"w",encoding="utf-8") as listadeltorneo:
+        with open(torneooficial3,"wt",encoding="utf-8") as listadeltorneo:
             json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_torneooficial4():
+def cargar_torneooficial4(torneooficial4):
     if not torneooficial4.exists():
         lista11=[]
         guardar_torneooficial4(lista11)
         return lista11
     else:
         try:
-            with open(torneooficial4,"r",encoding="utf-8") as bro2:
+            with open(torneooficial4,"rt",encoding="utf-8") as bro2:
                 return json.load(bro2)
         except OSError as men:
             print(men)
             lista11=[]
             guardar_torneooficial3(lista11)
             return lista11
-def guardar_torneooficial4(lista11):
+def guardar_torneooficial4(lista11,torneooficial4):
     try:
-        with open(torneooficial4,"w",encoding="utf-8") as listadeltorneo:
+        with open(torneooficial4,"wt",encoding="utf-8") as listadeltorneo:
             json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
-def cargar_listatorneo():
+def cargar_listatorneo(listatorneo):
     if not listatorneo.exists():
         lista11=[0 for _ in range(16)]
         guardar_listatorneo(lista11)
         return lista11
     else:
         try:
-            with open(listatorneo,"r",encoding="utf-8") as bro2:
+            with open(listatorneo,"rt",encoding="utf-8") as bro2:
                 return json.load(bro2)
         except OSError as men:
             print(men)
             lista11=[0 for _ in range(16)]
             guardar_listatorneo(lista11)
             return lista11
-def guardar_listatorneo(lista11):
+def guardar_listatorneo(lista11,listatorneo):
     try:
-        with open(listatorneo,"w",encoding="utf-8") as listadeltorneo:
+        with open(listatorneo,"wt",encoding="utf-8") as listadeltorneo:
             json.dump(lista11,listadeltorneo,ensure_ascii=False, indent=2)
     except OSError as men:
         print(men)
@@ -342,288 +342,279 @@ def guardar_usuarios(dale20,user):
                 lit.write(f"{usuario}:{contraseña}\n")
     except OSError as men:
         print(men)
-def cargar_torneo():
+def cargar_torneo(torneito):
     if not torneito.exists():
         datazo={"fasegrupos1":[],"fasegrupos2":[],"fasegrupos3":[],"fasegrupos4":[],"cuartos":[],"semis":[],"final":[]}
         guardar_torneo(datazo)
         return datazo
     else:
         try:
-            with open(torneito,"r",encoding="utf-8") as mesengger:
+            with open(torneito,"rt",encoding="utf-8") as mesengger:
                 return json.load(mesengger)
         except OSError as men:
             print(men)
             datazo={"fasegrupos1":[],"fasegrupos2":[],"fasegrupos3":[],"fasegrupos4":[],"cuartos":[],"semis":[],"final":[]}
             guardar_torneo(datazo)
             return datazo
-def guardar_torneo(datos):
+def guardar_torneo(datos,torneito):
     try:
-        with open(torneito,"w",encoding="utf-8") as mesengger2:
+        with open(torneito,"wt",encoding="utf-8") as mesengger2:
             json.dump(datos,mesengger2,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_liga():
+def cargar_liga(liguita):
     if not liguita.exists():
         datazo2={"liga":[]}
         guardar_liga(datazo2)
         return datazo2
     else:
         try:
-            with open(liguita,"r",encoding="utf-8") as mesengger3:
+            with open(liguita,"rt",encoding="utf-8") as mesengger3:
                 return json.load(mesengger3)
         except OSError as men:
             print(men)
             datazo2={"liga":[]}
             guardar_liga(datazo2)
             return datazo2
-def guardar_liga(datos2):
+def guardar_liga(datos2,liguita):
     try:
-        with open(liguita,"w",encoding="utf-8") as mesengger4:
+        with open(liguita,"wt",encoding="utf-8") as mesengger4:
             json.dump(datos2,mesengger4,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_partidosdeliga():
+def cargar_partidosdeliga(fixture):
     if not fixture.exists():
         dirigir={"fixture":[]}
         guardar_partidosdeliga(dirigir)
         return dirigir
     else:
         try:
-            with open(fixture,"r",encoding="utf-8") as berni2:
+            with open(fixture,"rt",encoding="utf-8") as berni2:
                 return json.load(berni2)
         except OSError as men:
             print(men)
             dirigir={"fixture":[]}
             guardar_partidosdeliga(dirigir)
             return dirigir
-def guardar_partidosdeliga(lato):
+def guardar_partidosdeliga(lato,fixture):
     try:
-        with open(fixture,"w",encoding="utf-8") as berni:
+        with open(fixture,"wt",encoding="utf-8") as berni:
             json.dump(lato,berni,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_partidosdetorneo():
+def cargar_partidosdetorneo(fixturetorneo):
     if not fixturetorneo.exists():
         dirigir2={"fixturefasegrupos1":[],"fixturefasegrupos2":[],"fixturefasegrupos3":[],"fixturefasegrupos4":[],"fixturecuartos":[],"fixturesemis":[],"fixturefinal":[]}
         guardar_partidosdetorneo(dirigir2)
         return dirigir2
     else:
         try:
-            with open(fixturetorneo,"r",encoding="utf-8") as berni4:
+            with open(fixturetorneo,"rt",encoding="utf-8") as berni4:
                 return json.load(berni4)
         except OSError as men:
             print(men)
             dirigir2={"fixturefasegrupos1":[],"fixturefasegrupos2":[],"fixturefasegrupos3":[],"fixturefasegrupos4":[],"fixturecuartos":[],"fixturesemis":[],"fixturefinal":[]}
             guardar_partidosdetorneo(dirigir2)
             return dirigir2
-def guardar_partidosdetorneo(lato2):
+def guardar_partidosdetorneo(lato2,fixturetorneo):
     try:
-        with open(fixturetorneo,"w",encoding="utf-8") as berni3:
+        with open(fixturetorneo,"wt",encoding="utf-8") as berni3:
             json.dump(lato2,berni3,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_sponsors():
+def cargar_sponsors(sponsors):
     if not sponsors.exists():
-        totalsponsors={"listasponsors":["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],"disponibilidad":[0 for i in range(6)],"listadisponibilidad":["disponible","no disponible"],"nombresponsor":[0 for i in range(6)]}
+        totalsponsors={"listasponsorszona":[1,2,3,4,5,6],"listasponsors":["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],"disponibilidad":[0 for i in range(6)],"listadisponibilidad":["disponible","no disponible"],"nombresponsor":[0 for i in range(6)]}
         guardar_sponsors(totalsponsors)
         return totalsponsors
     else:
         try:
-            with open(sponsors,"r",encoding="utf-8") as spo:
+            with open(sponsors,"rt",encoding="utf-8") as spo:
                 return json.load(spo)
         except OSError as men:
             print(men)
-            totalsponsors={"listasponsors":["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],"disponibilidad":[0 for i in range(6)],"listadisponibilidad":["disponible","no disponible"],"nombresponsor":[0 for i in range(6)]}
+            totalsponsors={"listasponsorszona":[1,2,3,4,5,6],"listasponsors":["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],"disponibilidad":[0 for i in range(6)],"listadisponibilidad":["disponible","no disponible"],"nombresponsor":[0 for i in range(6)]}
             guardar_sponsors(totalsponsors)
             return totalsponsors
-def guardar_sponsors(datos20):
+def guardar_sponsors(datos20,sponsors):
     try:
-        with open(sponsors,"w",encoding="utf-8") as spo2:
+        with open(sponsors,"wt",encoding="utf-8") as spo2:
             json.dump(datos20,spo2,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_entradas():
+def cargar_entradas(entradonas):
     if not entradonas.exists():
         dati={"vip":10,"platea":50,"popular":200}
         guardar_entradas(dati)
         return dati
     else:
         try:
-            with open(entradonas,"r",encoding="utf-8") as moned:
+            with open(entradonas,"rt",encoding="utf-8") as moned:
                 return json.load(moned)
         except OSError as men:
             print(men)
             dati={"vip":10,"platea":50,"popular":200}
             guardar_entradas(dati)
             return dati
-def guardar_entradas(datilo):
+def guardar_entradas(datilo,entradonas):
     try:
-        with open(entradonas,"w",encoding="utf-8") as foreigner:
+        with open(entradonas,"wt",encoding="utf-8") as foreigner:
             json.dump(datilo,foreigner,ensure_ascii=False,indent=2)
     except OSError as men:
             print(men)
-def cargar_entradastorneo():
+def cargar_entradastorneo(entradonas2):
     if not entradonas2.exists():
         dati2={"vip":10,"platea":50,"popular":200}
         guardar_entradastorneo(dati2)
         return dati2
     else:
         try:
-            with open(entradonas2,"r",encoding="utf-8") as moned2:
+            with open(entradonas2,"rt",encoding="utf-8") as moned2:
                 return json.load(moned2)
         except OSError as men:
             print(men)
             dati2={"vip":10,"platea":50,"popular":200}
             guardar_entradastorneo(dati2)
             return dati2
-def guardar_entradastorneo(datilo2):
+def guardar_entradastorneo(datilo2,entradonas2):
     try:
-        with open(entradonas2,"w",encoding="utf-8") as foreigner2:
+        with open(entradonas2,"wt",encoding="utf-8") as foreigner2:
             json.dump(datilo2,foreigner2,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_estadisticas():
+def cargar_estadisticas(expediente):
     if not expediente.exists():
         date={"entradasvendidas":{"vip":0,"platea":0,"popular":0},"sponsorsuso":{"entrada":0,"arco izquiero":0,"arco derecho":0,"gradas lado izquierdo":0,"gradas lado derecho":0,"fachada de club":0},"cualvendemas":{"entradasliga":0,"entradastorneo":0},"cualreserva":{"fut5":0,"fut8":0,"fut11":0}}
         guardar_estadisticas(date)
         return date
     else:
         try:
-            with open(expediente,"r",encoding="utf-8") as fragile:
+            with open(expediente,"rt",encoding="utf-8") as fragile:
                 return json.load(fragile)
         except OSError as men:
             print(men)
             date={"entradasvendidas":{"vip":0,"platea":0,"popular":0},"sponsorsuso":{"entrada":0,"arco izquiero":0,"arco derecho":0,"gradas lado izquierdo":0,"gradas lado derecho":0,"fachada de club":0},"cualvendemas":{"entradasliga":0,"entradastorneo":0},"cualreserva":{"fut5":0,"fut8":0,"fut11":0}}
             guardar_estadisticas(date)
             return date
-def guardar_estadisticas(usito):
+def guardar_estadisticas(usito,expediente):
     try:
-        with open(expediente,"w",encoding="utf-8") as fragile2:
+        with open(expediente,"wt",encoding="utf-8") as fragile2:
             json.dump(usito,fragile2,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_resultadosidita():
+def cargar_resultadosidita(resultadosidita):
     if not resultadosidita.exists():
         datazo2={"resultadosidita":[]}
         guardar_resultadosidita(datazo2)
         return datazo2
     else:
         try:
-            with open(resultadosidita,"r",encoding="utf-8") as mesengger3:
+            with open(resultadosidita,"rt",encoding="utf-8") as mesengger3:
                 return json.load(mesengger3)
         except OSError as men:
             print(men)
             datazo2={"resultadosidita":[]}
             guardar_liga(datazo2)
             return datazo2
-def guardar_resultadosidita(datos2):
+def guardar_resultadosidita(datos2,resultadosidita):
     try:
-        with open(resultadosidita,"w",encoding="utf-8") as mesengger4:
+        with open(resultadosidita,"wt",encoding="utf-8") as mesengger4:
             json.dump(datos2,mesengger4,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_resultadosvueltita():
+def cargar_resultadosvueltita(resultadosvueltita):
     if not resultadosvueltita.exists():
         datazo2={"resultadosvueltita":[]}
         guardar_resultadosvueltita(datazo2)
         return datazo2
     else:
         try:
-            with open(resultadosvueltita,"r",encoding="utf-8") as mesengger3:
+            with open(resultadosvueltita,"rt",encoding="utf-8") as mesengger3:
                 return json.load(mesengger3)
         except OSError as men:
             print(men)
             datazo2={"resultadosvueltita":[]}
             guardar_liga(datazo2)
             return datazo2
-def guardar_resultadosvueltita(datos2):
+def guardar_resultadosvueltita(datos2,resultadosvueltita):
     try:
-        with open(resultadosvueltita,"w",encoding="utf-8") as mesengger4:
+        with open(resultadosvueltita,"wt",encoding="utf-8") as mesengger4:
             json.dump(datos2,mesengger4,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_fixtureidita():
+def cargar_fixtureidita(fixtureidita):
     if not fixtureidita.exists():
         datazo2={"fixtureidita":[]}
         guardar_fixtureidita(datazo2)
         return datazo2
     else:
         try:
-            with open(fixtureidita,"r",encoding="utf-8") as mesengger3:
+            with open(fixtureidita,"rt",encoding="utf-8") as mesengger3:
                 return json.load(mesengger3)
         except OSError as men:
             print(men)
             datazo2={"fixtureidita":[]}
             guardar_liga(datazo2)
             return datazo2
-def guardar_fixtureidita(datos2):
+def guardar_fixtureidita(datos2,fixtureidita):
     try:
-        with open(fixtureidita,"w",encoding="utf-8") as mesengger4:
+        with open(fixtureidita,"wt",encoding="utf-8") as mesengger4:
             json.dump(datos2,mesengger4,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-def cargar_fixturevueltita():
+def cargar_fixturevueltita(fixturevueltita):
     if not fixturevueltita.exists():
         datazo2={"fixturevueltita":[]}
         guardar_fixturevueltita(datazo2)
         return datazo2
     else:
         try:
-            with open(fixturevueltita,"r",encoding="utf-8") as mesengger3:
+            with open(fixturevueltita,"rt",encoding="utf-8") as mesengger3:
                 return json.load(mesengger3)
         except OSError as men:
             print(men)
             datazo2={"fixturevueltita":[]}
             guardar_liga(datazo2)
             return datazo2
-def guardar_fixturevueltita(datos2):
+def guardar_fixturevueltita(datos2,fixturevueltita):
     try:
-        with open(fixturevueltita,"w",encoding="utf-8") as mesengger4:
+        with open(fixturevueltita,"wt",encoding="utf-8") as mesengger4:
             json.dump(datos2,mesengger4,ensure_ascii=False,indent=2)
     except OSError as men:
         print(men)
-
-todo={"matriztorneos":[[0 for _ in range(4)] for _ in range(12)],"nombredelaliga":"Super Liga Nacional","nombredeltorneo":"Torneo Nacional","cuartosresultados":[],"ganadorescuartos":[],"ganadoressemis":[],"semisresultados":[],"finalresultados":[],"ganadorfinal":[],"campeontorneo":[],"campeones":[],"fasegrupos1":[0 for _ in range(4)],"fasegrupos2":[0 for _ in range(4)],"fasegrupos3":[0 for _ in range(4)],"fasegrupos4":[0 for _ in range(4)],"fasegrupo1partidos":[],"fasegrupo2partidos":[],"fasegrupo3partidos":[],"fasegrupo4partidos":[],"cuartos":[],"semis":[],"final":[],"fasegrupos1resultados":[],"fasegrupos2resultados":[],"fasegrupos3resultados":[],"fasegrupos4resultados":[],"contadorpartidosfase1":[],"contadorpartidosfase2":[],"contadorpartidosfase3":[],"contadorpartidosfase4":[],"fixtureida":[],"recaudacionesliga":[],"recaudacionestorne":[],"fasegrupos1aux":[],"fasegrupos2aux":[],"fasegrupos3aux":[],"fasegrupos4aux":[],"cuartosaux":[],"semisaux":[],"finalaux":[],"fixturevuelta":[],"puntosequipos":[],"partidosjugados":[0 for _ in range(20)],"ganados":[0 for _ in range(20)],"empatados":[0 for _ in range(20)],"perdidos":[0 for _ in range(20)],"puntos":[0 for _ in range(20)],"golesfavor":[0 for _ in range(20)],"golescontra":[0 for _ in range(20)],"diferenciagol":[0 for _ in range(20)],"resultadosida":[],"partidosjugadosfase1":[0 for _ in range(20)],"ganadosfase1":[0 for _ in range(20)],"empatadosfase1":[0 for _ in range(20)],"perdidosfase1":[0 for _ in range(20)],"puntosfase1":[0 for _ in range(20)],"golesfavorfase1":[0 for _ in range(20)],"golescontrafase1":[0 for _ in range(20)],"diferenciagolfase1":[0 for _ in range(20)],"partidosjugadosfase2":[0 for _ in range(20)],"ganadosfase2":[0 for _ in range(20)],"empatadosfase2":[0 for _ in range(20)],"perdidosfase2":[0 for _ in range(20)],"puntosfase2":[0 for _ in range(20)],"golesfavorfase2":[0 for _ in range(20)],"golescontrafase2":[0 for _ in range(20)],"diferenciagolfase2":[0 for _ in range(20)],"partidosjugadosfase3":[0 for _ in range(20)],"ganadosfase3":[0 for _ in range(20)],"empatadosfase3":[0 for _ in range(20)],"perdidosfase3":[0 for _ in range(20)],"puntosfase3":[0 for _ in range(20)],"golesfavorfase3":[0 for _ in range(20)],"golescontrafase3":[0 for _ in range(20)],"diferenciagolfase3":[0 for _ in range(20)],"partidosjugadosfase4":[0 for _ in range(20)],"ganadosfase4":[0 for _ in range(20)],"empatadosfase4":[0 for _ in range(20)],"perdidosfase4":[0 for _ in range(20)],"puntosfase4":[0 for _ in range(20)],"golesfavorfase4":[0 for _ in range(20)],"golescontrafase4":[0 for _ in range(20)],"diferenciagolfase4":[0 for _ in range(20)],"contadorpartidosida":[i for i in range(1,191)],"resultadosvuelta":[],"contadorpartidosvuelta":[x for x in range(1,191)],"nombresaleatoriosequipos":["Atlético del Sur", "Club Deportivo Aurora", "Racing Federal", "Juventud Unida","Sportivo Central", "Unión del Norte", "Estrella Roja", "Los Dragones FC","San Martín Juniors", "Nueva Esperanza", "Club Social Libertad", "Huracán del Valle","Defensores de la Costa", "Talleres Unidos", "Los Guerreros", "Boca del Oeste","River Plateño", "Cruz Azul del Sur", "Leones Dorados", "Águilas Negras","Real Horizonte", "Deportivo América", "Universitario Central", "Club Atlético Nacional","Fuerza Joven", "Pumas de la Sierra", "Toros Salvajes", "Estudiantes del Sol","Nueva Generación", "Atlético Popular", "Club Independiente", "San Lorenzo Unido","Deportivo Patria", "Olimpia del Sur", "Cultural Esperanza", "Ciclón Rojo","Guaraní Unido", "Leones del Sur", "Academia del Fútbol", "Sport Boys","Los Gladiadores", "Unión Deportiva Estrella", "Villa Real FC", "Juventud Federal","Defensa y Justicia Social", "Atlético Horizonte", "Deportivo Norteño", "Tigre Blanco","Halcones Verdes", "Nueva Alianza", "San Carlos Juniors", "Atlético Centenario","Los Piratas FC", "Club Deportivo Cosmos", "Juventud Atlética", "Rayo del Sur","Los Titanes", "Sporting Club Federal", "Atlético Ciudadela", "Universitario Unido","Club Social Victoria", "Deportivo Unión", "Santa Fe Atlético", "Real Central","Club Atlético Esperanza", "Independencia FC", "Sportivo Olimpo", "Guerreros del Sol","Águilas Plateadas", "Los Delfines", "Atlético Mundial", "Nueva Roma FC","San José Unido", "Estrella Federal", "Juventud Patriota", "Huracán del Centro","Deportivo Internacional", "Granaderos FC", "Racing Unido", "Unión Deportiva Norte","Atlético Azul", "Fuerza Guerrera", "Los Lobos", "Club Estudiantes Unidos","Rivera FC", "Boca Sur", "Atlético Colonial", "Deportivo Horizonte","Club Nacional Popular", "Los Cóndores", "Sporting Nueva Era", "Juventud del Norte","Atlético Moderno", "Los Pioneros", "Real Metropolitano", "Estrella Joven","Deportivo Victoria", "Unión San Pedro", "Club del Sol", "Atlético Bravo"],"listasponsorszona":[1,2,3,4,5,6],"listasponsors":["entrada","arco izquiero","arco derecho","gradas lado izquierdo","gradas lado derecho","fachada de club"],"disponibilidad":[0 for i in range(6)],"listadisponibilidad":["disponible","no disponible"],"listanombresponsor":[0 for i in range(6)],"recaudaciondiezporciento":0,"disponibilidadtorneo":[0 for i in range(6)],"listanombresponsortorneo":[0 for i in range(6)]
-    }
-ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol=[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)],[0 for _ in range(20)]
-cualvendemas=pathlib.Path("cualvendemas.csv")
-entradasvendidas=pathlib.Path("entradasvendidas.csv")
-fixturevueltita=pathlib.Path("fixturevueltita.json")
-fixtureidita=pathlib.Path("fixtureidita.json")
-resultadosvueltita=pathlib.Path("resultadosvueltita.json")
-resultadosidita=pathlib.Path("resultadosidita.json")
-expediente=pathlib.Path("estadisticas.json")
-entradonas2=pathlib.Path("entradastorneo.json")
-entradonas=pathlib.Path("entradas.json")
-sponsors=pathlib.Path("sponsors.json")
-fixturetorneo=pathlib.Path("fixturetorneo.json")
-fixture=pathlib.Path("fixture.json")
-liguita=pathlib.Path("liguita.json")
-torneito=pathlib.Path("torneo.json")
-comprobacionusuario=pathlib.Path("archivoinicio.jtxt")
-comprobacionadmin=pathlib.Path("admininicio.txt")
-torneooficial4=pathlib.Path("torneooficial4.json")
-torneooficial3=pathlib.Path("torneooficial3.json")
-listatorneo=pathlib.Path("inscripciones_torneo.json")
-listaliga=pathlib.Path("inscripciones_liga.json")
-torneooficial=pathlib.Path("torneooficial.json")
-torneooficial2=pathlib.Path("torneooficial2.json")
-reportes=pathlib.Path("reportes.json")
-cualreserva=pathlib.Path("cualreserva.csv")
-sponsorsuso=pathlib.Path("sponsorsuso.csv")
-bitacora=pathlib.Path("bitacora.txt")
-archivo=pathlib.Path("reservas.json")
-archivo2=pathlib.Path("nombres.json")
-listaequiposliga=cargar_listaliga()
-entradas={"vip":10,"platea":50,"popular":200}
-disponible={"vip","platea","popular"}
-ocupadas=set()
-entradastorneo={"vip":10,"platea":50,"popular":200}
-disponibletorneo={"vip","platea","popular"}
-ocupadastorneo=set()
-matrizper=cargar_matrizpe()
-matriznombre=cargar_matriznombr()
-listcanchas,listhorarios,listformpago,listrecaudacioncanchas,listrecaudacionhorarios,listrecaudacionformpago,listcantcanchas,listcanthorarios,listcantformpago,listaclientes,listadiezporciento,recaudacionestorneo,recaudacionesliga,pagoentrada=cargar_reportes()
-listaequipostorneo=cargar_listatorneo()
+def cargar_rutas_archivos():
+    cualvendemas=pathlib.Path("cualvendemas.csv")
+    entradasvendidas=pathlib.Path("entradasvendidas.csv")
+    fixturevueltita=pathlib.Path("fixturevueltita.json")
+    fixtureidita=pathlib.Path("fixtureidita.json")
+    resultadosvueltita=pathlib.Path("resultadosvueltita.json")
+    resultadosidita=pathlib.Path("resultadosidita.json")
+    expediente=pathlib.Path("estadisticas.json")
+    entradonas2=pathlib.Path("entradastorneo.json")
+    entradonas=pathlib.Path("entradas.json")
+    sponsors=pathlib.Path("sponsors.json")
+    fixturetorneo=pathlib.Path("fixturetorneo.json")
+    fixture=pathlib.Path("fixture.json")
+    liguita=pathlib.Path("liguita.json")
+    torneito=pathlib.Path("torneo.json")
+    torneooficial4=pathlib.Path("torneooficial4.json")
+    torneooficial3=pathlib.Path("torneooficial3.json")
+    listatorneo=pathlib.Path("inscripciones_torneo.json")
+    listaliga=pathlib.Path("inscripciones_liga.json")
+    torneooficial=pathlib.Path("torneooficial.json")
+    torneooficial2=pathlib.Path("torneooficial2.json")
+    reportes=pathlib.Path("reportes.json")
+    cualreserva=pathlib.Path("cualreserva.csv")
+    sponsorsuso=pathlib.Path("sponsorsuso.csv")
+    bitacora=pathlib.Path("bitacora.txt")
+    archivo=pathlib.Path("reservas.json")
+    archivo2=pathlib.Path("nombres.json")
+    return cualvendemas,entradasvendidas,fixturevueltita,fixtureidita,resultadosvueltita,resultadosidita,expediente,entradonas2,entradonas,sponsors,fixturetorneo,fixture,liguita,torneito,torneooficial4,torneooficial3,listatorneo,listaliga,torneooficial,torneooficial2,reportes,cualreserva,sponsorsuso,bitacora,archivo,archivo2
+def cargar_entradasdelisto():
+    disponible={"vip","platea","popular"}
+    ocupadas=set()
+    disponibletorneo={"vip","platea","popular"}
+    ocupadastorneo=set()
+    return disponible,ocupadas,disponibletorneo,ocupadastorneo
 
 #esto esta bien, hay que acomodarlo nomas, pero cuando funcione todo
