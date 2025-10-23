@@ -22,7 +22,7 @@ def calcular_cantidad_posiblesdecontraseñas(let,cc,cn):
     let*=cc    
     return calcular_cantidad_posiblesdecontraseñas(let,cc,cn-1)
 
-def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica):
+def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,listadisponibilidad,listanombresponsor,sponsorcito,estadistica,ultimo):
             print(f"\tsponsors\t\t\tdisponibilidad")
             disponible=-1
             for p in range(len(disponibilidad)):
@@ -69,7 +69,7 @@ def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,
                                             estadistica["sponsorsuso"][guardo]+=1
                                 if guardo in usitosponsors:
                                     usitosponsors[guardo]+=1
-                                listas.guardar_sponsors(sponsorcito)
+                                listas.guardar_sponsors(sponsorcito,ultimo)
                                 salir=True
                                 salir3=True
                                 break
@@ -148,16 +148,16 @@ def cobrar_entradas(entradavendit,sector,cantidad,listaentradas,estadisticas,pag
 
 
 
-def ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,fasegrupos):
+def ingreso_aleatorio_partidos(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,fasegrupos,pelelor):
     while len(fasegrupos1resultados)<(len(fasegrupos1aux)):
         
             golcitos1=random.randint(0,15)
             golcitos2=random.randint(0,15)
             fasegrupos1resultados.append([golcitos1,golcitos2])
             resultaditosgeneral[fasegrupos].append([golcitos1,golcitos2])
-            listas.guardar_torneo(resultaditosgeneral)
+            listas.guardar_torneo(resultaditosgeneral,pelelor)
 
-def ingresar_manual_partidos(cuartosaux,cuartosresultados,resultaditosgeneral,cuartos):
+def ingresar_manual_partidos(cuartosaux,cuartosresultados,resultaditosgeneral,cuartos,pelelor):
     
                 for r in range(len(cuartosaux)):
                 
@@ -180,7 +180,7 @@ def ingresar_manual_partidos(cuartosaux,cuartosresultados,resultaditosgeneral,cu
                             print(mostra5)
                             continue
                         resultaditosgeneral[cuartos].append([golescuartos1,golescuartos2])
-                        listas.guardar_torneo(resultaditosgeneral)
+                        listas.guardar_torneo(resultaditosgeneral,pelelor)
                         print(f"Resultado: {jugadorescuartos1} : {golescuartos1} vs {golescuartos2} : {jugadorescuartos2}")
                         break
             
@@ -192,7 +192,7 @@ def calcular_partidos(fasegrupos1,fasegrupo1partidos):
             fasegrupo1partidos.append([equipo1torneo,equipo2torneo])
             fasegrupos1=fasegrupos1[:1]+fasegrupos1[-1:]+fasegrupos1[1:-1]
 
-def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,fixturevuelta,resultadosvuelta):
+def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,fixturevuelta,resultadosvuelta,pelit):
     for r in range(len(fixtureida)):
                 if len(resultadosida["resultadosidita"][r])<2:
                     jugador3=fixtureida[r][0]
@@ -215,7 +215,7 @@ def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,
                             continue
                         resultadosida[r].append([resta1,resta2])
                         ligaderesultados["liga"].append([resta1,resta2])
-                        listas.guardar_liga(ligaderesultados)
+                        listas.guardar_liga(ligaderesultados,pelit)
                         print(f"el resultado del partido de ida fue: {jugador3}{jugado3} vs {jugado4}{jugador4}")
                         break
                 else:
@@ -241,7 +241,7 @@ def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,
                                     continue
                                 resultadosvuelta[t].append([resta3,resta4])
                                 ligaderesultados["liga"].append([resta3,resta4])
-                                listas.guardar_liga(ligaderesultados)
+                                listas.guardar_liga(ligaderesultados,pelit)
                                 print(f"el resultado del partido de ida fue: {jugador5}{jugado5} vs {jugado6}{jugador6}")
                                 break
                         else:
@@ -279,7 +279,7 @@ def mostrar_disponiblestorneo(datillo,disponibletorneo,ocupadastorneo):
         print(f"{p} : {datillo[p]} asientos libres")
 
 
-def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listaliga):
+def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listaliga,listaliga):
     conteo20=0
     print(stringer)
     print(stringer2)
@@ -311,7 +311,7 @@ def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listalig
                     for v in range(len(listaequiposliga)):
                         if listaequiposliga[v]==0:
                             listaequiposliga[v]=nombreequipo
-                            guardar_listaliga(listaequiposliga)
+                            guardar_listaliga(listaequiposliga,listaliga)
                             print(f"equipo:{nombreequipo} inscripto correctamente")
                             break
                     break
@@ -333,7 +333,7 @@ def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listalig
                     break
             if salir2:
                 break
-def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,nombrefase):
+def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,nombrefase,ultimpelit):
     completos=0
     for r in range(len(fasegrupos1aux)):
         if len(fasegrupos1resultados[r])<2:
@@ -354,7 +354,7 @@ def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditos
                     continue
                 fasegrupos1resultados[r].append([goles1,goles2])
                 resultaditosgeneral[nombrefase].append([goles1,goles2])
-                listas.guardar_torneo(resultaditosgeneral)
+                listas.guardar_torneo(resultaditosgeneral,ultimpelit)
                 print(f"Resultado: {jugadores11} : {goles1} vs {goles2} : {jugadores12} ")
                 break
         else:
@@ -368,15 +368,15 @@ def resultados_aleatorios_fasegrupos(fasegrupos1resultados,fixturetorneo):
                 fase1eq2=random.randint(0,15)
                 fasegrupos1resultados.append([fase1eq1,fase1eq2])
 
-def resultados_aleatorios_liga(resultadosida,ligaderesultados,biene,guardar_resultadosidita):
+def resultados_aleatorios_liga(resultadosida,ligaderesultados,biene,guardar_resultadosidita,lista,listacompleta):
     while len(resultadosida[biene])<190:
                 resu=[]
                 eq1=random.randint(0,15)
                 eq2=random.randint(0,15)
                 resultadosida[biene].append([eq1,eq2])
                 ligaderesultados["liga"].append([eq1,eq2])
-                listas.guardar_liga(ligaderesultados)
-                guardar_resultadosidita(resultadosida)
+                listas.guardar_liga(ligaderesultados,listacompleta)
+                guardar_resultadosidita(resultadosida,lista)
 
 def calcular_tabla(fixtureida,listaauxiliarliga,partidosjugados,resultadosida,ganados,puntos,perdidos,empatados,golesfavor,golescontra,diferenciagol):
     """fixtureida=[partido for fecha in fixtureida for partido in fecha]"""
@@ -470,7 +470,7 @@ def cargar_listas_de_canchas():
     listaclientela=[]
     listadiezporciento=[]
     return canchas,horarios,formpago,recaudacioncanchas,recaudacionhorarios,recaudacionformpago,cantcanchas,canthorarios,cantformpago,listaclientela,listadiezporciento
-def reporte_metodo_pago(reportes,formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento,preciocuidado):
+def reporte_metodo_pago(reportes,reportaje,formpagodef,recaudacionformpagodef,cantformpagodef,cobrodef,listadediezporciento,preciocuidado):
     """Objetivo: Actualiza el reporte de metodo de pago"""
     fp=input("Ingrese (e) para efectivo, 10% mas, y (mp) para mercado pago: ")
     diezporcientoefe=0
@@ -487,16 +487,16 @@ def reporte_metodo_pago(reportes,formpagodef,recaudacionformpagodef,cantformpago
         listadediezporciento.append(diezporcientoefe)
         preciocuidado=(cobrodef*110//100)
         reportes["listadiezporciento"].append(diezporcientoefe)
-        listas.guardar_reportes(reportes)
+        listas.guardar_reportes(reportaje,reportes)
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
         reportes["listrecaudacionformpago"][ranaux]+=cobrodef
         reportes["listcantformpago"][ranaux]+=1
-    listas.guardar_reportes(reportes)
+    listas.guardar_reportes(reportaje,reportes)
     return preciocuidado
-def reporte_canchas(reportes,canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
+def reporte_canchas(reportes,reportaje,canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
     """objetivo: actualiza el reporte de canchas"""
     if numerocancha==5:
         rat=canchasdef.index(5)
@@ -516,8 +516,8 @@ def reporte_canchas(reportes,canchasdef,recaudacioncanchasdef,cantcanchasdef,cob
         cantcanchasdef[rataux2]+=1
         reportes["listrecaudacioncanchas"][rataux2]+=cobrodef
         reportes["listcantcanchas"][rataux2]+=1
-    listas.guardar_reportes(reportes)
-def reporte_horarios(reportes,horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef,filadef):
+    listas.guardar_reportes(reportaje,reportes)
+def reporte_horarios(reportes,reportaje,horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef,filadef):
     """objetivo: actualiza el reporte de horarios"""
     if filadef in horariosdef:
         raton=horariosdef.index(filadef)
@@ -525,15 +525,15 @@ def reporte_horarios(reportes,horariosdef,recaudacionhorariosdef,canthorariosdef
         canthorariosdef[raton]+=1
         reportes["listrecaudacionhorarios"][raton]+=cobrodef
         reportes["listcanthorarios"][raton]+=1
-        listas.guardar_reportes(reportes)
-def reporte_torneo(reportes,recaudaciontorneo,valor):
+        listas.guardar_reportes(reportaje,reportes)
+def reporte_torneo(reportes,reportaje,recaudaciontorneo,valor):
     recaudetorneo=((1000000*16)*(100-valor)//100)
     reportes["recaudacionestorneo"].append(recaudetorneo)
-    listas.guardar_reportes(reportes)
-def reporte_liga(reportes,recaudacionliga):
+    listas.guardar_reportes(reportaje,reportes)
+def reporte_liga(reportes,reportaje,recaudacionliga):
     recaudeliga=((80000*20*38)//2)
     reportes["recaudacionesliga"].append(recaudeliga)
-    listas.guardar_reportes(reportes)   
+    listas.guardar_reportes(reportaje,reportes)   
 def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     """objetivo: calcula la cancha con mayor recaudo y el porcentaje de usos que tuvo"""
     maxi=max(listita)
@@ -571,7 +571,5 @@ def mayor_cliente(listacanthorarios,listahorarios):
     if conteo2>1:
         hay2=1
     return mayorclient,hay2,promedio,numcancha
-
-
 
 #por ahora viene bien, hay que probar las que dice en main copy.py
