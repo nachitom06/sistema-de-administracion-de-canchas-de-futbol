@@ -1019,9 +1019,9 @@ def admin(user):
                     semis.append([ereqcuartos1,ereqcuartos3])
                     semis.append([doeqcuartos2,toeqcuartos4])
                     semisaux=semis[::1]
-                    for local,visitante in semisaux:
-                        fixturetorneos["fixturesemis"].append([local,visitante])
-                    listas.guardar_partidosdetorneo(fixturetorneos,fixturetorneo)
+                for local,visitante in semisaux:
+                    fixturetorneos["fixturesemis"].append([local,visitante])
+                listas.guardar_partidosdetorneo(fixturetorneos,fixturetorneo)
 
         elif herramienta==20:#calcular final
             megacontador3=0
