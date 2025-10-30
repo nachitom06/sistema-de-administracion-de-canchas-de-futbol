@@ -7,7 +7,7 @@ def main():
     """Objetivo: Se introduce un número (1 reservar canchas, 2 cancelar la reservacion de canchas, 3 calcular cobro, 4 mostrar reportes, -1 para finalizar programa)"""
     funmod.dar_bienvenida()
     administrador=0
-    letek,cantidadcaracteres,cantidadcontra=1,10,6
+    letek234,cantidadcaracteres,cantidadcontra=1,10,6
     comprobacionusuario=pathlib.Path("archivoinicio.txt")
     comprobacionadmin=pathlib.Path("admininicio.txt")
     usuarios=listas.cargar_usuarios(comprobacionusuario)
@@ -17,22 +17,22 @@ def main():
     print("inicio de sesion")
     while True:
         try:
-            inicio=int(input("ingrese 0 para iniciar sesion, 1 para registrar una cuenta"))
+            inicio=int(input("ingrese 0 para iniciar sesion, 1 para registrar una cuenta: "))
             while inicio<0 or inicio>1:
                 print("error numero ingresado fuera del rango")
-                inicio=int(input("ingrese 0 para iniciar sesion, 1 para registrar una cuenta"))
+                inicio=int(input("ingrese 0 para iniciar sesion, 1 para registrar una cuenta: "))
         except ValueError as mensaje8:
             print(mensaje8)
             continue
         if inicio==0:
-            usuario=input("ingrese nombre de usuario").strip()
+            usuario=input("ingrese nombre de usuario: ").strip()
             if usuario in usuarios:
                 """si coincide con un numbre de usuario existente hay que poner que revise y todo lo de la contraseña"""
                 conteo10=0
                 while True:
                     reinicio=False
                     try:
-                        contra=int(input("ingrese su contraseña(6 digitos)"))
+                        contra=int(input("ingrese su contraseña(6 digitos): "))
                     except ValueError as mensaje9:
                         print(mensaje9)
                         continue
@@ -59,7 +59,7 @@ def main():
                 while True:
                     reinicio=False
                     try:
-                        contra=int(input("ingrese su contraseña(6 digitos)"))
+                        contra=int(input("ingrese su contraseña(6 digitos): "))
                     except ValueError as mensaje9:
                         print(mensaje9)
                         continue
@@ -88,11 +88,12 @@ def main():
             while nuevousuario in nitro:
                 print("el usuario ya existe")
                 nuevousuario=input("ingrese el nombre de usuario que desea: ").strip()
-            letek=funmod.calcular_cantidad_posiblesdecontraseñas(letek,cantidadcaracteres,cantidadcontra)
-            nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos)").strip()
+            letek=funmod.calcular_cantidad_posiblesdecontraseñas(letek234,cantidadcaracteres,cantidadcontra)
+            print(f"cantidad posibles de contraseñas de 6 digitos: {letek}")
+            nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos): ").strip()
             while nuevacontra.isalpha() or len(nuevacontra)!=6:
                 print("error, no tiene 6 digitos o no puso solo numeros")
-                nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos)").strip()
+                nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos): ").strip()
             nuevacontra=int(nuevacontra)
             nitro[nuevousuario]=nuevacontra
             listas.guardar_usuarios(comprobacionusuario,nitro)
@@ -106,6 +107,7 @@ def main():
 
 if __name__=="__main__":
     main()
+
 
 
 #hay que revisar si funciona bien el 8(sacarle la opcion de sponsors torneo, dejar solo sponsors liga),falta revisar el 10 un poco 
