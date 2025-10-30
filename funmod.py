@@ -5,6 +5,41 @@ def dar_bienvenida():
     saludo="-------------------- Bienvenido al sistema administrador --------------------"
     print(saludo)
 
+def ingresarangoydivisible(desde,hasta,divisible,texto):
+    while True:
+        try:
+            horapico=int(input(texto))
+            while horapico<desde or horapico>hasta or horapico%divisible!=0:
+                raise ValueError
+        except ValueError as mensaje4:
+            print(mensaje4)
+            continue
+        else:
+            break
+    return horapico
+
+def ingresoconlista(lista,texto):
+    while True:
+        try:
+            numero=int(input(texto))
+            if numero not in lista:
+                raise ValueError
+            break
+        except ValueError as msj:
+            print(msj)
+    return numero
+
+def ingresa_con_rangosin0(desde,hasta,texto):
+    while True:
+        try:
+            num=int(input(texto))
+            if num<desde or num>hasta or num==0:
+                raise ValueError
+            break
+        except ValueError as mensajito:
+            print(mensajito)
+    return num
+
 def ingresa_con_rango(desde,hasta,texto):
     while True:
         try:
@@ -33,10 +68,10 @@ def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,
                 print(f"{listasponsorszona[p]}\t{listasponsors[p]}\t{listadisponibilidad[disponible]}")
             while True:
                 try:
-                    eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
+                    eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor: "))
                     while eleccion not in listasponsorszona:
                         print("error fuera de rango")
-                        eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor"))
+                        eleccion=int(input("ingrese el numero segun lo muestra en la lista anterior para colocar su sponsor: "))
                             
                     
                 except ValueError as mensaje14:
@@ -48,14 +83,14 @@ def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,
                         salir=False
                         salir3=False
 
-                        nombresponsor=input("ingrese el nombre del sponsor")
+                        nombresponsor=input("ingrese el nombre del sponsor: ")
                         print(nombresponsor)
                         while True:
                             try:
-                                confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
+                                confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es: "))
                                 while confirmar not in[0,1]:
                                     print("error el numero ingresado no se encuentra en el rango")
-                                    confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es"))
+                                    confirmar=int(input("ingrese 0 si es correcto el nombre o 1 si no lo es: "))
                             except ValueError as mensaje15:
                                 print(mensaje15)
                                 continue
@@ -86,7 +121,7 @@ def hacer_sponsors(usitosponsors,disponibilidad,listasponsorszona,listasponsors,
             while True:
                 salir10=False
                 try:
-                    salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
+                    salida=int(input("ingrese cualquier numero para seguir o -1 para salir: "))
                 except ValueError as mensaje12:
                     print(mensaje12)
                     continue
@@ -184,69 +219,90 @@ def ingresar_manual_partidos(cuartosaux,cuartosresultados,resultaditosgeneral,cu
                         print(f"Resultado: {jugadorescuartos1} : {golescuartos1} vs {golescuartos2} : {jugadorescuartos2}")
                         break
             
-def calcular_partidos(fasegrupos1,fasegrupo1partidos):
-    for x in range(len(fasegrupos1)-1):            
-        for i in range(len(fasegrupos1)//2):
-            equipo1torneo=fasegrupos1[i]
-            equipo2torneo=fasegrupos1[len(fasegrupos1)-1-i]
-            fasegrupo1partidos.append([equipo1torneo,equipo2torneo])
-            fasegrupos1=fasegrupos1[:1]+fasegrupos1[-1:]+fasegrupos1[1:-1]
+def calcular_partidos(fase_grupo, lista_partidos):
+    n=len(fase_grupo)
+    lista_aux=fase_grupo[:]
+    for i in range(n-1):
+        for j in range(n//2):
+            equipo1=lista_aux[j]
+            equipo2=lista_aux[n-1-j]
+            lista_partidos.append([equipo1,equipo2])
+        lista_aux=[lista_aux[0]]+[lista_aux[-1]]+lista_aux[1:-1]
 
-def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,fixturevuelta,resultadosvuelta,pelit):
-    for r in range(len(fixtureida)):
-                if len(resultadosida["resultadosidita"][r])<2:
-                    jugador3=fixtureida[r][0]
-                    jugador4=fixtureida[r][1]
-                    jugado3=listaauxiliarliga.index(jugador3)
-                    jugado4=listaauxiliarliga.index(jugador4)
-
-                    while True:
-                        try:
-                            resta1=int(input("ingrese los goles del primer equipo"))
-                            while resta1<0:
-                                print("error, no puede ser menor a 0")
-                                resta1=int(input("ingrese los goles del primer equipo"))
-                            resta2=int(input("ingrese los goles del primer equipo"))
-                            while resta2<0:
-                                print("error, no puede ser menor a 0")
-                                resta2=int(input("ingrese los goles del primer equipo"))
-                        except ValueError as mensaje16:
-                            print(mensaje16)
-                            continue
-                        resultadosida[r].append([resta1,resta2])
-                        ligaderesultados["liga"].append([resta1,resta2])
-                        listas.guardar_liga(ligaderesultados,pelit)
-                        print(f"el resultado del partido de ida fue: {jugador3}{jugado3} vs {jugado4}{jugador4}")
+def resultados_liga(fixtureida,resultadosida,listaauxiliarliga,ligaderesultados,fixturevuelta,resultadosvuelta,pelit,guardar_resultadosidita,lista,lista2,guardar_resultadosvueltita):
+    señalsalida=False
+    señalsalida2=False
+    señalsalida3=False
+    señalsalida4=False
+    fixtureidass=[p for ronda in fixtureida["fixtureidita"] for p in ronda]
+    fixturevueltass=[p for ronda in fixturevuelta["fixturevueltita"] for p in ronda]
+    while len(resultadosida["resultadosidita"])<(len(fixtureidass)):
+        for partido in fixtureidass[len(resultadosida["resultadosidita"]):]:
+            jugadores11=partido[0]
+            jugadores12=partido[1]
+            jugado3=listaauxiliarliga.index(jugadores11)
+            jugado4=listaauxiliarliga.index(jugadores12)
+            while True:
+                try:
+                    resta1=int(input(f"ingrese los goles del primer equipo {jugadores11}: "))
+                    if resta1==-1:
+                        señalsalida=True
+                        señalsalida2=True
                         break
-                else:
-                    for t in range(len(fixturevuelta)):
-                        if len(resultadosvuelta["resultadosvueltita"][t])<2:
-                            jugador5=fixturevuelta[t][0]
-                            jugador6=fixtureida[t][1]
-                            jugado5=listaauxiliarliga.index(jugador5)
-                            jugado6=listaauxiliarliga.index(jugador6)
-
-                            while True:
-                                try:
-                                    resta3=int(input("ingrese los goles del primer equipo"))
-                                    while resta3<0:
-                                        print("error, no puede ser menor a 0")
-                                        Resta3=int(input("ingrese los goles del primer equipo"))
-                                    resta4=int(input("ingrese los goles del primer equipo"))
-                                    while resta4<0:
-                                        print("error, no puede ser menor a 0")
-                                        resta4=int(input("ingrese los goles del primer equipo"))
-                                except ValueError as mensaje17:
-                                    print(mensaje17)
-                                    continue
-                                resultadosvuelta[t].append([resta3,resta4])
-                                ligaderesultados["liga"].append([resta3,resta4])
-                                listas.guardar_liga(ligaderesultados,pelit)
-                                print(f"el resultado del partido de ida fue: {jugador5}{jugado5} vs {jugado6}{jugador6}")
-                                break
-                        else:
-                            print("los resultados ya están llenos")
-                            break
+                    while resta1<0:
+                        print("error, no puede ser menor a 0")
+                        resta1=int(input("ingrese los goles del primer equipo: "))
+                    resta2=int(input(f"ingrese los goles del segundo equipo {jugadores12}: "))
+                    while resta2<0:
+                        print("error, no puede ser menor a 0")
+                        resta2=int(input("ingrese los goles del segundo equipo: "))
+                except ValueError as mensaje16:
+                    print(mensaje16)
+                    continue
+                resultadosida["resultadosidita"].append([resta1,resta2])
+                ligaderesultados["liga"].append([resta1,resta2])
+                listas.guardar_liga(ligaderesultados,pelit)
+                guardar_resultadosidita(resultadosida,lista)
+                print(f"el resultado del partido de ida fue: {jugadores11}:{resta1} vs {resta2}:{jugadores12}")
+                break
+            if señalsalida:
+                break
+        if señalsalida2:
+            break
+    while len(resultadosvuelta["resultadosvueltita"])<(len(fixturevueltass)):
+        for partido in fixturevueltass[len(resultadosvuelta["resultadosvueltita"]):]:
+            jugadores13=partido[0]
+            jugadores14=partido[1]
+            jugado13=listaauxiliarliga.index(jugadores13)
+            jugado14=listaauxiliarliga.index(jugadores14)
+            while True:
+                try:
+                    resta1=int(input(f"ingrese los goles del primer equipo{jugadores13}"))
+                    if resta1==-1:
+                        señalsalida3=True
+                        señalsalida4=True
+                        break
+                    while resta1<0:
+                        print("error, no puede ser menor a 0")
+                        resta1=int(input("ingrese los goles del primer equipo"))
+                    resta2=int(input(f"ingrese los goles del segundo equipo {jugadores14}"))
+                    while resta2<0:
+                        print("error, no puede ser menor a 0")
+                        resta2=int(input("ingrese los goles del primer equipo"))
+                except ValueError as mensaje16:
+                    print(mensaje16)
+                    continue
+                resultadosvuelta["resultadosvueltita"].append([resta1,resta2])
+                ligaderesultados["liga"].append([resta1,resta2])
+                listas.guardar_liga(ligaderesultados,pelit)
+                guardar_resultadosvueltita(resultadosvuelta,lista2)
+                print(f"el resultado del partido de ida fue: {jugadores13}:{resta1} vs {resta2}:{jugadores14}")
+                break
+            if señalsalida3:
+                break
+        if señalsalida4:
+            break
+           
 def alquilar(sector,pedido,ocupadas,entradas):
     if sector in ocupadas:
         print("sector totalmente ocupado")
@@ -291,17 +347,17 @@ def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listalig
     if conteo20!=0:
                     
         while True:
-            nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
+            nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros): ")
             while len(nombreequipo.strip())==0 or nombreequipo.isdigit():
                 print("error no ingreso nada o ingreso numeros")
-                nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
+                nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros): ")
             print("nombre del equipo:",nombreequipo)
             while True:
                 try:
-                    confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
+                    confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir: "))
                     while confirmacion not in[-1,0,1]:
                         print("error, numero fuera de rango")
-                        confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
+                        confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir: "))
                 except ValueError as mensaje11:
                     print(mensaje11)
                     continue
@@ -321,7 +377,7 @@ def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listalig
             while True:
                 salir2=False
                 try:
-                    salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
+                    salida=int(input("ingrese cualquier numero para seguir o -1 para salir: "))
                 except ValueError as mensaje12:
                     print(mensaje12)
                     continue
@@ -333,12 +389,11 @@ def inscripciones_a_la_liga(listaequiposliga,stringer,stringer2,guardar_listalig
                     break
             if salir2:
                 break
-def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditosgeneral,nombrefase,ultimpelit):
-    completos=0
-    for r in range(len(fasegrupos1aux)):
-        if len(fasegrupos1resultados[r])<2:
-            jugadores11=fasegrupos1aux[r][0]
-            jugadores12=fasegrupos1aux[r][1]
+def fasegrupos_ponerresultados(fixturetorneos,fasegrupos1resultados,resultaditosgeneral,nombrefase,ultimpelit,fixturefase):
+    while len(fasegrupos1resultados)<(len(fixturetorneos[fixturefase])):
+        for partido in fixturetorneos[fixturefase]:
+            jugadores11=partido[0]
+            jugadores12=partido[1]
             while True:
                 try:
                     goles1=int(input(f"Ingrese los goles de {jugadores11}: "))
@@ -352,15 +407,11 @@ def fasegrupos_ponerresultados(fasegrupos1aux,fasegrupos1resultados,resultaditos
                 except ValueError as mostra:
                     print(mostra)
                     continue
-                fasegrupos1resultados[r].append([goles1,goles2])
-                resultaditosgeneral[nombrefase].append([goles1,goles2])
+                fasegrupos1resultados.append([goles1,goles2])
                 listas.guardar_torneo(resultaditosgeneral,ultimpelit)
                 print(f"Resultado: {jugadores11} : {goles1} vs {goles2} : {jugadores12} ")
                 break
-        else:
-            completos+=1
-    if completos==len(fasegrupos1aux):
-        print("Ya se jugaron todos los partidos de la zona 1")
+            
 def resultados_aleatorios_fasegrupos(fasegrupos1resultados,fixturetorneo):
     while len(fasegrupos1resultados)<(len(fixturetorneo)):
                 resu=[]
@@ -481,19 +532,19 @@ def reporte_metodo_pago(reportes,reportaje,formpagodef,recaudacionformpagodef,ca
         recaudacionformpagodef[ran]+=(cobrodef*110//100)
         print(cobrodef*110//100,"es el importe a pagar con efectivo(10% mas)")
         cantformpagodef[ran]+=1
-        reportes["listrecaudacionformpago"][ran]+=(cobrodef*110//100)
-        reportes["listcantformpago"][ran]+=1
+        reportaje["listrecaudacionformpago"][ran]+=(cobrodef*110//100)
+        reportaje["listcantformpago"][ran]+=1
         diezporcientoefe=(cobrodef*110//100)-cobrodef
         listadediezporciento.append(diezporcientoefe)
         preciocuidado=(cobrodef*110//100)
-        reportes["listadiezporciento"].append(diezporcientoefe)
+        reportaje["listadiezporciento"].append(diezporcientoefe)
         listas.guardar_reportes(reportaje,reportes)
     else:
         ranaux=formpagodef.index("mp")
         recaudacionformpagodef[ranaux]+=cobrodef
         cantformpagodef[ranaux]+=1
-        reportes["listrecaudacionformpago"][ranaux]+=cobrodef
-        reportes["listcantformpago"][ranaux]+=1
+        reportaje["listrecaudacionformpago"][ranaux]+=cobrodef
+        reportaje["listcantformpago"][ranaux]+=1
     listas.guardar_reportes(reportaje,reportes)
     return preciocuidado
 def reporte_canchas(reportes,reportaje,canchasdef,recaudacioncanchasdef,cantcanchasdef,cobrodef,numerocancha):
@@ -502,20 +553,20 @@ def reporte_canchas(reportes,reportaje,canchasdef,recaudacioncanchasdef,cantcanc
         rat=canchasdef.index(5)
         recaudacioncanchasdef[rat]+=cobrodef
         cantcanchasdef[rat]+=1
-        reportes["listrecaudacioncanchas"][rat]+=cobrodef
-        reportes["listcantcanchas"][rat]+=1
+        reportaje["listrecaudacioncanchas"][rat]+=cobrodef
+        reportaje["listcantcanchas"][rat]+=1
     elif numerocancha==8:
         rataux=canchasdef.index(8)
         recaudacioncanchasdef[rataux]+=cobrodef
         cantcanchasdef[rataux]+=1
-        reportes["listrecaudacioncanchas"][rataux]+=cobrodef
-        reportes["listcantcanchas"][rataux]+=1
+        reportaje["listrecaudacioncanchas"][rataux]+=cobrodef
+        reportaje["listcantcanchas"][rataux]+=1
     else:
         rataux2=canchasdef.index(11)
         recaudacioncanchasdef[rataux2]+=cobrodef
         cantcanchasdef[rataux2]+=1
-        reportes["listrecaudacioncanchas"][rataux2]+=cobrodef
-        reportes["listcantcanchas"][rataux2]+=1
+        reportaje["listrecaudacioncanchas"][rataux2]+=cobrodef
+        reportaje["listcantcanchas"][rataux2]+=1
     listas.guardar_reportes(reportaje,reportes)
 def reporte_horarios(reportes,reportaje,horariosdef,recaudacionhorariosdef,canthorariosdef,cobrodef,filadef):
     """objetivo: actualiza el reporte de horarios"""
@@ -523,16 +574,16 @@ def reporte_horarios(reportes,reportaje,horariosdef,recaudacionhorariosdef,canth
         raton=horariosdef.index(filadef)
         recaudacionhorariosdef[raton]+=cobrodef
         canthorariosdef[raton]+=1
-        reportes["listrecaudacionhorarios"][raton]+=cobrodef
-        reportes["listcanthorarios"][raton]+=1
+        reportaje["listrecaudacionhorarios"][raton]+=cobrodef
+        reportaje["listcanthorarios"][raton]+=1
         listas.guardar_reportes(reportaje,reportes)
 def reporte_torneo(reportes,reportaje,recaudaciontorneo,valor):
     recaudetorneo=((1000000*16)*(100-valor)//100)
-    reportes["recaudacionestorneo"].append(recaudetorneo)
+    reportaje["recaudacionestorneo"].append(recaudetorneo)
     listas.guardar_reportes(reportaje,reportes)
 def reporte_liga(reportes,reportaje,recaudacionliga):
     recaudeliga=((80000*20*38)//2)
-    reportes["recaudacionesliga"].append(recaudeliga)
+    reportaje["recaudacionesliga"].append(recaudeliga)
     listas.guardar_reportes(reportaje,reportes)   
 def cancha_mayor_recuaudo_con_porcentaje(listita,listadecanchas,cant):
     """objetivo: calcula la cancha con mayor recaudo y el porcentaje de usos que tuvo"""
