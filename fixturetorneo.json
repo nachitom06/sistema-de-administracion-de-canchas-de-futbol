@@ -1,140 +1,140 @@
 {
   "fixturefasegrupos1": [
     [
-      "Defensores de la Costa",
-      "Club Nacional Popular"
+      "Leones del Sur",
+      "Talleres Unidos"
     ],
     [
-      "Club Nacional Popular",
-      "Boca Sur"
+      "Fuerza Joven",
+      "nachom fc"
     ],
     [
-      "Defensores de la Costa",
-      "Boca Sur"
+      "Leones del Sur",
+      "nachom fc"
     ],
     [
-      "Boca Sur",
-      "Los Lobos"
+      "Talleres Unidos",
+      "Fuerza Joven"
     ],
     [
-      "Defensores de la Costa",
-      "Los Lobos"
+      "Leones del Sur",
+      "Fuerza Joven"
     ],
     [
-      "Los Lobos",
-      "Club Nacional Popular"
+      "nachom fc",
+      "Talleres Unidos"
     ]
   ],
   "fixturefasegrupos2": [
     [
-      "Unión Deportiva Norte",
-      "Los Guerreros"
+      "Halcones Verdes",
+      "Real Central"
     ],
     [
-      "Los Guerreros",
-      "Toros Salvajes"
+      "Atletico Centenario",
+      "Estudiantes del Sol"
     ],
     [
-      "Unión Deportiva Norte",
-      "Toros Salvajes"
+      "Halcones Verdes",
+      "Estudiantes del Sol"
     ],
     [
-      "Toros Salvajes",
-      "Juventud Unida"
+      "Real Central",
+      "Atletico Centenario"
     ],
     [
-      "Unión Deportiva Norte",
-      "Juventud Unida"
+      "Halcones Verdes",
+      "Atletico Centenario"
     ],
     [
-      "Juventud Unida",
-      "Los Guerreros"
+      "Estudiantes del Sol",
+      "Real Central"
     ]
   ],
   "fixturefasegrupos3": [
     [
-      "Atlético Azul",
-      "Deportivo Internacional"
+      "Cultural Esperanza",
+      "Atletico Colonial"
     ],
     [
-      "Deportivo Internacional",
-      "Club Social Libertad"
+      "Club Deportivo Cosmos",
+      "Club Deportivo Aurora"
     ],
     [
-      "Atlético Azul",
-      "Club Social Libertad"
+      "Cultural Esperanza",
+      "Club Deportivo Aurora"
     ],
     [
-      "Club Social Libertad",
-      "nachito fc"
+      "Atletico Colonial",
+      "Club Deportivo Cosmos"
     ],
     [
-      "Atlético Azul",
-      "nachito fc"
+      "Cultural Esperanza",
+      "Club Deportivo Cosmos"
     ],
     [
-      "nachito fc",
-      "Deportivo Internacional"
+      "Club Deportivo Aurora",
+      "Atletico Colonial"
     ]
   ],
   "fixturefasegrupos4": [
     [
-      "Pumas de la Sierra",
-      "Santa Fe Atlético"
+      "Deportivo Norteno",
+      "Los Dragones FC"
     ],
     [
-      "Santa Fe Atlético",
-      "Deportivo Victoria"
+      "Atletico Moderno",
+      "Racing Unido"
     ],
     [
-      "Pumas de la Sierra",
-      "Deportivo Victoria"
+      "Deportivo Norteno",
+      "Racing Unido"
     ],
     [
-      "Deportivo Victoria",
-      "Estrella Federal"
+      "Los Dragones FC",
+      "Atletico Moderno"
     ],
     [
-      "Pumas de la Sierra",
-      "Estrella Federal"
+      "Deportivo Norteno",
+      "Atletico Moderno"
     ],
     [
-      "Estrella Federal",
-      "Santa Fe Atlético"
+      "Racing Unido",
+      "Los Dragones FC"
     ]
   ],
   "fixturecuartos": [
     [
-      "Club Nacional Popular",
-      "Deportivo Internacional"
+      "nachom fc",
+      "Club Deportivo Aurora"
     ],
     [
-      "Unión Deportiva Norte",
-      "Pumas de la Sierra"
+      "Atletico Centenario",
+      "Los Dragones FC"
     ],
     [
-      "Los Lobos",
-      "Club Social Libertad"
+      "Fuerza Joven",
+      "Atletico Colonial"
     ],
     [
-      "Juventud Unida",
-      "Deportivo Victoria"
+      "Real Central",
+      "Racing Unido"
     ]
   ],
   "fixturesemis": [
     [
-      "Club Nacional Popular",
-      "Club Social Libertad"
+      "Club Deportivo Aurora",
+      "Fuerza Joven"
     ],
     [
-      "Unión Deportiva Norte",
-      "Juventud Unida"
+      "Los Dragones FC",
+      "Real Central"
     ]
   ],
   "fixturefinal": [
     [
-      "Club Nacional Popular",
-      "Juventud Unida"
+      "Club Deportivo Aurora",
+      "Los Dragones FC"
     ]
   ]
 }
