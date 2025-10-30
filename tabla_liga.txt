@@ -22,33 +22,7 @@ Equipos             Partidos jugados    Ganados             Empatados           
 0                   0                   0                   0                   0                   0                   0                   0                   0                   
 
 CAMPEON DE LA SUPER LIGA NACIONAL: 	 0 	 con un premio de $30400000
-                                           
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-0                   0                   0                   0                   0                   0                   0                   0                   0                   
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 0 	 con un premio de $30400000
-
+ 
 
                                                                                 Super Liga Nacional                                                                                 
 Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
@@ -78,391 +52,78 @@ CAMPEON DE LA SUPER LIGA NACIONAL: 	 Sporting Club Federal 	 con un premio de $3
 
                                                                                 Super Liga Nacional                                                                                 
 Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Guerreros del Sol   76                  36                  35                  5                   113                 586                 582                 48                  
-Club Estudiantes Unidos76                  30                  42                  4                   94                  551                 594                 -1305               
-Cultural Esperanza  38                  21                  15                  2                   65                  277                 197                 1002                
-nachito fc          38                  19                  12                  7                   64                  293                 274                 602                 
-Los Lobos           38                  20                  16                  2                   62                  281                 284                 414                 
-Unión Deportiva Norte38                  20                  17                  1                   61                  253                 268                 -833                
-San José Unido      38                  19                  15                  4                   61                  275                 269                 -254                
-Boca del Oeste      38                  18                  14                  6                   60                  296                 280                 -29                 
-San Carlos Juniors  38                  18                  15                  5                   59                  255                 242                 435                 
-Atlético Horizonte  38                  19                  17                  2                   59                  236                 235                 583                 
-Unión Deportiva Estrella38                  18                  16                  4                   58                  274                 240                 101                 
-Tigre Blanco        38                  18                  17                  3                   57                  289                 306                 -83                 
-Leones del Sur      38                  18                  18                  2                   56                  305                 317                 -72                 
-Los Dragones FC     38                  16                  18                  4                   52                  281                 261                 349                 
-Real Horizonte      38                  15                  17                  6                   51                  256                 279                 -27                 
-Universitario Central38                  17                  21                  0                   51                  289                 288                 -140                
-Nueva Esperanza     38                  14                  21                  3                   45                  269                 288                 -383                
-Estrella Joven      38                  12                  22                  4                   40                  233                 295                 -1011               
-Club Estudiantes Unidos0                   0                   0                   0                   0                   0                   0                   0                   
-Guerreros del Sol   0                   0                   0                   0                   0                   0                   0                   0                   
+Club Social Libertad38                  21                  12                  5                   68                  332                 237                 95                  
+Universitario Unido 38                  22                  15                  1                   67                  281                 269                 12                  
+Aguilas Plateadas   38                  21                  14                  3                   66                  280                 242                 38                  
+Club del Sol        38                  21                  15                  2                   65                  258                 252                 6                   
+Fuerza Guerrera     38                  20                  16                  2                   62                  286                 250                 36                  
+Cruz Azul del Sur   38                  20                  16                  2                   62                  265                 310                 -45                 
+Real Metropolitano  38                  20                  17                  1                   61                  255                 239                 16                  
+Rivera FC           38                  19                  16                  3                   60                  307                 302                 5                   
+Fuerza Joven        38                  19                  16                  3                   60                  306                 281                 25                  
+Leones Dorados      38                  19                  17                  2                   59                  303                 316                 -13                 
+fc nachom           38                  18                  18                  2                   56                  341                 300                 41                  
+Estrella Joven      38                  18                  18                  2                   56                  277                 253                 24                  
+Los Piratas FC      38                  17                  17                  4                   55                  271                 305                 -34                 
+Toros Salvajes      38                  17                  17                  4                   55                  297                 271                 26                  
+Atletico Horizonte  38                  18                  20                  0                   54                  289                 300                 -11                 
+nachito fc          38                  15                  22                  1                   46                  257                 327                 -70                 
+San Lorenzo Unido   38                  14                  23                  1                   43                  230                 270                 -40                 
+Defensores de la Costa38                  13                  22                  3                   42                  274                 324                 -50                 
+Deportivo Horizonte 38                  13                  23                  2                   41                  257                 258                 -1                  
+Sport Boys          38                  13                  24                  1                   40                  242                 302                 -60                 
 
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Guerreros del Sol 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-nachito fc          38                  23                  12                  3                   72                  308                 272                 687                 
-Nueva Generación    38                  21                  15                  2                   65                  315                 283                 1213                
-Juventud Atlética   38                  21                  15                  2                   65                  305                 300                 -225                
-Cultural Esperanza  38                  21                  15                  2                   65                  264                 217                 817                 
-Juventud del Norte  38                  21                  16                  1                   64                  330                 265                 1165                
-Unión San Pedro     38                  20                  16                  2                   62                  306                 302                 708                 
-Estrella Federal    38                  19                  14                  5                   62                  304                 258                 1527                
-Huracán del Centro  38                  20                  16                  2                   62                  312                 266                 977                 
-Academia del Fútbol 38                  19                  18                  1                   58                  316                 312                 -268                
-San José Unido      38                  18                  17                  3                   57                  315                 292                 1092                
-Leones Dorados      38                  19                  19                  0                   57                  269                 272                 -866                
-Santa Fe Atlético   38                  18                  18                  2                   56                  263                 251                 -243                
-Los Piratas FC      38                  17                  19                  2                   53                  286                 304                 -1073               
-Unión del Norte     38                  17                  20                  1                   52                  267                 290                 -457                
-Atlético Azul       38                  15                  20                  3                   48                  291                 322                 -83                 
-Sporting Club Federal38                  15                  21                  2                   47                  235                 293                 -1837               
-Atlético Ciudadela  38                  15                  22                  1                   46                  266                 293                 -714                
-Club Deportivo Aurora38                  15                  22                  1                   46                  278                 292                 -422                
-San Martín Juniors  38                  15                  23                  0                   45                  270                 336                 -1142               
-Atlético Moderno    38                  12                  23                  3                   39                  241                 321                 -856                
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 nachito fc 	 con un premio de $30400000
+CAMPEON DE LA SUPER LIGA NACIONAL: 	 Club Social Libertad 	 con un premio de $30400000
 
 
                                                                                 Super Liga Nacional                                                                                 
 Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-nachito fc          0                   0                   0                   0                   0                   0                   0                   0                   
-Club del Sol        0                   0                   0                   0                   0                   0                   0                   0                   
-Cultural Esperanza  0                   0                   0                   0                   0                   0                   0                   0                   
-Águilas Negras      0                   0                   0                   0                   0                   0                   0                   0                   
-Deportivo Victoria  0                   0                   0                   0                   0                   0                   0                   0                   
-Club Atlético Nacional0                   0                   0                   0                   0                   0                   0                   0                   
-Guaraní Unido       0                   0                   0                   0                   0                   0                   0                   0                   
-Racing Unido        0                   0                   0                   0                   0                   0                   0                   0                   
-Talleres Unidos     0                   0                   0                   0                   0                   0                   0                   0                   
-Club Social Libertad0                   0                   0                   0                   0                   0                   0                   0                   
-Juventud del Norte  0                   0                   0                   0                   0                   0                   0                   0                   
-Unión San Pedro     0                   0                   0                   0                   0                   0                   0                   0                   
-Los Pioneros        0                   0                   0                   0                   0                   0                   0                   0                   
-Fuerza Guerrera     0                   0                   0                   0                   0                   0                   0                   0                   
-Academia del Fútbol 0                   0                   0                   0                   0                   0                   0                   0                   
-Defensores de la Costa0                   0                   0                   0                   0                   0                   0                   0                   
-Racing Federal      0                   0                   0                   0                   0                   0                   0                   0                   
-Atlético Centenario 0                   0                   0                   0                   0                   0                   0                   0                   
-Deportivo América   0                   0                   0                   0                   0                   0                   0                   0                   
-Juventud Unida      0                   0                   0                   0                   0                   0                   0                   0                   
+Fuerza Joven        38                  24                  12                  2                   74                  325                 259                 66                  
+Atletico Horizonte  38                  24                  14                  0                   72                  329                 242                 87                  
+Cruz Azul del Sur   38                  22                  14                  2                   68                  302                 255                 47                  
+Sport Boys          38                  20                  13                  5                   65                  249                 248                 1                   
+Defensores de la Costa38                  20                  16                  2                   62                  331                 311                 20                  
+nachito fc          38                  20                  17                  1                   61                  287                 239                 48                  
+Los Piratas FC      38                  19                  16                  3                   60                  277                 297                 -20                 
+Toros Salvajes      38                  19                  16                  3                   60                  317                 296                 21                  
+Club Social Libertad38                  19                  16                  3                   60                  268                 273                 -5                  
+Fuerza Guerrera     38                  19                  17                  2                   59                  304                 296                 8                   
+Universitario Unido 38                  19                  17                  2                   59                  253                 254                 -1                  
+Leones Dorados      38                  19                  18                  1                   58                  273                 270                 3                   
+Club del Sol        38                  17                  19                  2                   53                  284                 316                 -32                 
+San Lorenzo Unido   38                  17                  19                  2                   53                  292                 268                 24                  
+Deportivo Horizonte 38                  15                  19                  4                   49                  325                 337                 -12                 
+Estrella Joven      38                  15                  19                  4                   49                  274                 303                 -29                 
+fc nachom           38                  14                  23                  1                   43                  261                 332                 -71                 
+Rivera FC           38                  13                  21                  4                   43                  291                 318                 -27                 
+Real Metropolitano  38                  12                  25                  1                   37                  292                 332                 -40                 
+Aguilas Plateadas   38                  10                  26                  2                   32                  216                 304                 -88                 
 
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 nachito fc 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Los Pioneros        38                  27                  9                   2                   83                  332                 194                 138                 
-Atlético Horizonte  38                  21                  14                  3                   66                  294                 263                 31                  
-Estrella Joven      38                  21                  15                  2                   65                  314                 259                 55                  
-Villa Real FC       38                  20                  16                  2                   62                  308                 285                 23                  
-San Lorenzo Unido   38                  20                  17                  1                   61                  314                 305                 9                   
-Universitario Central38                  18                  16                  4                   58                  304                 305                 -1                  
-Deportivo América   38                  19                  19                  0                   57                  297                 311                 -14                 
-Deportivo Internacional38                  18                  17                  3                   57                  329                 323                 6                   
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Águilas Plateadas   38                  18                  18                  2                   56                  300                 294                 6                   
-Boca Sur            38                  17                  18                  3                   54                  274                 303                 -29                 
-Los Gladiadores     38                  16                  16                  6                   54                  286                 273                 13                  
-Deportivo Unión     38                  17                  18                  3                   54                  275                 301                 -26                 
-Sporting Nueva Era  38                  17                  19                  2                   53                  259                 278                 -19                 
-Atlético Azul       38                  17                  20                  1                   52                  246                 280                 -34                 
-Juventud Federal    38                  15                  19                  4                   49                  282                 290                 -8                  
-Club del Sol        38                  15                  19                  4                   49                  287                 288                 -1                  
-Nueva Esperanza     38                  14                  21                  3                   45                  261                 325                 -64                 
-Unión Deportiva Norte38                  14                  22                  2                   44                  252                 300                 -48                 
-Boca del Oeste      38                  12                  24                  2                   38                  264                 299                 -35                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Los Pioneros 	 con un premio de $30400000
+CAMPEON DE LA SUPER LIGA NACIONAL: 	 Fuerza Joven 	 con un premio de $30400000
 
 
                                                                                 Super Liga Nacional                                                                                 
 Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Los Pioneros        38                  27                  9                   2                   83                  332                 194                 138                 
-Atlético Horizonte  38                  21                  14                  3                   66                  294                 263                 31                  
-Estrella Joven      38                  21                  15                  2                   65                  314                 259                 55                  
-Villa Real FC       38                  20                  16                  2                   62                  308                 285                 23                  
-San Lorenzo Unido   38                  20                  17                  1                   61                  314                 305                 9                   
-Universitario Central38                  18                  16                  4                   58                  304                 305                 -1                  
-Deportivo América   38                  19                  19                  0                   57                  297                 311                 -14                 
-Deportivo Internacional38                  18                  17                  3                   57                  329                 323                 6                   
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Águilas Plateadas   38                  18                  18                  2                   56                  300                 294                 6                   
-Boca Sur            38                  17                  18                  3                   54                  274                 303                 -29                 
-Los Gladiadores     38                  16                  16                  6                   54                  286                 273                 13                  
-Deportivo Unión     38                  17                  18                  3                   54                  275                 301                 -26                 
-Sporting Nueva Era  38                  17                  19                  2                   53                  259                 278                 -19                 
-Atlético Azul       38                  17                  20                  1                   52                  246                 280                 -34                 
-Juventud Federal    38                  15                  19                  4                   49                  282                 290                 -8                  
-Club del Sol        38                  15                  19                  4                   49                  287                 288                 -1                  
-Nueva Esperanza     38                  14                  21                  3                   45                  261                 325                 -64                 
-Unión Deportiva Norte38                  14                  22                  2                   44                  252                 300                 -48                 
-Boca del Oeste      38                  12                  24                  2                   38                  264                 299                 -35                 
+Fuerza Joven        38                  24                  13                  1                   73                  324                 264                 60                  
+Atletico Horizonte  38                  24                  14                  0                   72                  329                 242                 87                  
+Cruz Azul del Sur   38                  22                  14                  2                   68                  302                 255                 47                  
+Sport Boys          38                  21                  13                  4                   67                  254                 247                 7                   
+Defensores de la Costa38                  20                  16                  2                   62                  331                 311                 20                  
+nachito fc          38                  20                  17                  1                   61                  287                 239                 48                  
+Los Piratas FC      38                  19                  16                  3                   60                  277                 297                 -20                 
+Toros Salvajes      38                  19                  16                  3                   60                  317                 296                 21                  
+Club Social Libertad38                  19                  16                  3                   60                  268                 273                 -5                  
+Fuerza Guerrera     38                  19                  17                  2                   59                  304                 296                 8                   
+Universitario Unido 38                  19                  17                  2                   59                  253                 254                 -1                  
+Leones Dorados      38                  19                  18                  1                   58                  273                 270                 3                   
+Club del Sol        38                  17                  19                  2                   53                  284                 316                 -32                 
+San Lorenzo Unido   38                  17                  19                  2                   53                  292                 268                 24                  
+Deportivo Horizonte 38                  15                  19                  4                   49                  325                 337                 -12                 
+Estrella Joven      38                  15                  19                  4                   49                  274                 303                 -29                 
+fc nachom           38                  14                  23                  1                   43                  261                 332                 -71                 
+Rivera FC           38                  13                  21                  4                   43                  291                 318                 -27                 
+Real Metropolitano  38                  12                  25                  1                   37                  292                 332                 -40                 
+Aguilas Plateadas   38                  10                  26                  2                   32                  216                 304                 -88                 
 
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Los Pioneros 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Los Pioneros        38                  27                  9                   2                   83                  332                 194                 138                 
-Atlético Horizonte  38                  21                  14                  3                   66                  294                 263                 31                  
-Estrella Joven      38                  21                  15                  2                   65                  314                 259                 55                  
-Villa Real FC       38                  20                  16                  2                   62                  308                 285                 23                  
-San Lorenzo Unido   38                  20                  17                  1                   61                  314                 305                 9                   
-Universitario Central38                  18                  16                  4                   58                  304                 305                 -1                  
-Deportivo América   38                  19                  19                  0                   57                  297                 311                 -14                 
-Deportivo Internacional38                  18                  17                  3                   57                  329                 323                 6                   
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Águilas Plateadas   38                  18                  18                  2                   56                  300                 294                 6                   
-Boca Sur            38                  17                  18                  3                   54                  274                 303                 -29                 
-Los Gladiadores     38                  16                  16                  6                   54                  286                 273                 13                  
-Deportivo Unión     38                  17                  18                  3                   54                  275                 301                 -26                 
-Sporting Nueva Era  38                  17                  19                  2                   53                  259                 278                 -19                 
-Atlético Azul       38                  17                  20                  1                   52                  246                 280                 -34                 
-Juventud Federal    38                  15                  19                  4                   49                  282                 290                 -8                  
-Club del Sol        38                  15                  19                  4                   49                  287                 288                 -1                  
-Nueva Esperanza     38                  14                  21                  3                   45                  261                 325                 -64                 
-Unión Deportiva Norte38                  14                  22                  2                   44                  252                 300                 -48                 
-Boca del Oeste      38                  12                  24                  2                   38                  264                 299                 -35                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Los Pioneros 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Juventud Federal    38                  25                  12                  1                   76                  362                 278                 84                  
-San Lorenzo Unido   38                  22                  11                  5                   71                  313                 218                 95                  
-Universitario Central38                  22                  12                  4                   70                  360                 239                 121                 
-Los Pioneros        38                  22                  15                  1                   67                  284                 248                 36                  
-Los Gladiadores     38                  21                  15                  2                   65                  293                 223                 70                  
-Estrella Joven      38                  20                  14                  4                   64                  319                 264                 55                  
-Boca Sur            38                  20                  14                  4                   64                  313                 251                 62                  
-Club del Sol        38                  21                  17                  0                   63                  337                 287                 50                  
-Nueva Esperanza     38                  19                  18                  1                   58                  289                 294                 -5                  
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Sporting Nueva Era  38                  18                  19                  1                   55                  294                 289                 5                   
-Deportivo Unión     38                  16                  17                  5                   53                  306                 304                 2                   
-Atlético Azul       38                  17                  21                  0                   51                  287                 337                 -50                 
-Boca del Oeste      38                  15                  21                  2                   47                  223                 293                 -70                 
-Deportivo América   38                  15                  22                  1                   46                  248                 284                 -36                 
-Águilas Plateadas   38                  14                  20                  4                   46                  251                 313                 -62                 
-Villa Real FC       38                  14                  20                  4                   46                  264                 319                 -55                 
-Unión Deportiva Norte38                  12                  22                  4                   40                  239                 360                 -121                
-Deportivo Internacional38                  11                  22                  5                   38                  218                 313                 -95                 
-Atlético Horizonte  38                  12                  25                  1                   37                  278                 362                 -84                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Juventud Federal 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-nachito fc          38                  0                   0                   0                   0                   0                   0                   0                   
-Universitario Central38                  0                   0                   0                   0                   0                   0                   0                   
-Estrella Joven      38                  0                   0                   0                   0                   0                   0                   0                   
-Deportivo América   38                  0                   0                   0                   0                   0                   0                   0                   
-Atlético Azul       38                  0                   0                   0                   0                   0                   0                   0                   
-Sporting Nueva Era  38                  0                   0                   0                   0                   0                   0                   0                   
-Boca Sur            38                  0                   0                   0                   0                   0                   0                   0                   
-San Lorenzo Unido   38                  0                   0                   0                   0                   0                   0                   0                   
-Juventud Federal    38                  0                   0                   0                   0                   0                   0                   0                   
-Los Gladiadores     38                  0                   0                   0                   0                   0                   0                   0                   
-Boca del Oeste      38                  0                   0                   0                   0                   0                   0                   0                   
-Atlético Horizonte  38                  0                   0                   0                   0                   0                   0                   0                   
-Deportivo Internacional38                  0                   0                   0                   0                   0                   0                   0                   
-Águilas Plateadas   38                  0                   0                   0                   0                   0                   0                   0                   
-Nueva Esperanza     38                  0                   0                   0                   0                   0                   0                   0                   
-Club del Sol        38                  0                   0                   0                   0                   0                   0                   0                   
-Los Pioneros        38                  0                   0                   0                   0                   0                   0                   0                   
-Villa Real FC       38                  0                   0                   0                   0                   0                   0                   0                   
-Unión Deportiva Norte38                  0                   0                   0                   0                   0                   0                   0                   
-Deportivo Unión     38                  0                   0                   0                   0                   0                   0                   0                   
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 nachito fc 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Juventud Federal    38                  25                  12                  1                   76                  362                 278                 84                  
-San Lorenzo Unido   38                  22                  11                  5                   71                  313                 218                 95                  
-Universitario Central38                  22                  12                  4                   70                  360                 239                 121                 
-Los Pioneros        38                  22                  15                  1                   67                  284                 248                 36                  
-Los Gladiadores     38                  21                  15                  2                   65                  293                 223                 70                  
-Estrella Joven      38                  20                  14                  4                   64                  319                 264                 55                  
-Boca Sur            38                  20                  14                  4                   64                  313                 251                 62                  
-Club del Sol        38                  21                  17                  0                   63                  337                 287                 50                  
-Nueva Esperanza     38                  19                  18                  1                   58                  289                 294                 -5                  
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Sporting Nueva Era  38                  18                  19                  1                   55                  294                 289                 5                   
-Deportivo Unión     38                  16                  17                  5                   53                  306                 304                 2                   
-Atlético Azul       38                  17                  21                  0                   51                  287                 337                 -50                 
-Boca del Oeste      38                  15                  21                  2                   47                  223                 293                 -70                 
-Deportivo América   38                  15                  22                  1                   46                  248                 284                 -36                 
-Águilas Plateadas   38                  14                  20                  4                   46                  251                 313                 -62                 
-Villa Real FC       38                  14                  20                  4                   46                  264                 319                 -55                 
-Unión Deportiva Norte38                  12                  22                  4                   40                  239                 360                 -121                
-Deportivo Internacional38                  11                  22                  5                   38                  218                 313                 -95                 
-Atlético Horizonte  38                  12                  25                  1                   37                  278                 362                 -84                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Juventud Federal 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Juventud Federal    38                  25                  12                  1                   76                  362                 278                 84                  
-San Lorenzo Unido   38                  22                  11                  5                   71                  313                 218                 95                  
-Universitario Central38                  22                  12                  4                   70                  360                 239                 121                 
-Los Pioneros        38                  22                  15                  1                   67                  284                 248                 36                  
-Los Gladiadores     38                  21                  15                  2                   65                  293                 223                 70                  
-Estrella Joven      38                  20                  14                  4                   64                  319                 264                 55                  
-Boca Sur            38                  20                  14                  4                   64                  313                 251                 62                  
-Club del Sol        38                  21                  17                  0                   63                  337                 287                 50                  
-Nueva Esperanza     38                  19                  18                  1                   58                  289                 294                 -5                  
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Sporting Nueva Era  38                  18                  19                  1                   55                  294                 289                 5                   
-Deportivo Unión     38                  16                  17                  5                   53                  306                 304                 2                   
-Atlético Azul       38                  17                  21                  0                   51                  287                 337                 -50                 
-Boca del Oeste      38                  15                  21                  2                   47                  223                 293                 -70                 
-Deportivo América   38                  15                  22                  1                   46                  248                 284                 -36                 
-Águilas Plateadas   38                  14                  20                  4                   46                  251                 313                 -62                 
-Villa Real FC       38                  14                  20                  4                   46                  264                 319                 -55                 
-Unión Deportiva Norte38                  12                  22                  4                   40                  239                 360                 -121                
-Deportivo Internacional38                  11                  22                  5                   38                  218                 313                 -95                 
-Atlético Horizonte  38                  12                  25                  1                   37                  278                 362                 -84                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Juventud Federal 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Juventud Federal    38                  25                  12                  1                   76                  362                 278                 84                  
-San Lorenzo Unido   38                  22                  11                  5                   71                  313                 218                 95                  
-Universitario Central38                  22                  12                  4                   70                  360                 239                 121                 
-Los Pioneros        38                  22                  15                  1                   67                  284                 248                 36                  
-Los Gladiadores     38                  21                  15                  2                   65                  293                 223                 70                  
-Estrella Joven      38                  20                  14                  4                   64                  319                 264                 55                  
-Boca Sur            38                  20                  14                  4                   64                  313                 251                 62                  
-Club del Sol        38                  21                  17                  0                   63                  337                 287                 50                  
-Nueva Esperanza     38                  19                  18                  1                   58                  289                 294                 -5                  
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Sporting Nueva Era  38                  18                  19                  1                   55                  294                 289                 5                   
-Deportivo Unión     38                  16                  17                  5                   53                  306                 304                 2                   
-Atlético Azul       38                  17                  21                  0                   51                  287                 337                 -50                 
-Boca del Oeste      38                  15                  21                  2                   47                  223                 293                 -70                 
-Deportivo América   38                  15                  22                  1                   46                  248                 284                 -36                 
-Águilas Plateadas   38                  14                  20                  4                   46                  251                 313                 -62                 
-Villa Real FC       38                  14                  20                  4                   46                  264                 319                 -55                 
-Unión Deportiva Norte38                  12                  22                  4                   40                  239                 360                 -121                
-Deportivo Internacional38                  11                  22                  5                   38                  218                 313                 -95                 
-Atlético Horizonte  38                  12                  25                  1                   37                  278                 362                 -84                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Juventud Federal 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Juventud Federal    38                  25                  12                  1                   76                  362                 278                 84                  
-San Lorenzo Unido   38                  22                  11                  5                   71                  313                 218                 95                  
-Universitario Central38                  22                  12                  4                   70                  360                 239                 121                 
-Los Pioneros        38                  22                  15                  1                   67                  284                 248                 36                  
-Los Gladiadores     38                  21                  15                  2                   65                  293                 223                 70                  
-Estrella Joven      38                  20                  14                  4                   64                  319                 264                 55                  
-Boca Sur            38                  20                  14                  4                   64                  313                 251                 62                  
-Club del Sol        38                  21                  17                  0                   63                  337                 287                 50                  
-Nueva Esperanza     38                  19                  18                  1                   58                  289                 294                 -5                  
-nachito fc          38                  17                  16                  5                   56                  304                 306                 -2                  
-Sporting Nueva Era  38                  18                  19                  1                   55                  294                 289                 5                   
-Deportivo Unión     38                  16                  17                  5                   53                  306                 304                 2                   
-Atlético Azul       38                  17                  21                  0                   51                  287                 337                 -50                 
-Boca del Oeste      38                  15                  21                  2                   47                  223                 293                 -70                 
-Deportivo América   38                  15                  22                  1                   46                  248                 284                 -36                 
-Águilas Plateadas   38                  14                  20                  4                   46                  251                 313                 -62                 
-Villa Real FC       38                  14                  20                  4                   46                  264                 319                 -55                 
-Unión Deportiva Norte38                  12                  22                  4                   40                  239                 360                 -121                
-Deportivo Internacional38                  11                  22                  5                   38                  218                 313                 -95                 
-Atlético Horizonte  38                  12                  25                  1                   37                  278                 362                 -84                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Juventud Federal 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Universitario Central38                  23                  14                  1                   70                  325                 262                 63                  
-Juventud Federal    38                  22                  15                  1                   67                  280                 254                 26                  
-Estrella Joven      38                  21                  15                  2                   65                  313                 304                 9                   
-San Lorenzo Unido   38                  21                  16                  1                   64                  268                 281                 -13                 
-Unión Deportiva Norte38                  20                  16                  2                   62                  340                 290                 50                  
-Atlético Azul       38                  20                  17                  1                   61                  309                 271                 38                  
-Boca Sur            38                  20                  18                  0                   60                  313                 288                 25                  
-Villa Real FC       38                  19                  17                  2                   59                  293                 288                 5                   
-Deportivo América   38                  19                  18                  1                   58                  235                 241                 -6                  
-Sporting Nueva Era  38                  18                  17                  3                   57                  271                 300                 -29                 
-Águilas Plateadas   38                  18                  17                  3                   57                  298                 318                 -20                 
-Los Gladiadores     38                  18                  18                  2                   56                  281                 265                 16                  
-Los Pioneros        38                  18                  19                  1                   55                  294                 321                 -27                 
-Atlético Horizonte  38                  17                  19                  2                   53                  265                 281                 -16                 
-Deportivo Unión     38                  16                  19                  3                   51                  305                 272                 33                  
-nachito fc          38                  16                  20                  2                   50                  270                 316                 -46                 
-Club del Sol        38                  15                  18                  5                   50                  292                 286                 6                   
-Boca del Oeste      38                  14                  21                  3                   45                  290                 302                 -12                 
-Deportivo Internacional38                  14                  24                  0                   42                  234                 284                 -50                 
-Nueva Esperanza     38                  12                  23                  3                   39                  264                 316                 -52                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Universitario Central 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Universitario Central38                  23                  14                  1                   70                  325                 262                 63                  
-Juventud Federal    38                  22                  15                  1                   67                  280                 254                 26                  
-Estrella Joven      38                  21                  15                  2                   65                  313                 304                 9                   
-San Lorenzo Unido   38                  21                  16                  1                   64                  268                 281                 -13                 
-Unión Deportiva Norte38                  20                  16                  2                   62                  340                 290                 50                  
-Atlético Azul       38                  20                  17                  1                   61                  309                 271                 38                  
-Boca Sur            38                  20                  18                  0                   60                  313                 288                 25                  
-Villa Real FC       38                  19                  17                  2                   59                  293                 288                 5                   
-Deportivo América   38                  19                  18                  1                   58                  235                 241                 -6                  
-Sporting Nueva Era  38                  18                  17                  3                   57                  271                 300                 -29                 
-Águilas Plateadas   38                  18                  17                  3                   57                  298                 318                 -20                 
-Los Gladiadores     38                  18                  18                  2                   56                  281                 265                 16                  
-Los Pioneros        38                  18                  19                  1                   55                  294                 321                 -27                 
-Atlético Horizonte  38                  17                  19                  2                   53                  265                 281                 -16                 
-Deportivo Unión     38                  16                  19                  3                   51                  305                 272                 33                  
-nachito fc          38                  16                  20                  2                   50                  270                 316                 -46                 
-Club del Sol        38                  15                  18                  5                   50                  292                 286                 6                   
-Boca del Oeste      38                  14                  21                  3                   45                  290                 302                 -12                 
-Deportivo Internacional38                  14                  24                  0                   42                  234                 284                 -50                 
-Nueva Esperanza     38                  12                  23                  3                   39                  264                 316                 -52                 
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Universitario Central 	 con un premio de $30400000
-
-
-                                                                                Super Liga Nacional                                                                                 
-Equipos             Partidos jugados    Ganados             Empatados           Perdidos            Puntos              Goles a favor       Goles en contra     Diferencia de gol   
-Unión Deportiva Norte38                  27                  10                  1                   82                  328                 208                 120                 
-Deportivo Internacional38                  25                  12                  1                   76                  319                 269                 50                  
-Sporting Nueva Era  38                  22                  13                  3                   69                  302                 230                 72                  
-Nueva Esperanza     38                  22                  14                  2                   68                  322                 253                 69                  
-Estrella Joven      38                  20                  16                  2                   62                  292                 268                 24                  
-Atlético Horizonte  38                  19                  16                  3                   60                  294                 266                 28                  
-Villa Real FC       38                  19                  16                  3                   60                  254                 277                 -23                 
-Boca del Oeste      38                  19                  17                  2                   59                  288                 260                 28                  
-Los Gladiadores     38                  18                  18                  2                   56                  265                 257                 8                   
-Águilas Plateadas   38                  18                  20                  0                   54                  295                 292                 3                   
-Deportivo Unión     38                  17                  19                  2                   53                  312                 346                 -34                 
-Deportivo América   38                  17                  20                  1                   52                  253                 279                 -26                 
-Club del Sol        38                  17                  20                  1                   52                  292                 308                 -16                 
-Boca Sur            38                  17                  21                  0                   51                  260                 279                 -19                 
-Universitario Central38                  16                  20                  2                   50                  277                 291                 -14                 
-nachito fc          38                  15                  21                  2                   47                  262                 298                 -36                 
-Juventud Federal    38                  15                  22                  1                   46                  244                 259                 -15                 
-Los Pioneros        38                  15                  22                  1                   46                  252                 283                 -31                 
-Atlético Azul       38                  14                  23                  1                   43                  237                 309                 -72                 
-San Lorenzo Unido   38                  11                  23                  4                   37                  254                 370                 -116                
-
-CAMPEON DE LA SUPER LIGA NACIONAL: 	 Unión Deportiva Norte 	 con un premio de $30400000
-
+CAMPEON DE LA SUPER LIGA NACIONAL: 	 Fuerza Joven 	 con un premio de $30400000
 
