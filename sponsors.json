@@ -1,5 +1,5 @@
 {
-  "listasponsorszona":[
+  "listasponsorszona": [
     1,
     2,
     3,
@@ -19,8 +19,8 @@
     0,
     0,
     1,
-    0,
-    0,
+    1,
+    1,
     0
   ],
   "listadisponibilidad": [
@@ -31,8 +31,8 @@
     0,
     0,
     "nachito fc",
-    0,
-    0,
+    "nachoacho",
+    "enzo mansilla sport",
     0
   ]
 }
