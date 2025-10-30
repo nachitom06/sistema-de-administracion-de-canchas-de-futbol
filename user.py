@@ -1,5 +1,4 @@
 import listas
-import random
 import funmod
 import datetime
 def user(user):
@@ -215,115 +214,38 @@ def user(user):
         
         elif herramienta==3:#inscripcion liga, 
             funmod.inscripciones_a_la_liga(listaequiposliga,stringer3,stringer4,listas.guardar_listaliga,listaliga)
-            """conteo20=0
-            print("bienvenido a inscripcion en la Super Liga Nacional")
-            print("lista de equipos (20 cupos)")
-            for i in range(len(listaequiposliga)):
-                print(f"equipo:{i+1}\t{listaequiposliga[i]}")
-            for c in range(len(listaequiposliga)):
-                if listaequiposliga[c]==0:
-                    conteo20+=1
-            if conteo20!=0:
-                    
-                while True:
-                    nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
-                    while len(nombreequipo.strip())==0 or nombreequipo.isdigit():
-                        print("error no ingreso nada o ingreso numeros")
-                        nombreequipo=input("ingrese el nombre del equipo que desea inscribir(que no contenga numeros)")
-                    print("nombre del equipo:",nombreequipo)
-                    while True:
-                        try:
-                            confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
-                            while confirmacion not in[-1,0,1]:
-                                print("error, numero fuera de rango")
-                                confirmacion=int(input("ingrese 0 para confirmar nombre, 1 para cancelar y volver a cargar el nombre, -1 para salir"))
-                        except ValueError as mensaje11:
-                            print(mensaje11)
-                            continue
-                        if confirmacion==1:
-                            break
-                        elif confirmacion==0:
-                            for v in range(len(listaequiposliga)):
-                                if listaequiposliga[v]==0:
-                                    listaequiposliga[v]=nombreequipo
-                                    listas.guardar_listaliga(listaequiposliga)
-                                    print(f"equipo:{nombreequipo} inscripto correctamente")
-                                    break
-                            break
-                            
-                        else:
-                            break
-                    while True:
-                        salir2=False
-                        try:
-                            salida=int(input("ingrese cualquier numero para seguir o -1 para salir"))
-                        except ValueError as mensaje12:
-                            print(mensaje12)
-                            continue
-                        if salida==-1:
-                            salir2=True
-                            break
-                            
-                        else:
-                            break
-                    if salir2:
-                        break"""
+            
     
 
         elif herramienta==4:#calcular los 38 partidos por equipo
             #doble bombo, es decir, se juega dos veces contra el mismo equipo (ida y vuelta). se finge el torneo para ver campeon
-            """contadorfecha=1
-            print("Fixture de ida")
-            for ronda in fixtureida:
-                print(f"partido:{contadorfecha}")
-                for partidito in ronda:
-                    local=partidito[0]
-                    visitante=partidito[1]
-                    print(f"{local} vs {visitante}")
-                contadorfecha+=1
-            contadorfechavuelta=1
-            print("Fixture de vuelta")
-            for rondavuelta in fixturevuelta:
-                print(f"partido:{contadorfechavuelta}")
-                for partiditovuelta in rondavuelta:
-                    localvuelta=partiditovuelta[0]
-                    visitantevuelta=partiditovuelta[1]
-                    print(f"{localvuelta} vs {visitantevuelta}")
-                contadorfechavuelta+=1"""
+            
             if "fixture" in fixtureliga:
                 for partido in fixtureliga["fixture"]:
-                    numero,local,visitante=partido
-                    print(f"partido: {numero:<6}{local:15} vs {visitante:<15}")
+                    local,visitante=partido
+                    print(f"partido: {local:15} vs {visitante:<15}")
 
 
 
-        
         elif herramienta==5:#inscripcion sponsors
             salidita=False
             while True:
-                    funmod.hacer_sponsors(usosponsors,sponsorcito["disponibilidad"],sponsorcito["listasponsorszona"],sponsorcito["listasponsors"],sponsorcito["listadisponibilidad"],sponsorcito["listanombresponsor"],sponsorcito,estadistica)
+                    funmod.hacer_sponsors(usosponsors,sponsorcito["disponibilidad"],sponsorcito["listasponsorszona"],sponsorcito["listasponsors"],sponsorcito["listadisponibilidad"],sponsorcito["nombresponsor"],sponsorcito,estadistica,sponsors)
                     listas.guardar_sponsorsuso(usosponsors,sponsorsuso)
                     listas.guardar_estadisticas(estadistica,expediente)
                     break
                 
-           
-            
-
-        
         elif herramienta==6:#tengo que hacer el doble creo
             try:
-                with open("tabla_de_liga.csv","r",newline="",encoding="utf-8") as leercsv:
+                with open("tabla_de_liga.csv","rt") as leercsv:
                     for fila in leercsv:
                         celdas=fila.strip().split(";")
                         for celda in celdas:
                             print(celda,end="\t")
                         print()
-            except IOError as men:
+            except OSError as men:
                 print(men)
-            except PermissionError as men2:
-                print(men2)
-            except FileNotFoundError as men3:
-                print(men3)
+            
 
 
 #hay que subirlo a un archivo que va a contener las ligas tras años, premio = $30400000
@@ -364,10 +286,10 @@ def user(user):
         elif herramienta==9:#comprar entradas
             while True:
                 try:
-                    numero=int(input("ingresa 1 para liga, 2 para torneo, -1 para salir"))
+                    numero=int(input("ingresa 1 para liga, 2 para torneo, -1 para salir: "))
                     while numero not in[1,2,-1]:
                         print("error")
-                        numero=int(input("ingresa 1 para liga, 2 para torneo, -1 para salir"))
+                        numero=int(input("ingresa 1 para liga, 2 para torneo, -1 para salir: "))
                 except ValueError as mensajote:
                     print(mensajote)
                     continue
@@ -386,7 +308,7 @@ def user(user):
                             decercion="popular"
                         else:
                             break
-                        cantidad=int(input("ingrese la cantidad de entradas que desea"))
+                        cantidad=int(input("ingrese la cantidad de entradas que desea: "))
                     except ValueError as mensajito:
                         print(mensajito)
                         continue
@@ -419,7 +341,7 @@ def user(user):
                             decercion="popular"
                         else:
                             break
-                        cantidad=int(input("ingrese la cantidad de entradas que desea"))
+                        cantidad=int(input("ingrese la cantidad de entradas que desea: "))
                     except ValueError as mensajito:
                         print(mensajito)
                         continue
