@@ -2,23 +2,23 @@
   "entradasvendidas": {
     "vip": 1,
     "platea": 10,
-    "popular": 40
+    "popular": 90
   },
   "sponsorsuso": {
     "entrada": 0,
     "arco izquiero": 0,
     "arco derecho": 1,
-    "gradas lado izquierdo": 1,
-    "gradas lado derecho": 0,
+    "gradas lado izquierdo": 2,
+    "gradas lado derecho": 1,
     "fachada de club": 0
   },
   "cualvendemas": {
-    "entradasliga": 50,
+    "entradasliga": 100,
     "entradastorneo": 1
   },
   "cualreserva": {
-    "fut5": 6,
-    "fut8": 0,
+    "fut5": 7,
+    "fut8": 1,
     "fut11": 0
   }
 }
