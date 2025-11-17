@@ -24,12 +24,12 @@
     "mp"
   ],
   "listrecaudacioncanchas": [
-    180808,
-    0,
+    267916,
+    156520,
     0
   ],
   "listrecaudacionhorarios": [
-    180808,
+    424436,
     0,
     0,
     0,
@@ -44,16 +44,16 @@
     0
   ],
   "listrecaudacionformpago": [
-    180808,
+    424436,
     0
   ],
   "listcantcanchas": [
-    4,
-    0,
+    6,
+    2,
     0
   ],
   "listcanthorarios": [
-    4,
+    8,
     0,
     0,
     0,
@@ -68,10 +68,14 @@
     0
   ],
   "listcantformpago": [
-    4,
+    8,
     0
   ],
   "listaclientes": [
+    "nacho monzon",
+    "nacho monzon",
+    "nacho monzon",
+    "nacho monzon",
     "nacho monzon",
     "nacho monzon",
     "nacho monzon",
@@ -85,12 +89,17 @@
     3740,
     3740,
     4478,
-    4478
+    4478,
+    3959,
+    3959,
+    7114,
+    7114
   ],
   "recaudacionestorneo": [
     8000000,
     8000000,
     8000000,
+    12000000,
     12000000
   ],
   "recaudacionesliga": [
@@ -103,6 +112,7 @@
   "pagoentrada": [
     54750,
     8725,
-    67650
+    67650,
+    17160
   ]
 }
