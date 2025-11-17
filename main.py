@@ -91,7 +91,7 @@ def main():
             letek=funmod.calcular_cantidad_posiblesdecontraseñas(letek234,cantidadcaracteres,cantidadcontra)
             print(f"cantidad posibles de contraseñas de 6 digitos: {letek}")
             nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos): ").strip()
-            while nuevacontra.isalpha() or len(nuevacontra)!=6:
+            while not nuevacontra.isdigit() or len(nuevacontra)!=6:
                 print("error, no tiene 6 digitos o no puso solo numeros")
                 nuevacontra=input("ingresar su contraseña(solo numeros, 6 digitos): ").strip()
             nuevacontra=int(nuevacontra)
