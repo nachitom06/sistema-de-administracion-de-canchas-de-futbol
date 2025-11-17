@@ -5,7 +5,7 @@ def user(user):
     cualvendemas,entradasvendidas,fixturevueltita,fixtureidita,resultadosvueltita,resultadosidita,expediente,entradonas2,entradonas,sponsors,fixturetorneo,fixture,liguita,torneito,torneooficial4,torneooficial3,listatorneo,listaliga,torneooficial,torneooficial2,reportes,cualreserva,sponsorsuso,bitacora,archivo,archivo2=listas.cargar_rutas_archivos()
     reportaje=listas.cargar_reportes(reportes)
     pagoentrada=reportaje["pagoentrada"]
-    tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = inscripción liga","# 4 = calcular partidos de liga (mostrarlos)","# 5 = inscripcion sponsors","# 6 = tabla de liga","# 7 = inscripción torneo","# 8 = ver torneo","# 9 = comprar entradas","# -1 = finalizar programa")
+    tuplasin=("# 1 = reservar canchas","# 2 = cancelar la reservacion de canchas","# 3 = inscripcion liga","# 4 = calcular partidos de liga (mostrarlos)","# 5 = inscripcion sponsors","# 6 = tabla de liga","# 7 = inscripcion torneo","# 8 = ver torneo","# 9 = comprar entradas","# -1 = finalizar programa")
     disponible,ocupadas,disponibletorneo,ocupadastorneo=listas.cargar_entradasdelisto()
     vendemas=listas.cargar_cualvendemas(cualvendemas)
     reservamas=listas.cargar_cualreserva(cualreserva)
@@ -309,6 +309,9 @@ def user(user):
                         else:
                             break
                         cantidad=int(input("ingrese la cantidad de entradas que desea: "))
+                        while cantidad<0:
+                            print("Error, no puede ser menor a 0")
+                            cantidad=int(input("ingrese la cantidad de entradas que desea: "))
                     except ValueError as mensajito:
                         print(mensajito)
                         continue
@@ -328,7 +331,7 @@ def user(user):
                     break
                 elif numero==2:
                     try:
-                        print(entradas)
+                        print(entradastorneo)
                         entraditas=int(input("ingrese 1 si desea alquilar vip, 2 para platea, 3 para popular o -1 para salir: "))
                         while entraditas not in[-1,1,2,3]:
                             print("error, el valor ingresado se encuentra fuera del rango")
@@ -342,6 +345,9 @@ def user(user):
                         else:
                             break
                         cantidad=int(input("ingrese la cantidad de entradas que desea: "))
+                        while cantidad<0:
+                            print("Error, no puede ser menor a 0")
+                            cantidad=int(input("ingrese la cantidad de entradas que desea: "))
                     except ValueError as mensajito:
                         print(mensajito)
                         continue
@@ -378,6 +384,7 @@ def user(user):
                 print()
             print()
             break
+
 
 
 #ya revise pero se podria revisar devuelta porque hice cambios en el admin
