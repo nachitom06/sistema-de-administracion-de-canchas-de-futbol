@@ -16,23 +16,23 @@
     "fachada de club"
   ],
   "disponibilidad": [
-    0,
-    0,
     1,
     1,
     1,
-    0
+    1,
+    1,
+    1
   ],
   "listadisponibilidad": [
     "disponible",
     "no disponible"
   ],
   "nombresponsor": [
-    0,
-    0,
+    "nacho fc",
+    "nacho fc prem",
     "nachito fc",
     "nachoacho",
     "enzo mansilla sport",
-    0
+    "nachitofc l"
   ]
 }
